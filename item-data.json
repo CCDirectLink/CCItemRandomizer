@@ -1,0 +1,4457 @@
+{
+    "areas": [
+        ["2", "<->", "3", "item.145.amount >= 1"],
+        ["3", "<->", "4", "item.149.amount >= 1"],
+        ["4", "<->", "5", "item.152.amount >= 1"],
+        ["5", "<->", "6", "item.152.amount >= 2"],
+        ["6", "<->", "7", "item.152.amount >= 3"],
+        ["7", "<->", "8", "item.152.amount >= 6"],
+        ["7", "<->", "9", "heat"],
+        ["9", "<->", "10", "item.152.amount >= 10"],
+        ["10", "<->", "11", "item.153.amount >= 1"],
+        ["11", "<->", "12", "item.236.amount >= 1"],
+        ["12", "<->", "13", "item.148.amount >= 1", "heat"],
+        ["13", "<->", "14", "item.146.amount >= 1"],
+        ["14", "<->", "15", "item.146.amount >= 3"],
+        ["15", "<->", "16", "item.146.amount >= 4"],
+        ["16", "<->", "17", "cold"],
+        ["17", "<->", "18", "item.146.amount >= 9"],
+        ["17", "<->", "19", "item.147.amount >= 1"],
+        ["19", "<->", "20", "item.230.amount >= 1"],
+        ["20", "<->", "21", "item.376.amount >= 1"],
+        ["21", "<->", "23"],
+        ["21", "<->", "24", "item.345.amount >= 1"],
+        ["23", "<->", "25", "item.272.amount >= 2"],
+        ["23", "<->", "26", "item.319.amount >= 4"],
+        ["26", "<->", "27", "item.319.amount >= 5"],
+        ["23", "<->", "28", "item.286.amount >= 1", "item.231.amount >= 1", "wave", "shock"],
+        ["28", "<->", "29", "item.349.amount >= 2"],
+        ["28", "<->", "30", "item.350.amount >= 1"],
+        ["30", "<->", "31", "item.410.amount >= 1"],
+        ["31", "<->", "32", "item.439.amount >= 1"],
+        ["32", "<->", "33", "item.434.amount >= 1"]
+    ],
+    "softLockAreas": ["1", "22"],
+    "startingArea": "2",
+    "keys": {
+        "Default": "",
+        "Bronze": "item.154.amount >= 1",
+        "Silver": "item.155.amount >= 1",
+        "Gold": "item.156.amount >= 1"
+    },
+    "items": {
+        "arid.cliff-1": {
+            "chests": {
+                "467": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "468": {
+                    "item": 402,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "arid.interior.stealth-2": {
+            "chests": {
+                "94": {
+                    "item": 79,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "arid.lake-1": {
+            "chests": {
+                "646": {
+                    "item": 28,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "647": {
+                    "item": 401,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "arid.town-1": {
+            "chests": {
+                "334": {
+                    "item": 480,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "335": {
+                    "item": 336,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "336": {
+                    "item": 132,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "arid.town-2": {
+            "chests": {
+                "485": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "486": {
+                    "item": 488,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                },
+                "487": {
+                    "item": 190,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "22",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.caves.cave-3-to-6": {
+            "chests": {
+                "2": {
+                    "item": 454,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.cubaum": {
+            "chests": {
+                "200": {
+                    "item": 27,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "201": {
+                    "item": 6,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.entrance": {
+            "chests": {
+                "112": {
+                    "item": 1,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.lake-observatory": {
+            "chests": {
+                "329": {
+                    "item": 18,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-1-1": {
+            "chests": {
+                "378": {
+                    "item": 74,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-1-2": {
+            "chests": {
+                "346": {
+                    "item": 81,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-1-3": {
+            "chests": {
+                "322": {
+                    "item": 133,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-1": {
+            "chests": {
+                "137": {
+                    "item": 93,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-2": {
+            "chests": {
+                "268": {
+                    "item": 65,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-3-1": {
+            "chests": {
+                "291": {
+                    "item": 71,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {
+                "452": [
+                    {
+                        "item": 170,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "3",
+                            ""
+                        ],
+                        "path": ".settings.npcStates.1.event.10"
+                    }
+                ]
+            }
+        },
+        "autumn.path-3-2": {
+            "chests": {
+                "305": {
+                    "item": 68,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-3-4": {
+            "chests": {
+                "265": {
+                    "item": 116,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-7-1": {
+            "chests": {
+                "283": {
+                    "item": 48,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "284": {
+                    "item": 80,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "1128": {
+                    "item": 96,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-7-2": {
+            "chests": {
+                "1115": {
+                    "item": 165,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "1142": {
+                    "item": 28,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path-8": {
+            "chests": {
+                "12": {
+                    "item": 487,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {
+                "458": [
+                    {
+                        "item": 285,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "3",
+                            ""
+                        ],
+                        "path": ".settings.event.21.accepted.6"
+                    }
+                ]
+            }
+        },
+        "autumn.path4": {
+            "chests": {
+                "22": {
+                    "item": 0,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "98": {
+                    "item": 2,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path5": {
+            "chests": {
+                "2": {
+                    "item": 82,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "3": {
+                    "item": 95,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "4": {
+                    "item": 94,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn.path6": {
+            "chests": {
+                "13": {
+                    "item": 7,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "15": {
+                    "item": 57,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.caves.path-03-exit": {
+            "chests": {
+                "29": {
+                    "item": 192,
+                    "amount": 2,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.caves.path-04-cave-01": {
+            "chests": {
+                "51": {
+                    "item": 356,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.caves.path-04-cave-02": {
+            "chests": {
+                "92": {
+                    "item": 381,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.caves.path-04-cave-03": {
+            "chests": {
+                "157": {
+                    "item": 13,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.caves.path-04-cave-04": {
+            "chests": {
+                "109": {
+                    "item": 335,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-01": {
+            "chests": {
+                "458": {
+                    "item": 87,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "492": {
+                    "item": 88,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "493": {
+                    "item": 63,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-02": {
+            "chests": {
+                "85": {
+                    "item": 244,
+                    "amount": 8,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "98": {
+                    "item": 192,
+                    "amount": 2,
+                    "type": "Gold",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-03": {
+            "chests": {
+                "48": {
+                    "item": 302,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "494": {
+                    "item": 242,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-04": {
+            "chests": {
+                "14": {
+                    "item": 491,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "81": {
+                    "item": 326,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-05": {
+            "chests": {
+                "123": {
+                    "item": 79,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "124": {
+                    "item": 72,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-06": {
+            "chests": {
+                "39": {
+                    "item": 40,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "40": {
+                    "item": 245,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "740": {
+                    "item": 3,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-07": {
+            "chests": {
+                "79": {
+                    "item": 246,
+                    "amount": 7,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "85": {
+                    "item": 336,
+                    "amount": 4,
+                    "type": "Gold",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "128": {
+                    "item": 488,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-08": {
+            "chests": {
+                "527": {
+                    "item": 380,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "528": {
+                    "item": 354,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "818": {
+                    "item": 357,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.path-10": {
+            "chests": {
+                "68": {
+                    "item": 455,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                },
+                "82": {
+                    "item": 489,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "20",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "autumn-fall.raid.raid-01": {
+            "chests": {
+                "375": {
+                    "item": 28,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "21",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen.bergen": {
+            "chests": {
+                "868": {
+                    "item": 165,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "1258": {
+                    "item": 112,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                },
+                "1265": {
+                    "item": 163,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                },
+                "1952": {
+                    "item": 339,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen.bergen2": {
+            "chests": {
+                "2003": {
+                    "item": 159,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "2012": {
+                    "item": 40,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                },
+                "2021": {
+                    "item": 63,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "2889": {
+                    "item": 78,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen.elevator": {
+            "chests": {
+                "35": {
+                    "item": 167,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen.inner-questhub-0": {
+            "chests": {
+                "130": {
+                    "item": 149,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "136": {
+                    "item": 337,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen.inner-questhub-1": {
+            "chests": {},
+            "events": {
+                "135": [
+                    {
+                        "item": 466,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "3",
+                            ""
+                        ],
+                        "path": ".settings.npcStates.1.event.quest.5"
+                    }
+                ]
+            }
+        },
+        "bergen.mine-entrance": {
+            "chests": {},
+            "events": {
+                "316": [
+                    {
+                        "item": 366,
+                        "amount": 2,
+                        "type": "",
+                        "condition": [
+                            "4",
+                            ""
+                        ],
+                        "path": ".settings.npcStates.0.event.quest.2.thenStep.17"
+                    }
+                ]
+            }
+        },
+        "bergen.storage": {
+            "chests": {
+                "71": {
+                    "item": 366,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.cave.cave-08-smith": {
+            "chests": {
+                "33": {
+                    "item": 190,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.cave.cave-4-1-1": {
+            "chests": {
+                "20": {
+                    "item": 190,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.cave.cave-6-1": {
+            "chests": {
+                "416": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.cave.cave-6-3": {
+            "chests": {
+                "24": {
+                    "item": 137,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-1-entrance": {
+            "chests": {
+                "531": {
+                    "item": 88,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "532": {
+                    "item": 69,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-2": {
+            "chests": {
+                "67": {
+                    "item": 3,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-3-1": {
+            "chests": {
+                "432": {
+                    "item": 66,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "454": {
+                    "item": 106,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-3-2": {
+            "chests": {
+                "373": {
+                    "item": 107,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "399": {
+                    "item": 75,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "451": {
+                    "item": 487,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-3-3": {
+            "chests": {
+                "32": {
+                    "item": 129,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "126": {
+                    "item": 108,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-4-1-1": {
+            "chests": {
+                "1015": {
+                    "item": 132,
+                    "amount": 5,
+                    "type": "Gold",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-4-1": {
+            "chests": {
+                "288": {
+                    "item": 97,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-4-2": {
+            "chests": {
+                "269": {
+                    "item": 108,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "643": {
+                    "item": 104,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-5": {
+            "chests": {
+                "572": {
+                    "item": 72,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "1337": {
+                    "item": 78,
+                    "amount": 5,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-6-1": {
+            "chests": {
+                "26": {
+                    "item": 488,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-6": {
+            "chests": {
+                "493": {
+                    "item": 0,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-7-1": {
+            "chests": {
+                "994": {
+                    "item": 140,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                },
+                "995": {
+                    "item": 28,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-7-2-1": {
+            "chests": {
+                "28": {
+                    "item": 447,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "3",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-7-2": {
+            "chests": {
+                "1027": {
+                    "item": 141,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "bergen-trail.path-8": {
+            "chests": {
+                "36": {
+                    "item": 114,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "3",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.center": {
+            "chests": {
+                "223": {
+                    "item": 159,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "5",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.room1": {
+            "chests": {
+                "48": {
+                    "item": 139,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "5",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.room2": {
+            "chests": {
+                "29": {
+                    "item": 129,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "5",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.room3": {
+            "chests": {
+                "26": {
+                    "item": 487,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "5",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.room4": {
+            "chests": {
+                "3": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "5",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b1.room6": {
+            "chests": {
+                "3": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "6",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b2.room1": {
+            "chests": {
+                "32": {
+                    "item": 160,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b2.room2": {
+            "chests": {
+                "40": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b2.room5": {
+            "chests": {
+                "21": {
+                    "item": 154,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                },
+                "66": {
+                    "item": 190,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b3.room1": {
+            "chests": {
+                "30": {
+                    "item": 165,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b3.room2": {
+            "chests": {
+                "55": {
+                    "item": 119,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b3.room3": {
+            "chests": {
+                "11": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                },
+                "22": {
+                    "item": 379,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b3.room6": {
+            "chests": {
+                "36": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                },
+                "68": {
+                    "item": 167,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "7",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.center": {
+            "chests": {
+                "298": {
+                    "item": 38,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room10": {
+            "chests": {
+                "94": {
+                    "item": 153,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "10",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room4": {
+            "chests": {
+                "25": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room5": {
+            "chests": {
+                "18": {
+                    "item": 164,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room6": {
+            "chests": {
+                "16": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room7": {
+            "chests": {
+                "44": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.b4.room8": {
+            "chests": {
+                "16": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "9",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.g.center": {
+            "chests": {
+                "249": {
+                    "item": 0,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "4",
+                        "heat"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "cold-dng.g.expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 225,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "11",
+                            ""
+                        ],
+                        "path": ".settings.event.20"
+                    }
+                ]
+            }
+        },
+        "cold-dng.g.room2": {
+            "chests": {
+                "3": {
+                    "item": 152,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "4",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.cave-013-pandza-01": {
+            "chests": {
+                "385": {
+                    "item": 292,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.cave-013-pandza-02": {
+            "chests": {
+                "133": {
+                    "item": 515,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.path-01-entrance": {
+            "chests": {
+                "23": {
+                    "item": 191,
+                    "amount": 3,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.path-02-to-08": {
+            "chests": {
+                "1": {
+                    "item": 391,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "30": {
+                    "item": 166,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.path-06-chasm": {
+            "chests": {
+                "40": {
+                    "item": 409,
+                    "amount": 6,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "63": {
+                    "item": 381,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.path-07-to-08": {
+            "chests": {
+                "5": {
+                    "item": 354,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "13": {
+                    "item": 390,
+                    "amount": 8,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.caves.path-08-to-10": {
+            "chests": {
+                "29": {
+                    "item": 424,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "32": {
+                    "item": 3,
+                    "amount": 7,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.interior.expo-space": {
+            "chests": {},
+            "events": {
+                "137": [
+                    {
+                        "item": 434,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "32",
+                            ""
+                        ],
+                        "path": ".settings.event.19"
+                    }
+                ]
+            }
+        },
+        "forest.interior.inn-og-01": {
+            "chests": {
+                "128": {
+                    "item": 409,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.interior.inn-storage": {
+            "chests": {
+                "87": {
+                    "item": 497,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-01-entrance": {
+            "chests": {
+                "72": {
+                    "item": 167,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "109": {
+                    "item": 79,
+                    "amount": 6,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-02": {
+            "chests": {
+                "157": {
+                    "item": 406,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "160": {
+                    "item": 488,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-03": {
+            "chests": {
+                "11": {
+                    "item": 388,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "53": {
+                    "item": 381,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "145": {
+                    "item": 356,
+                    "amount": 5,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-04-hostel": {
+            "chests": {
+                "52": {
+                    "item": 88,
+                    "amount": 6,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "184": {
+                    "item": 63,
+                    "amount": 4,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-04-vaga": {
+            "chests": {
+                "5": {
+                    "item": 408,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "6": {
+                    "item": 97,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {
+                "447": [
+                    {
+                        "item": 439,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "31",
+                            ""
+                        ],
+                        "path": ".settings.npcStates.2.event.quest.12"
+                    }
+                ]
+            }
+        },
+        "forest.path-05": {
+            "chests": {
+                "4": {
+                    "item": 407,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "9": {
+                    "item": 420,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-06": {
+            "chests": {
+                "33": {
+                    "item": 405,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "53": {
+                    "item": 425,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-07": {
+            "chests": {
+                "6": {
+                    "item": 423,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "44": {
+                    "item": 421,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-08": {
+            "chests": {
+                "68": {
+                    "item": 336,
+                    "amount": 4,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "82": {
+                    "item": 132,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "90": {
+                    "item": 387,
+                    "amount": 8,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-09": {
+            "chests": {
+                "24": {
+                    "item": 329,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "100": {
+                    "item": 385,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-10": {
+            "chests": {
+                "78": {
+                    "item": 357,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "167": {
+                    "item": 422,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                },
+                "904": {
+                    "item": 351,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-11-behind-maze": {
+            "chests": {
+                "59": {
+                    "item": 392,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-12": {
+            "chests": {
+                "298": {
+                    "item": 499,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                },
+                "301": {
+                    "item": 192,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                },
+                "302": {
+                    "item": 489,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "forest.path-13": {
+            "chests": {
+                "814": {
+                    "item": 167,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "31",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.caves.cliff-cave-01": {
+            "chests": {
+                "42": {
+                    "item": 183,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "43": {
+                    "item": 182,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.caves.maroon-cave-01": {
+            "chests": {
+                "404": {
+                    "item": 353,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "12",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.cliffs.cliffs-path-01": {
+            "chests": {
+                "105": {
+                    "item": 229,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "197": {
+                    "item": 185,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.cliffs.cliffs-path-02": {
+            "chests": {
+                "29": {
+                    "item": 182,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "30": {
+                    "item": 180,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "32": {
+                    "item": 187,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.dng-expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 230,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "19",
+                            ""
+                        ],
+                        "path": ".settings.event.20"
+                    }
+                ]
+            }
+        },
+        "heat.oasis.oasis-path-01": {
+            "chests": {
+                "8": {
+                    "item": 178,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "9": {
+                    "item": 177,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.oasis.oasis-path-02": {
+            "chests": {
+                "80": {
+                    "item": 188,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "97": {
+                    "item": 71,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.oasis.oasis-path-03": {
+            "chests": {
+                "34": {
+                    "item": 221,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-00": {
+            "chests": {
+                "6": {
+                    "item": 139,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-01-entrance": {
+            "chests": {
+                "55": {
+                    "item": 487,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-02": {
+            "chests": {
+                "7": {
+                    "item": 228,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "14": {
+                    "item": 186,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-03": {
+            "chests": {
+                "23": {
+                    "item": 167,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "25": {
+                    "item": 488,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-04": {
+            "chests": {
+                "34": {
+                    "item": 79,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-05": {
+            "chests": {
+                "2": {
+                    "item": 197,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "14": {
+                    "item": 175,
+                    "amount": 7,
+                    "type": "Bronze",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-06": {
+            "chests": {
+                "16": {
+                    "item": 87,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-07": {
+            "chests": {
+                "7": {
+                    "item": 199,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "78": {
+                    "item": 66,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-08": {
+            "chests": {
+                "1": {
+                    "item": 195,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "4": {
+                    "item": 356,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-09": {
+            "chests": {
+                "8": {
+                    "item": 487,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "41": {
+                    "item": 65,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.path-11": {
+            "chests": {
+                "19": {
+                    "item": 198,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat.shortcut-02-09": {
+            "chests": {
+                "17": {
+                    "item": 28,
+                    "amount": 6,
+                    "type": "Silver",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "19": {
+                    "item": 176,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f1.room-03": {
+            "chests": {
+                "33": {
+                    "item": 200,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "15",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f3.room-02": {
+            "chests": {
+                "31": {
+                    "item": 202,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f3.room-05": {
+            "chests": {
+                "69": {
+                    "item": 155,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                },
+                "79": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f3.room-07": {
+            "chests": {
+                "19": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-02": {
+            "chests": {
+                "38": {
+                    "item": 203,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-03": {
+            "chests": {
+                "21": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-05": {
+            "chests": {
+                "56": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-09": {
+            "chests": {
+                "92": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-10": {
+            "chests": {
+                "78": {
+                    "item": 54,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-11": {
+            "chests": {
+                "27": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "17",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.f4.room-12": {
+            "chests": {
+                "85": {
+                    "item": 147,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "18",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-03": {
+            "chests": {
+                "71": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "13",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-07": {
+            "chests": {
+                "28": {
+                    "item": 201,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-09": {
+            "chests": {
+                "85": {
+                    "item": 379,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                },
+                "86": {
+                    "item": 167,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-10": {
+            "chests": {
+                "16": {
+                    "item": 28,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-12": {
+            "chests": {
+                "110": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-13": {
+            "chests": {
+                "2": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-dng.g.room-14": {
+            "chests": {
+                "2": {
+                    "item": 146,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "14",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-village.baki-1": {
+            "chests": {
+                "99": {
+                    "item": 187,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "737": {
+                    "item": 187,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-village.baki-2": {
+            "chests": {
+                "259": {
+                    "item": 199,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                },
+                "1227": {
+                    "item": 359,
+                    "amount": 1,
+                    "type": "Bronze",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-village.interior.house-2": {
+            "chests": {},
+            "events": {
+                "31": [
+                    {
+                        "item": 403,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "11",
+                            "cold"
+                        ],
+                        "path": ".settings.npcStates.0.event.4.0.9"
+                    }
+                ]
+            }
+        },
+        "heat-village.interior.quest-hub-og": {
+            "chests": {},
+            "events": {
+                "112": [
+                    {
+                        "item": 236,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "11",
+                            ""
+                        ],
+                        "path": ".settings.npcStates.1.event.quest.3.accepted.3"
+                    }
+                ]
+            }
+        },
+        "heat-village.interior.tradebuilding-eg": {
+            "chests": {
+                "131": {
+                    "item": 338,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "11",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "heat-village.special.expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 148,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "12",
+                            ""
+                        ],
+                        "path": ".settings.event.17"
+                    }
+                ]
+            }
+        },
+        "jungle.caves.grove-cave-01": {
+            "chests": {
+                "3": {
+                    "item": 488,
+                    "amount": 6,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.caves.grove-cave-02": {
+            "chests": {
+                "1": {
+                    "item": 261,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.clearing.clear-path-01": {
+            "chests": {
+                "5": {
+                    "item": 257,
+                    "amount": 5,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "6": {
+                    "item": 283,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "125": {
+                    "item": 282,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.clearing.clear-path-02": {
+            "chests": {
+                "311": {
+                    "item": 331,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "351": {
+                    "item": 251,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.clearing.clear-path-03": {
+            "chests": {
+                "31": {
+                    "item": 257,
+                    "amount": 3,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "33": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.clearing.clear-path-04": {
+            "chests": {
+                "27": {
+                    "item": 488,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "91": {
+                    "item": 289,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "135": {
+                    "item": 485,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.dng.shock-expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 231,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "25",
+                            "wave"
+                        ],
+                        "path": ".settings.event.20"
+                    }
+                ]
+            }
+        },
+        "jungle.dng.tree-expo-space": {
+            "chests": {},
+            "events": {
+                "60": [
+                    {
+                        "item": 410,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "30",
+                            ""
+                        ],
+                        "path": ".settings.event.25"
+                    }
+                ]
+            }
+        },
+        "jungle.dng.tree-exterior": {
+            "chests": {
+                "432": {
+                    "item": 379,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.dng.wave-expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 286,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "27",
+                            "shock"
+                        ],
+                        "path": ".settings.event.20"
+                    }
+                ]
+            }
+        },
+        "jungle.dng.wave-exterior": {
+            "chests": {
+                "521": {
+                    "item": 488,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.grove.grove-path-01": {
+            "chests": {
+                "4": {
+                    "item": 260,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "5": {
+                    "item": 65,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.grove.grove-path-02": {
+            "chests": {
+                "67": {
+                    "item": 282,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "68": {
+                    "item": 290,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "69": {
+                    "item": 258,
+                    "amount": 8,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "80": {
+                    "item": 284,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.grove.grove-path-03": {
+            "chests": {
+                "41": {
+                    "item": 315,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "42": {
+                    "item": 291,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.infested.infested-path-01": {
+            "chests": {
+                "22": {
+                    "item": 68,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "63": {
+                    "item": 316,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "170": {
+                    "item": 292,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.infested.infested-path-02": {
+            "chests": {
+                "6": {
+                    "item": 66,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "32": {
+                    "item": 72,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.infested.infested-path-03": {
+            "chests": {
+                "18": {
+                    "item": 278,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "70": {
+                    "item": 279,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "90": {
+                    "item": 252,
+                    "amount": 9,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "97": {
+                    "item": 40,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.infested.infested-path-04": {
+            "chests": {
+                "24": {
+                    "item": 78,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "58": {
+                    "item": 495,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "82": {
+                    "item": 254,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "949": {
+                    "item": 488,
+                    "amount": 5,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.left.path-left-01": {
+            "chests": {
+                "74": {
+                    "item": 277,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "75": {
+                    "item": 75,
+                    "amount": 5,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.left.path-left-02": {
+            "chests": {
+                "2": {
+                    "item": 332,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "8": {
+                    "item": 259,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "12": {
+                    "item": 3,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.left.path-left-03": {
+            "chests": {
+                "32": {
+                    "item": 87,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "33": {
+                    "item": 275,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.left.path-left-04": {
+            "chests": {
+                "38": {
+                    "item": 79,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "39": {
+                    "item": 71,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.path-01-entrance": {
+            "chests": {
+                "12": {
+                    "item": 28,
+                    "amount": 8,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "13": {
+                    "item": 290,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.path-02-crossroads": {
+            "chests": {
+                "13": {
+                    "item": 192,
+                    "amount": 2,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "14": {
+                    "item": 251,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.path-03-sync": {
+            "chests": {
+                "21": {
+                    "item": 276,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "22": {
+                    "item": 289,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.path-04-end": {
+            "chests": {
+                "6": {
+                    "item": 300,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "58": {
+                    "item": 292,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.right.right-path-01": {
+            "chests": {
+                "40": {
+                    "item": 262,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "105": {
+                    "item": 291,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.right.right-path-02": {
+            "chests": {
+                "12": {
+                    "item": 493,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "13": {
+                    "item": 332,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.right.right-path-03": {
+            "chests": {
+                "13": {
+                    "item": 278,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                },
+                "14": {
+                    "item": 274,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle.right.right-path-04": {
+            "chests": {
+                "30": {
+                    "item": 253,
+                    "amount": 7,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle-city.center": {
+            "chests": {
+                "774": {
+                    "item": 484,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "24",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle-city.east": {
+            "chests": {
+                "158": {
+                    "item": 346,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "24",
+                        ""
+                    ]
+                },
+                "322": {
+                    "item": 192,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "24",
+                        ""
+                    ]
+                },
+                "537": {
+                    "item": 381,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "24",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle-city.entrance": {
+            "chests": {
+                "423": {
+                    "item": 250,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle-city.interior.faction-guard-1": {
+            "chests": {
+                "1128": {
+                    "item": 358,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "jungle-city.interior.questhub-01": {
+            "chests": {
+                "533": {
+                    "item": 191,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-dng.room-1-6": {
+            "chests": {
+                "183": {
+                    "item": 1,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                },
+                "184": {
+                    "item": 2,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-dng.room-5-newer": {
+            "chests": {
+                "185000": {
+                    "item": 23,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                },
+                "186000": {
+                    "item": 24,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                },
+                "187000": {
+                    "item": 26,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                },
+                "188000": {
+                    "item": 25,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "1",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-sqr.arena-1": {
+            "chests": {
+                "298": {
+                    "item": 459,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                },
+                "299": {
+                    "item": 462,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-sqr.center-e": {
+            "chests": {
+                "271": {
+                    "item": 457,
+                    "amount": 2,
+                    "type": "Bronze",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                },
+                "272": {
+                    "item": 464,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-sqr.center-s": {
+            "chests": {
+                "235": {
+                    "item": 456,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rhombus-sqr.center-se": {
+            "chests": {
+                "1209": {
+                    "item": 489,
+                    "amount": 3,
+                    "type": "Silver",
+                    "condition": [
+                        "33",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.center": {
+            "chests": {
+                "165": {
+                    "item": 73,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "2",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.east": {
+            "chests": {
+                "157": {
+                    "item": 190,
+                    "amount": 5,
+                    "type": "Default",
+                    "condition": [
+                        "2",
+                        "item.230.amount >= 1"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.expo-space": {
+            "chests": {},
+            "events": {
+                "136": [
+                    {
+                        "item": 145,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "2",
+                            ""
+                        ],
+                        "path": ".settings.event.74"
+                    },
+                    {
+                        "item": 135,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "2",
+                            ""
+                        ],
+                        "path": ".settings.event.90"
+                    }
+                ],
+                "137": [
+                    {
+                        "item": 428,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "11",
+                            ""
+                        ],
+                        "path": ".settings.event.36"
+                    }
+                ],
+                "138": [
+                    {
+                        "item": 428,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "19",
+                            ""
+                        ],
+                        "path": ".settings.event.35"
+                    }
+                ],
+                "140": [
+                    {
+                        "item": 428,
+                        "amount": 2,
+                        "type": "",
+                        "condition": [
+                            "30",
+                            ""
+                        ],
+                        "path": ".settings.event.36"
+                    }
+                ],
+                "142": [
+                    {
+                        "item": 428,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "27",
+                            "shock"
+                        ],
+                        "path": ".settings.event.14"
+                    }
+                ],
+                "143": [
+                    {
+                        "item": 428,
+                        "amount": 1,
+                        "type": "",
+                        "condition": [
+                            "25",
+                            "wave"
+                        ],
+                        "path": ".settings.event.14"
+                    }
+                ]
+            }
+        },
+        "rookie-harbor.inner-equip-north": {
+            "chests": {
+                "50": {
+                    "item": 488,
+                    "amount": 4,
+                    "type": "Silver",
+                    "condition": [
+                        "19",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.inner-old": {
+            "chests": {
+                "72": {
+                    "item": 191,
+                    "amount": 2,
+                    "type": "Silver",
+                    "condition": [
+                        "19",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.south": {
+            "chests": {
+                "216": {
+                    "item": 340,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "2",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "rookie-harbor.teleporter": {
+            "chests": {
+                "389": {
+                    "item": 64,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "2",
+                        ""
+                    ]
+                },
+                "402": {
+                    "item": 70,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "2",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "shock-dng.f1.room2": {
+            "chests": {
+                "64": {
+                    "item": 289,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "79": {
+                    "item": 272,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "25",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "shock-dng.f1.room3to4": {
+            "chests": {
+                "23": {
+                    "item": 283,
+                    "amount": 3,
+                    "type": "Bronze",
+                    "condition": [
+                        "25",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "shock-dng.g.room4to5": {
+            "chests": {
+                "16": {
+                    "item": 272,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "shock-dng.g.room5": {
+            "chests": {
+                "164": {
+                    "item": 280,
+                    "amount": 4,
+                    "type": "Bronze",
+                    "condition": [
+                        "25",
+                        "wave"
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "tree-dng.f3.branch-east": {
+            "chests": {
+                "166": {
+                    "item": 11,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                },
+                "167": {
+                    "item": 289,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                },
+                "168": {
+                    "item": 292,
+                    "amount": 2,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "tree-dng.f3.branch-west": {
+            "chests": {
+                "67": {
+                    "item": 28,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                },
+                "68": {
+                    "item": 316,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "tree-dng.f3.center-01": {
+            "chests": {
+                "136": {
+                    "item": 350,
+                    "amount": 1,
+                    "type": "MasterKey",
+                    "condition": [
+                        "29",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "tree-dng.f3.east-01": {
+            "chests": {
+                "81": {
+                    "item": 349,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "tree-dng.f3.west-01": {
+            "chests": {
+                "81": {
+                    "item": 349,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                },
+                "86": {
+                    "item": 79,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "28",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.center-01": {
+            "chests": {
+                "276": {
+                    "item": 292,
+                    "amount": 4,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.center-04-long": {
+            "chests": {
+                "205": {
+                    "item": 319,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                },
+                "258": {
+                    "item": 319,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                },
+                "329": {
+                    "item": 319,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "23",
+                        ""
+                    ]
+                },
+                "670": {
+                    "item": 156,
+                    "amount": 1,
+                    "type": "Silver",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                },
+                "671": {
+                    "item": 192,
+                    "amount": 1,
+                    "type": "Gold",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.north-01": {
+            "chests": {
+                "307": {
+                    "item": 319,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.north-03": {
+            "chests": {
+                "249": {
+                    "item": 331,
+                    "amount": 6,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.north-06": {
+            "chests": {
+                "193": {
+                    "item": 303,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.north-08": {
+            "chests": {
+                "221": {
+                    "item": 314,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.south-04": {
+            "chests": {
+                "309": {
+                    "item": 319,
+                    "amount": 1,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "wave-dng.b1.south-06": {
+            "chests": {
+                "242": {
+                    "item": 281,
+                    "amount": 3,
+                    "type": "Default",
+                    "condition": [
+                        "26",
+                        ""
+                    ]
+                }
+            },
+            "events": {}
+        }
+    }
+}
