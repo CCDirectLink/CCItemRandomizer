@@ -1,28 +1,34 @@
 import { getChecks } from "./chests.js";
 const fs = require('fs');
 
+let baseDirectory = '';
+async function generateRandomizerState(forceGenerate, fixedSeed) {
+    const stateExists = fs.existsSync('randomizerState.json');
+    if (!forceGenerate && stateExists) {
+        return JSON.parse(await fs.readFileSync('randomizerState.json'));
+    }
+
+    const {spoilerLog, maps, quests, seed} = await getChecks(baseDirectory, fixedSeed);
+    fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, seed}));
+    
+    const items = (await (await fetch('data/item-database.json')).json()).items;
+    const pretty = spoilerLog.map(log => {
+        return `${log.type} at ${log.map || log.name} contains ${log.replacedWith.amount} ${items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item}`
+    });
+
+    await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n'));
+    return {spoilerLog, maps, quests, seed};
+}
+
 export default class ItemRandomizer {
     constructor(mod) {
-        this.baseDirectory = mod.baseDirectory
+        baseDirectory = mod.baseDirectory;
     }
 
     async prestart() {
-        const stateExists = fs.existsSync('randomizerState.json');
-
-        const {spoilerLog, maps, quests, seed} = stateExists ? JSON.parse(await fs.readFileSync('randomizerState.json')) : await getChecks(this.baseDirectory);
-        fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, seed}));
-
-        const items = (await (await fetch('data/item-database.json')).json()).items;
-
+        window.generateRandomizerState = generateRandomizerState;
+        const {maps, quests, seed} = await generateRandomizerState();
         console.log('seed', seed);
-
-
-        const pretty = spoilerLog.map(log => {
-            return `${log.type} at ${log.map || log.name} contains ${log.replacedWith.amount} ${items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item}`
-        });
-
-        await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n'));
-
 
         ig.ENTITY.Chest.inject({
             _reallyOpenUp() {
@@ -41,18 +47,28 @@ export default class ItemRandomizer {
 
                 switch (this.item) {
                     case "heat":
+                        sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
-                        return;
+                        this.amount = 0;
+                        return this.parent();
                     case "cold":
+                        sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
-                        return;
+                        this.amount = 0;
+                        return this.parent();
                     case "wave":
+                        sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
-                        return;
+                        this.amount = 0;
+                        return this.parent();
                     case "shock":
+                        sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
-                        return;
-                    default:                
+                        this.amount = 0;
+                        return this.parent();
+                    default:       
+                        this.item = check[0].replacedWith.item;
+                        this.amount = check[0].replacedWith.amount;         
                         return this.parent();
                 }
 
@@ -63,9 +79,14 @@ export default class ItemRandomizer {
         ig.EVENT_STEP.SET_PLAYER_CORE.inject({
             init(settings) {
                 this.bypass = !!settings.bypass;
+                this.alsoGiveElementChange = !!settings.alsoGiveElementChange;
                 return this.parent(settings);
             },
             start() {
+                if (this.alsoGiveElementChange) {
+                    sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                }
+
                 if (this.bypass || !elements.includes(this.core)) {
                     return this.parent();
                 }
@@ -122,24 +143,28 @@ export default class ItemRandomizer {
                                             set(entity, 'ELEMENT_HEAT', [...path, 'core']);
                                             set(entity, true, [...path, 'value']);
                                             set(entity, true, [...path, 'bypass']);
+                                            set(entity, true, [...path, 'alsoGiveElementChange']);
                                             break;
                                         case "cold":
                                             set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
                                             set(entity, 'ELEMENT_COLD', [...path, 'core']);
                                             set(entity, true, [...path, 'value']);
                                             set(entity, true, [...path, 'bypass']);
+                                            set(entity, true, [...path, 'alsoGiveElementChange']);
                                             break;
                                         case "wave":
                                             set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
                                             set(entity, 'ELEMENT_WAVE', [...path, 'core']);
                                             set(entity, true, [...path, 'value']);
                                             set(entity, true, [...path, 'bypass']);
+                                            set(entity, true, [...path, 'alsoGiveElementChange']);
                                             break;
                                         case "shock":
                                             set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
                                             set(entity, 'ELEMENT_SHOCK', [...path, 'core']);
                                             set(entity, true, [...path, 'value']);
                                             set(entity, true, [...path, 'bypass']);
+                                            set(entity, true, [...path, 'alsoGiveElementChange']);
                                             break;
                                         default:                
                                             set(entity, check.replacedWith.item, [...path, 'item'], 0);
@@ -158,18 +183,25 @@ export default class ItemRandomizer {
         sc.QuestModel.inject({
             _collectRewards(quest) {
                 const check = quests.find(q => q.name === quest.id);
+                if (!check) {
+                    return this.parent(quest);
+                }
                 if (check) {
                     switch (check.replacedWith.item) {
                         case "heat":
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
                             return;
                         case "cold":
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
                             return;
                         case "wave":
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
                             return;
                         case "shock":
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
                             return;
                         default:                
@@ -177,7 +209,7 @@ export default class ItemRandomizer {
                             return;
                     }
                 }
-                this.parent(settings, id);
+                this.parent(quest);
             }
         });
     }

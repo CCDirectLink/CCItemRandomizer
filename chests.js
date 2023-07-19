@@ -85,11 +85,19 @@ export async function printChests(chests) {
     await fs.promises.writeFile('randomItems.csv', text);
 }
 
-export async function getChecks(baseDirectory) {
-    const seed = (Math.random() + '').slice(2);
-    Math.seedrandomSeed(seed);
-
+export async function getChecks(baseDirectory, fixedSeed) {
     const data = await (await fetch(baseDirectory.slice(7) + 'item-data.json')).json();
+
+    if (fixedSeed) {
+        if (!fixedSeed.includes('_') && data.version) {
+            console.warn('Seed from another version was used. This will not give you the same result.')
+        } else if (fixedSeed.includes('_') && data.version !== fixedSeed.split('_')[0]) {
+            console.warn('Seed from another version was used. This will not give you the same result.')
+        }
+    }
+
+    const seed = fixedSeed || ((data.version ? data.version + '_' : '') + (Math.random() + '').slice(2));
+    Math.seedrandomSeed(seed);
 
     const areaConditions = {};
     areaConditions[data.startingArea] = [];
