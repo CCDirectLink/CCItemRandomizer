@@ -12,11 +12,52 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
     fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, seed}));
     
     const items = (await (await fetch('data/item-database.json')).json()).items;
-    const pretty = spoilerLog.map(log => {
-        return `${log.type} at ${log.map || log.name} contains ${log.replacedWith.amount} ${items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item}`
+    const areasDatabase = (await (await fetch('data/database.json')).json()).areas;
+    const mapNames = Object.keys(maps);
+    const mapData = await Promise.all(mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())))
+    const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
+    const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())))
+
+    const fullMapNames = mapData.map((d, i) => {
+        const ai = areaNames.indexOf(d.attributes.area);
+        const area = areas[ai];
+        const areaName = areasDatabase[d.attributes.area].name.en_US;
+        const mapName = mapNames[i];
+        for (const floor of area.floors) {
+            for (const map of floor.maps) {
+                if (map.path === mapName) {
+                    return areaName + ' - ' + map.name.en_US;
+                }
+            }
+        }
+        return mapName;
     });
 
-    await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n'));
+    function getPrettyName(log) {
+        if (log.name) {
+            return log.name; //TODO: quest names
+        }
+
+        const index = mapNames.indexOf(log.map);
+        if (index < 0) {
+            return log.map;
+        }
+
+        return fullMapNames[index];
+    }
+
+    const pretty = spoilerLog.map(log => {
+        return `${((log.chestType || '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith.amount} ${(items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${log.map || log.name})`
+    });
+
+    const prettyOrderd = spoilerLog
+        .filter(() => true) //Copy array
+        .sort((a, b) => getPrettyName(a).localeCompare(getPrettyName(b)))
+        .map(log => {
+            return `${((log.chestType || '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith.amount} ${(items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${log.map || log.name})`
+        });
+
+    await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'));
     return {spoilerLog, maps, quests, seed};
 }
 

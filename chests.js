@@ -116,7 +116,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         for (const mapId of Object.keys(data.items[map].chests)) {
             const { item, amount, type, condition } = data.items[map].chests[mapId];
             const conditions = (areaConditions[condition[0]] || ['softlock']).concat(condition.slice(1)).concat([data.keys[type]]).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
-            checks.push({type: 'chest', map, mapId: Number(mapId), item, amount, conditions})
+            checks.push({type: 'chest', map, mapId: Number(mapId), item, amount, conditions, chestType: type})
         }
         for (const mapId of Object.keys(data.items[map].events)) {
             for (const event of data.items[map].events[mapId]) {
