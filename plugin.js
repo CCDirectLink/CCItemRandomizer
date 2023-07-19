@@ -89,7 +89,7 @@ export default class ItemRandomizer {
                     switch (check[0].replacedWith.item) {
                         case "heat":
                             sc.ItemDropEntity.spawnDrops = () => {};
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
@@ -100,7 +100,7 @@ export default class ItemRandomizer {
                             return this.parent();
                         case "cold":
                             sc.ItemDropEntity.spawnDrops = () => {};
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
@@ -112,7 +112,7 @@ export default class ItemRandomizer {
                             return this.parent();
                         case "wave":
                             sc.ItemDropEntity.spawnDrops = () => {};
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
@@ -124,7 +124,7 @@ export default class ItemRandomizer {
                             return this.parent();
                         case "shock":
                             sc.ItemDropEntity.spawnDrops = () => {};
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
@@ -154,7 +154,7 @@ export default class ItemRandomizer {
             },
             start() {
                 if (this.alsoGiveElementChange) {
-                    if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                    if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
@@ -265,7 +265,7 @@ export default class ItemRandomizer {
                 if (check) {
                     switch (check.replacedWith.item) {
                         case "heat":
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
@@ -274,7 +274,7 @@ export default class ItemRandomizer {
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
                             return;
                         case "cold":
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
@@ -284,7 +284,7 @@ export default class ItemRandomizer {
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
                             return;
                         case "wave":
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
@@ -294,7 +294,7 @@ export default class ItemRandomizer {
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
                             return;
                         case "shock":
-                            if (!sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
