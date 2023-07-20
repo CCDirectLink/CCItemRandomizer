@@ -8,11 +8,13 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
         return JSON.parse(await fs.readFileSync('randomizerState.json'));
     }
 
-    const {spoilerLog, maps, quests, seed} = await getChecks(baseDirectory, fixedSeed);
-    fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, seed}));
+    const {spoilerLog, maps, quests, shops, seed} = await getChecks(baseDirectory, fixedSeed);
+    fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, shops, seed}));
     
     const items = (await (await fetch('data/item-database.json')).json()).items;
-    const areasDatabase = (await (await fetch('data/database.json')).json()).areas;
+    const database = (await (await fetch('data/database.json')).json());
+    const shopsDatabase = database.shops;
+    const areasDatabase = database.areas;
     const mapNames = Object.keys(maps);
     const mapData = await Promise.all(mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())))
     const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
@@ -34,6 +36,10 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
     });
 
     function getPrettyName(log) {
+        if (log.type === 'shop') {
+            return shopsDatabase[log.name].name.en_US;
+        }
+
         if (log.name) {
             return log.name; //TODO: quest names
         }
@@ -58,7 +64,7 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
         });
 
     await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'));
-    return {spoilerLog, maps, quests, seed};
+    return {spoilerLog, maps, quests, shops, seed};
 }
 
 export default class ItemRandomizer {
@@ -68,7 +74,7 @@ export default class ItemRandomizer {
 
     async prestart() {
         window.generateRandomizerState = generateRandomizerState;
-        const {maps, quests, seed} = await generateRandomizerState();
+        const {maps, quests, shops, seed} = await generateRandomizerState();
         console.log('seed', seed);
 
         ig.ENTITY.Chest.inject({
@@ -311,6 +317,125 @@ export default class ItemRandomizer {
                 this.parent(quest);
             }
         });
+
+        if (shops) {
+            ig.Database.inject({
+                onload(data) {
+                    for (const [shopName, shopChecks] of Object.entries(shops)) {
+                        const original = data.shops[shopName].pages[0];
+                        original.content = shopChecks.map(check => {
+                            return {
+                                item: check.replacedWith.item + '',
+                                price: (check.price / check.replacedWith.amount) >>> 0, 
+                            }
+                        })
+                    }
+    
+                    this.parent(data);
+                }
+            });
+
+            //Only needed for elements in shops
+            sc.PlayerModel.inject({
+                addItem(id, ...args) {
+                    switch (id) {
+                        case "heat":
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+                            }
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
+                            return;
+                        case "cold":
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+                            }
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
+                            return;
+                        case "wave":
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+                            }
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
+                            return;
+                        case "shock":
+                            if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+                                sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+                            }
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+                            sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
+                            return;
+                        default:                
+                            return this.parent(id, ...args)
+                    }
+                }
+            })
+
+            sc.Inventory.inject({
+                onload(data) {
+                    this.parent(data);
+                    this.items.heat = getElementItem('heat');
+                    this.items.cold = getElementItem('cold');
+                    this.items.shock = getElementItem('shock');
+                    this.items.wave = getElementItem('wave');
+                }
+            });
+
+            function getElementItem(name) {
+                name = {
+                    'heat': 'Heat Element',
+                    'cold': 'Cold Element',
+                    'wave': 'Wave Element',
+                    'shock': 'Shock Element',
+                }[name] || name;
+                return {
+                    "name": {
+                        "en_US": name,
+                        "de_DE": name,
+                        "fr_FR": name,
+                        "zh_CN": name,
+                        "ja_JP": name,
+                        "ko_KR": name,
+                        "zh_TW": name
+                    },
+                    "description": {
+                        "en_US": name,
+                        "de_DE": name,
+                        "fr_FR": name,
+                        "zh_CN": name,
+                        "ja_JP": name,
+                        "ko_KR": name,
+                        "zh_TW": name
+                    },
+                    "type": "KEY",
+                    "icon": "item-key",
+                    "order": 0,
+                    "level": 1,
+                    "effect": {
+                        "sheet": "",
+                        "name": null
+                    },
+                    "rarity": 0,
+                    "cost": 0,
+                    "noTrack": true,
+                    "sources": []
+                    
+                }
+            }
+        }
     }
 }
 
