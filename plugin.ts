@@ -306,7 +306,8 @@ export default class ItemRandomizer {
         });
 
         function checkMarkers() {
-            if (markers && !Object.values(sc.menu.mapStamps as Record<string, any[]>).some(v => v.some(c =>c?.mapId))) {
+            if (markers 
+                && Object.values(sc.menu.mapStamps as Record<string, any[]>).every(v => v.every(c => !c))) {
                 sc.menu.mapStamps = markers;
             }
         }
