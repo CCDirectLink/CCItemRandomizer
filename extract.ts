@@ -1,4 +1,6 @@
+// @ts-ignore
 const fs = require('fs');
+// @ts-ignore
 const path = require('path');
 
 export async function extract() {
@@ -17,7 +19,7 @@ function prettyNameFromPath(name) {
     return name.replace(/[\\/]/g, '.');
 }
 
-async function extractFolder(name) {
+async function extractFolder(name): Promise<any[]> {
     const files = await fs.promises.readdir(name, {recursive: true, withFileTypes: true});
     return [].concat(...await Promise.all(files.map(async file => {
         const p = path.join(name, file.name);
@@ -54,7 +56,7 @@ function searchObject(obj, path) {
     }
 
     if (obj instanceof Array) {
-        const arrResult = [];
+        const arrResult: any[] = [];
         for (let i = 0; i < obj.length; i++) {
             if (typeof obj[i] === 'object') {
                 arrResult.push(...searchObject(obj[i], path + '.' + i));
@@ -66,7 +68,7 @@ function searchObject(obj, path) {
         return [{type: 'GIVE_ITEM', path, item: obj.item, amount: obj.amount}]
     }
 
-    const result = [];
+    const result: any[] = [];
     for (const key of Object.keys(obj)) {
         if (typeof obj[key] === 'object') {
             result.push(...searchObject(obj[key], path + '.' + key));
@@ -78,8 +80,8 @@ function searchObject(obj, path) {
 export async function printChests(chests) {
     let text = 'Map;Id;Item;Amount;Area';
     for (const [map, mapData] of Object.entries(chests)) {
-        for (const [id, data] of Object.entries(mapData)) {
-            text += `\r\n${map};${id};${data.item};${data.amount};`;
+        for (const [id, data] of Object.entries(mapData as any)) {
+            text += `\r\n${map};${id};${(data as any).item};${(data as any).amount};`;
         }
     } 
     await fs.promises.writeFile('randomItems.csv', text);

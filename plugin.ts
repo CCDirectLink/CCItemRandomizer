@@ -1,9 +1,13 @@
 import { getChecks } from "./chests.js";
 import { extractMarkers } from "./extract-markers.js";
+// @ts-ignore
 const fs = require('fs');
 
+declare const ig: any;
+declare const sc: any;
+
 let baseDirectory = '';
-async function generateRandomizerState(forceGenerate, fixedSeed) {
+async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
     const stateExists = fs.existsSync('randomizerState.json');
     if (!forceGenerate && stateExists) {
         return JSON.parse(await fs.readFileSync('randomizerState.json'));
@@ -77,7 +81,8 @@ export default class ItemRandomizer {
         baseDirectory = mod.baseDirectory;
     }
 
-    async prestart() {
+    async prestart() {    
+        // @ts-ignore
         window.generateRandomizerState = generateRandomizerState;
         const { maps, quests, shops, markers, overrides, seed } = await generateRandomizerState();
         console.log('seed', seed);
@@ -199,7 +204,7 @@ export default class ItemRandomizer {
                     return;
                 }
                 
-                const check = Object.values(map)[0][0];
+                const check = (Object.values(map) as any[])[0][0];
                 switch (check.replacedWith.item) {
                     case "heat":
                         sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
@@ -367,7 +372,7 @@ export default class ItemRandomizer {
         if (shops) {
             ig.Database.inject({
                 onload(data) {
-                    for (const [shopName, shopChecks] of Object.entries(shops)) {
+                    for (const [shopName, shopChecks] of Object.entries(shops) as Iterable<[string, any]>) {
                         const original = data.shops[shopName].pages[0];
                         original.content = shopChecks.map(check => {
                             return {

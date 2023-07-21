@@ -10,9 +10,10 @@ export async function getChecks(baseDirectory, fixedSeed) {
     }
 
     const seed = fixedSeed || ((data.version ? data.version + '_' : '') + (Math.random() + '').slice(2));
+    // @ts-ignore
     Math.seedrandomSeed(seed);
 
-    const areaConditions = {};
+    const areaConditions: Record<string, any> = {};
     areaConditions[data.startingArea] = [];
     for (const area of data.areas) {
         const [from, _type, to, ...condition] = area;
@@ -24,7 +25,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         { type: 'element', map: 'heat-dng.f2.room-cold', item: 'cold', amount: 1, mapId: 78, conditions: [...areaConditions["16"]] },
         { type: 'element', map: 'wave-dng.b1.center-05-element', item: 'shock', amount: 1, mapId: 248, conditions: [...areaConditions["27"]] },
         { type: 'element', map: 'shock-dng.f2.room-element', item: 'wave', amount: 1, mapId: 86, conditions: [...areaConditions["25"]] },
-    ];
+    ] as any[];
     for (const map of Object.keys(data.items)) {
         for (const mapId of Object.keys(data.items[map].chests)) {
             const { item, amount, type, condition } = data.items[map].chests[mapId];
@@ -49,7 +50,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         return a.mapId - b.mapId;
     })
     
-    for (const [shopName, shopData] of Object.entries(data.shops)) {
+    for (const [shopName, shopData] of Object.entries(data.shops) as Iterable<[string, any]>) {
         const conditions = (areaConditions[shopData.area] || ['softlock']).concat(['softlock']).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
         for (const item of shopData.items) {
             checks.push({type: 'shop', name: shopName, item: +item, amount: 1, price: randomNumber(1, 10) * 1000 * shopData.scale, conditions})
@@ -60,9 +61,9 @@ export async function getChecks(baseDirectory, fixedSeed) {
     checks.push({ type: 'quest', name: 'basin-mush-2', conditions: [...areaConditions["23"]], item: 345, amount: 1 });
 
 
-    const requiredItems = [].concat(...Object.values(areaConditions)).concat(Object.values(data.keys)).map(c => c.includes('>=') ? Number(c.slice(5, c.length - 12)) : c).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
+    const requiredItems = ([] as any[]).concat(...Object.values(areaConditions)).concat(Object.values(data.keys)).map(c => c.includes('>=') ? Number(c.slice(5, c.length - 12)) : c).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
     const allItems = [...requiredItems];
-    const nonRequiredItems = [];
+    const nonRequiredItems: any[] = [];
     for (const check of checks) {
         if (!allItems.includes(check.item)) {
             allItems.push(check.item);
@@ -75,7 +76,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         withAmounts[item] = checks.filter(c => c.item == item).map(c => ({item: c.item, amount: c.amount}));;
     }
     
-    const spoilerLog = [];
+    const spoilerLog: any[] = [];
 
     const fulfilledConditions = new Set();
     const fulfilledItems = {};
@@ -89,7 +90,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
     }
 
     const maps = {};
-    const quests = [];
+    const quests: any[] = [];
     const shops = {};
     for (const check of spoilerLog) {
         if (check.type === 'quest') {
@@ -112,7 +113,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
     }
 
     const overrides = {};
-    for (const [mapName, mapData] of Object.entries(data.items)) {
+    for (const [mapName, mapData] of Object.entries(data.items) as Iterable<[string, any]>) {
         overrides[mapName] = {
             disabledEvents: mapData.disabledEvents,
             variablesOnLoad: mapData.variablesOnLoad,
@@ -123,6 +124,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
 }
 
 function randomNumber(min, max) {
+        // @ts-ignore
     return (Math.randomSeed() * (max - min) + min) >>> 0;
 }
 
