@@ -103,7 +103,7 @@ export default class ItemRandomizer {
 
                 const stamps = sc.menu.mapStamps[sc.map.currentArea.path];
                 if (stamps) {
-                    const stamp = stamps.find(s => s.map === ig.game.mapName && s.mapId === this.mapId);
+                    const stamp = stamps.find(s => s?.map === ig.game.mapName && s?.mapId === this.mapId);
                     if (stamp) {
                         stamp.key = 'DEFAULT';
                     }
