@@ -301,16 +301,20 @@ export default class ItemRandomizer {
                         ig.vars.set(name, value);
                     }
                 }
+                checkMarkers();
             }
         });
+
+        function checkMarkers() {
+            if (markers && !Object.values(sc.menu.mapStamps as Record<string, any[]>).some(v => v.some(c =>c?.mapId))) {
+                sc.menu.mapStamps = markers;
+            }
+        }
 
         sc.MenuModel.inject({
             onStoragePreLoad(data) {
                 this.parent(data);
-
-                if (markers && Object.keys(sc.menu.mapStamps).length === 0) {
-                    sc.menu.mapStamps = markers;
-                }
+                checkMarkers();
             }
         })
 
