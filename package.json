@@ -10,8 +10,5 @@
     "devDependencies": {
         "esbuild": "^0.18.15",
         "typescript": "^5.1.6"
-    },
-    "dependencies": {
-        "archipelago.js": "^1.1.0"
     }
 }
