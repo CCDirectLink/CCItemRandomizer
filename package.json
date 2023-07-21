@@ -3,12 +3,16 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "esbuild --target=es2018 --format=esm --platform=node --bundle --outfile=plugin.js plugin.ts"
+        "start": "esbuild --target=es2018 --format=esm --platform=node --bundle --outfile=plugin.js plugin.ts",
+        "watch": "esbuild --target=es2018 --format=esm --platform=node --bundle --watch --outfile=plugin.js plugin.ts"
     },
     "author": "",
     "license": "MIT",
     "devDependencies": {
         "esbuild": "^0.18.15",
         "typescript": "^5.1.6"
+    },
+    "dependencies": {
+        "cc-enemy-db": "github:krypciak/cc-enemy-db"
     }
 }
