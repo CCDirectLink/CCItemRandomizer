@@ -111,7 +111,15 @@ export async function getChecks(baseDirectory, fixedSeed) {
         entry.push(check);
     }
 
-    return {spoilerLog, quests, maps, shops, seed};
+    const overrides = {};
+    for (const [mapName, mapData] of Object.entries(data.items)) {
+        overrides[mapName] = {
+            disabledEvents: mapData.disabledEvents,
+            variablesOnLoad: mapData.variablesOnLoad,
+        }
+    }
+
+    return {spoilerLog, quests, maps, shops, overrides, seed};
 }
 
 function randomNumber(min, max) {

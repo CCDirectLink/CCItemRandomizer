@@ -1,4 +1,5 @@
 import { getChecks } from "./chests.js";
+import { extractMarkers } from "./extract-markers.js";
 const fs = require('fs');
 
 let baseDirectory = '';
@@ -8,17 +9,21 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
         return JSON.parse(await fs.readFileSync('randomizerState.json'));
     }
 
-    const {spoilerLog, maps, quests, shops, seed} = await getChecks(baseDirectory, fixedSeed);
-    fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, shops, seed}));
+    const {spoilerLog, maps, quests, shops, overrides, seed} = await getChecks(baseDirectory, fixedSeed);
+
+    const mapNames = Object.keys(maps);
+    const mapData = await Promise.all(mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())))
+    const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
+    const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())));
+
+    const markers = await extractMarkers(spoilerLog, mapNames, mapData, areaNames, areas);
+
+    fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, shops, overrides, markers, seed}));
     
     const items = (await (await fetch('data/item-database.json')).json()).items;
     const database = (await (await fetch('data/database.json')).json());
     const shopsDatabase = database.shops;
     const areasDatabase = database.areas;
-    const mapNames = Object.keys(maps);
-    const mapData = await Promise.all(mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())))
-    const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
-    const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())))
 
     const fullMapNames = mapData.map((d, i) => {
         const ai = areaNames.indexOf(d.attributes.area);
@@ -64,7 +69,7 @@ async function generateRandomizerState(forceGenerate, fixedSeed) {
         });
 
     await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'));
-    return {spoilerLog, maps, quests, shops, seed};
+    return {spoilerLog, maps, quests, shops, overrides, markers, seed};
 }
 
 export default class ItemRandomizer {
@@ -74,7 +79,7 @@ export default class ItemRandomizer {
 
     async prestart() {
         window.generateRandomizerState = generateRandomizerState;
-        const {maps, quests, shops, seed} = await generateRandomizerState();
+        const { maps, quests, shops, markers, overrides, seed } = await generateRandomizerState();
         console.log('seed', seed);
 
         ig.ENTITY.Chest.inject({
@@ -88,6 +93,14 @@ export default class ItemRandomizer {
                 if (!check || check.length !== 1 || !check[0]) {
                     console.warn('Chest not in logic');
                     return this.parent();
+                }
+
+                const stamps = sc.menu.mapStamps[sc.map.currentArea.path];
+                if (stamps) {
+                    const stamp = stamps.find(s => s.map === ig.game.mapName && s.mapId === this.mapId);
+                    if (stamp) {
+                        stamp.key = 'DEFAULT';
+                    }
                 }
 
                 const old = sc.ItemDropEntity.spawnDrops;
@@ -208,50 +221,64 @@ export default class ItemRandomizer {
 
         ig.Game.inject({
             loadLevel(map, ...args) {
-                const mapOverrides = maps[map.name.replace(/[\\\/]/g, '.')];
-                if (mapOverrides) {
-                    for (const entity of map.entities) {
+                const mapChecks = maps[map.name.replace(/[\\\/]/g, '.')] || {};
+                const mapOverrides = overrides && overrides[map.name.replace(/[\\\/]/g, '.')] || {};
+                if (mapChecks) {
+                    for (let i = 0; i < map.entities.length; i++) {
+                        const entity = map.entities[i];
                         if (entity
                             && entity.settings
                             && entity.settings.mapId
-                            && mapOverrides[entity.settings.mapId]
-                            && mapOverrides[entity.settings.mapId][0]
-                            && mapOverrides[entity.settings.mapId][0].type === 'event') {
-                                for (const check of mapOverrides[entity.settings.mapId]) {
-                                    const path = check.path.slice(1).split(/\./g);
-                                    switch (check.replacedWith.item) {
-                                        case "heat":
-                                            set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
-                                            set(entity, 'ELEMENT_HEAT', [...path, 'core']);
-                                            set(entity, true, [...path, 'value']);
-                                            set(entity, true, [...path, 'bypass']);
-                                            set(entity, true, [...path, 'alsoGiveElementChange']);
-                                            break;
-                                        case "cold":
-                                            set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
-                                            set(entity, 'ELEMENT_COLD', [...path, 'core']);
-                                            set(entity, true, [...path, 'value']);
-                                            set(entity, true, [...path, 'bypass']);
-                                            set(entity, true, [...path, 'alsoGiveElementChange']);
-                                            break;
-                                        case "wave":
-                                            set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
-                                            set(entity, 'ELEMENT_WAVE', [...path, 'core']);
-                                            set(entity, true, [...path, 'value']);
-                                            set(entity, true, [...path, 'bypass']);
-                                            set(entity, true, [...path, 'alsoGiveElementChange']);
-                                            break;
-                                        case "shock":
-                                            set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
-                                            set(entity, 'ELEMENT_SHOCK', [...path, 'core']);
-                                            set(entity, true, [...path, 'value']);
-                                            set(entity, true, [...path, 'bypass']);
-                                            set(entity, true, [...path, 'alsoGiveElementChange']);
-                                            break;
-                                        default:                
-                                            set(entity, check.replacedWith.item, [...path, 'item'], 0);
-                                            set(entity, check.replacedWith.amount, [...path, 'amount'], 0);
-                                            break;
+                            && mapOverrides
+                            && mapOverrides.disabledEvents
+                            && mapOverrides.disabledEvents.includes(entity.settings.mapId)
+                            ) {
+                                map.entities.splice(i, 1);
+                                i--;
+                                continue;
+                            }
+
+                        if (entity
+                            && entity.settings
+                            && entity.settings.mapId
+                            && mapChecks[entity.settings.mapId]) {
+                                for (const check of mapChecks[entity.settings.mapId]) {
+                                    if (check.type === 'event') {
+                                        const path = check.path.slice(1).split(/\./g);
+                                        switch (check.replacedWith.item) {
+                                            case "heat":
+                                                set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
+                                                set(entity, 'ELEMENT_HEAT', [...path, 'core']);
+                                                set(entity, true, [...path, 'value']);
+                                                set(entity, true, [...path, 'bypass']);
+                                                set(entity, true, [...path, 'alsoGiveElementChange']);
+                                                break;
+                                            case "cold":
+                                                set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
+                                                set(entity, 'ELEMENT_COLD', [...path, 'core']);
+                                                set(entity, true, [...path, 'value']);
+                                                set(entity, true, [...path, 'bypass']);
+                                                set(entity, true, [...path, 'alsoGiveElementChange']);
+                                                break;
+                                            case "wave":
+                                                set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
+                                                set(entity, 'ELEMENT_WAVE', [...path, 'core']);
+                                                set(entity, true, [...path, 'value']);
+                                                set(entity, true, [...path, 'bypass']);
+                                                set(entity, true, [...path, 'alsoGiveElementChange']);
+                                                break;
+                                            case "shock":
+                                                set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
+                                                set(entity, 'ELEMENT_SHOCK', [...path, 'core']);
+                                                set(entity, true, [...path, 'value']);
+                                                set(entity, true, [...path, 'bypass']);
+                                                set(entity, true, [...path, 'alsoGiveElementChange']);
+                                                break;
+                                            default:                
+                                                set(entity, check.replacedWith.item, [...path, 'item'], 0);
+                                                set(entity, check.replacedWith.amount, [...path, 'amount'], 0);
+                                                break;
+                                        }
                                     }
                                 }
                             }
@@ -259,8 +286,27 @@ export default class ItemRandomizer {
                 }
 
                 return this.parent(map, ...args);
+            },
+            loadingComplete() {
+                this.parent();
+                const mapOverrides = overrides && overrides[ig.game.mapName] || {};
+                if (mapOverrides && mapOverrides.variablesOnLoad) {
+                    for (const [name, value] of Object.entries(mapOverrides.variablesOnLoad)) {
+                        ig.vars.set(name, value);
+                    }
+                }
             }
         });
+
+        sc.MenuModel.inject({
+            onStoragePreLoad(data) {
+                this.parent(data);
+
+                if (markers && Object.keys(sc.menu.mapStamps).length === 0) {
+                    sc.menu.mapStamps = markers;
+                }
+            }
+        })
 
         sc.QuestModel.inject({
             _collectRewards(quest) {
