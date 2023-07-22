@@ -1,0 +1,296 @@
+{
+    "regularEnemies": {
+        "hedgehog": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "hedgehog-alt": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "meerkat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "meerkat-alt": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "buffalo": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "buffalo-alt": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "frobbit": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "gray-frobbit": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "seahorse": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "penguin": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "goat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "snowman": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "mine-coldbug": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "mine-runbot": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "mine-diggingbot": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "mine-kamikatze": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.scorpion": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.scorpion-alt": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.sandshark": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.sandworm": {
+            "elements": [1, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.drillertoise": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.volturbine": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.moth": {
+            "elements": [-1, 0, 0, 0],
+            "mapElements": "pole"
+        },
+        "heat.heat-golem": {
+            "elements": [0, 1, 0, 0],
+            "mapElements": "waterBubblePanel"
+        },
+        "heat.jellyfish": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "heat.darth-moth": {
+            "elements": [-1, 0, 0, 0],
+            "mapElements": "pole"
+        },
+        "autumn-fall.buffalo-fall": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "autumn-fall.hedgehog-fall": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "autumn-fall.meerkat-fall": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "autumn-fall.seahorse-fall": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.shockcat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.parrot": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.sloth": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.fish": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.plant": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.blob": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.blob-wave": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.powerplant": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "jungle.chicken": {
+            "elements": [0, 0, 0, 1],
+            "mapElements": "waveTeleport"
+        },
+        "jungle.octopus": {
+            "elements": [0, 0, 1, 0],
+            "mapElements": "magnet"
+        },
+        "jungle.blueray": {
+            "elements": [0, 0, 1, 0],
+            "mapElements": "teslaCoil"
+        },
+        "jungle.ghost": {
+            "elements": [0, 0, 0, 1],
+            "mapElements": "compressor"
+        },
+        "forest.bug-samurai-heat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "forest.bug-samurai-shock": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "forest.panda": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "forest.spider": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.virus-cold": {
+            "elements": [1, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.virus-heat": {
+            "elements": [0, 1, 0, 0],
+            "mapElements": ""
+        },
+        "arid.virus-neutral": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.rhino": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.shredder-cold": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.shredder-heat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.shredder-shock": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.shredder-wave": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "arid.dice-mage": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.sea-star-cold": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.sea-star-heat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.sea-star-shock": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.sea-star-wave": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.fish": {
+            "elements": [0, 1, 0, 0],
+            "mapElements": ""
+        },
+        "beach.turtle-man": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "beach.worm": {
+            "elements": [1, 1, 0, 0],
+            "mapElements": ""
+        },
+        "final.crystal-cold": {
+            "elements": [1, 0, 0, 0],
+            "mapElements": ""
+        },
+        "final.crystal-heat": {
+            "elements": [0, 1, 0, 0],
+            "mapElements": ""
+        },
+        "final.crystal-shock": {
+            "elements": [0, 0, 0, 1],
+            "mapElements": ""
+        },
+        "final.crystal-wave": {
+            "elements": [0, 0, 1, 0],
+            "mapElements": ""
+        },
+        "final.colibri": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "final.ele-pillar-cold": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "final.ele-pillar-heat": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "final.ele-pillar-shock": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "final.ele-pillar-wave": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        },
+        "guest.firespirit": {
+            "elements": [0, 1, 0, 0],
+            "mapElements": ""
+        },
+        "guest.honeybear": {
+            "elements": [0, 0, 0, 0],
+            "mapElements": ""
+        }
+    }
+}
