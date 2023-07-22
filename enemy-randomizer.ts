@@ -4,7 +4,7 @@ declare const ig: any;
 let mapId = 1000
 
 export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
-    // console.log('enemy', enemy, seed, data, preset)
+    // console.log('enemy', ig.copy(enemy), seed, data, preset)
 
     let level = enemy.level
     if (typeof level == 'object') { level = level.level + level.offset }
@@ -62,9 +62,11 @@ function seedrandom(min, max, seed) {
 }
 
 function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
-    const myDbEntry = data[enemyInfo.type]
-    if (! myDbEntry || enemyInfo.state) { return [] }
-    const gameDbEntry = ig.database.data.enemies[enemyInfo.type]
+    const enemyType = enemyInfo.type
+    const myDbEntry = data[enemyType]
+    
+    if (! myDbEntry || enemyInfo.state || enemyType == 'mine-runbot') { return [] }
+    const gameDbEntry = ig.database.data.enemies[enemyType]
     const origLevel = gameDbEntry.level
 
     const elements = getCurrentPlayerElements()
@@ -96,14 +98,14 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const randTypeIndex = seedrandom(0, compatibleEnemyTypes.length, enemySeed)
     enemySeed += 1000
     const randType = compatibleEnemyTypes[randTypeIndex][0]
-    // console.log('rand', randTypeIndex, 'from', enemyInfo.type, 'to', randType)
+    // console.log('rand', randTypeIndex, 'from', enemyType, 'to', randType)
 
     const randLevel = seedrandom(origLevel - preset.levelRange[0], origLevel + preset.levelRange[1], enemySeed)
 
-    if (! changeMap[enemyInfo.type]) {
-        changeMap[enemyInfo.type] = []
+    if (! changeMap[enemyType]) {
+        changeMap[enemyType] = []
     }
-    changeMap[enemyInfo.type].push(randType)
+    changeMap[enemyType].push(randType)
 
     enemyInfo.type = randType
     enemyInfo.level = randLevel

@@ -244,7 +244,7 @@ export default class ItemRandomizer {
                 const mapChecks = maps[map.name.replace(/[\\\/]/g, '.')] || {};
                 const mapOverrides = overrides && overrides[map.name.replace(/[\\\/]/g, '.')] || {};
 
-                if (enemyRandomizerPreset.enable) {
+                if (enemyRandomizerPreset?.enable) {
                     mapObjectSpawnQueue = []
                     const changeMap = {}
                     for (const entity of map.entities) {
