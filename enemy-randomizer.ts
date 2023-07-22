@@ -3,18 +3,18 @@ declare const ig: any;
 
 let mapId = 1000
 
-export function randomizeEnemy(enemy, seed, data, preset, changeMap) {
-    // console.log('enemy', enemy, seed, data, preset)
+export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
+    console.log('enemy', enemy, seed, data, preset)
 
     return getRandomEnemy(enemy.settings.enemyInfo, 
-                          { x: enemy.x, y: enemy.y, width: 16, height: 16},
+                          { x: enemy.x, y: enemy.y, width: 16, height: 16, z: levels[enemy.level].height},
                           Math.pow(enemy.x, 2) * Math.pow(enemy.y, 2) * parseInt(seed.substring(2)),
                           data.regularEnemies, preset, changeMap)
 }
 
 
-export function randomizeSpawner(spawner, seed, data, preset, changeMap) {
-    // console.log('spawner', spawner, seed, data, preset)
+export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels) {
+    console.log('spawner', spawner, seed, data, preset)
 
     const spawnerSeed = Math.pow(spawner.x, 2) * Math.pow(spawner.y, 2) * parseInt(seed.substring(2))
     const allMapObjects = []
@@ -25,7 +25,8 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap) {
         const enemyInfo = obj.info
         let enemySeed = spawnerSeed * i
         const mapObjects = getRandomEnemy(enemyInfo, 
-                           { x: spawner.x, y: spawner.y, width: spawner.settings.size.x, height: spawner.settings.size.y },
+                           { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
+                               height: spawner.settings.size.y, z: levels[spawner.level].height },
                            enemySeed, data.regularEnemies, preset, changeMap)
 
         for (let objEntity of mapObjects) {
@@ -116,7 +117,7 @@ function spawnMapObjects(mapObject, rect, elements) {
     let my = rect.y + rect.height/2
     rect.x2 = rect.x + rect.width
     rect.y2 = rect.y + rect.height
-    let z = 256
+    let z = rect.z
     switch (mapObject) {
         case 'pole': {
             return [ elementPole(mx - 8, my + 64, z) ]

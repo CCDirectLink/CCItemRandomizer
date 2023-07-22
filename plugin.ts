@@ -250,9 +250,9 @@ export default class ItemRandomizer {
                     for (const entity of map.entities) {
                         let mapObjects
                         if (entity.type == 'EnemySpawner' && enemyRandomizerPreset.randomizeSpawners) {
-                            mapObjects = randomizeSpawner(entity, seed, enemyData, enemyRandomizerPreset, changeMap)
+                            mapObjects = randomizeSpawner(entity, seed, enemyData, enemyRandomizerPreset, changeMap, map.levels)
                         } else if (entity.type == 'Enemy' && enemyRandomizerPreset.randomizeEnemies) {
-                            mapObjects = randomizeEnemy(entity, seed, enemyData, enemyRandomizerPreset, changeMap)
+                            mapObjects = randomizeEnemy(entity, seed, enemyData, enemyRandomizerPreset, changeMap, map.levels)
                         }
                         if (mapObjects) {
                             mapObjectSpawnQueue = mapObjectSpawnQueue.concat(mapObjects)
@@ -363,7 +363,8 @@ export default class ItemRandomizer {
                 checkMarkers();
 
                 for (const entity of mapObjectSpawnQueue) {
-                    ig.game.spawnEntity(entity.type, entity.x, entity.y, 256, entity.settings)
+                    console.log(entity)
+                    ig.game.spawnEntity(entity.type, entity.x, entity.y, entity.z, entity.settings)
                 }
                 mapObjectSpawnQueue = []
             },
