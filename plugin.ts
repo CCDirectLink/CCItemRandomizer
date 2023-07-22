@@ -117,7 +117,7 @@ export default class ItemRandomizer {
 
                 const stamps = sc.menu.mapStamps[sc.map.currentArea.path];
                 if (stamps) {
-                    const stamp = stamps.find(s => s.map === ig.game.mapName && s.mapId === this.mapId);
+                    const stamp = stamps.find(s => s?.map === ig.game.mapName && s?.mapId === this.mapId);
                     if (stamp) {
                         stamp.key = 'DEFAULT';
                     }
@@ -359,6 +359,8 @@ export default class ItemRandomizer {
                         ig.vars.set(name, value);
                     }
                 }
+                
+                checkMarkers();
 
                 for (const entity of mapObjectSpawnQueue) {
                     ig.game.spawnEntity(entity.type, entity.x, entity.y, 256, entity.settings)
@@ -392,13 +394,17 @@ export default class ItemRandomizer {
             }
         })
 
+        function checkMarkers() {
+            if (markers 
+                && Object.values(sc.menu.mapStamps as Record<string, any[]>).every(v => v.every(c => !c))) {
+                sc.menu.mapStamps = markers;
+            }
+        }
+
         sc.MenuModel.inject({
             onStoragePreLoad(data) {
                 this.parent(data);
-
-                if (markers && Object.keys(sc.menu.mapStamps).length === 0) {
-                    sc.menu.mapStamps = markers;
-                }
+                checkMarkers();
             }
         })
 
