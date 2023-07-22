@@ -7,9 +7,15 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
     // console.log('enemy', ig.copy(enemy), seed, data, preset)
 
     let level = enemy.level
-    if (typeof level == 'object') { level = level.level + level.offset }
+    let z
+    if (typeof level == 'object') { 
+        level = level.level
+        z = levels[level].height + level.offset
+    } else {
+        z = levels[level].height
+    }
     return getRandomEnemy(enemy.settings.enemyInfo, 
-                          { x: enemy.x, y: enemy.y, width: 16, height: 16, z: levels[level].height},
+                          { x: enemy.x, y: enemy.y, width: 16, height: 16, z },
                           Math.pow(enemy.x, 2) * Math.pow(enemy.y, 2) * parseInt(seed.substring(2)),
                           data.regularEnemies, preset, changeMap)
 }
@@ -23,7 +29,13 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
     let allObjectsSet = new Set()
 
     let level = spawner.level
-    if (typeof level == 'object') { level = level.level + level.offset }
+    let z
+    if (typeof level == 'object') { 
+        level = level.level
+        z = levels[level].height + level.offset
+    } else {
+        z = levels[level].height
+    }
 
     let i = 1
     for (let obj of spawner.settings.enemyTypes) {
@@ -31,7 +43,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
         let enemySeed = spawnerSeed * i
         const mapObjects = getRandomEnemy(enemyInfo, 
                            { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
-                               height: spawner.settings.size.y, z: levels[level].height },
+                               height: spawner.settings.size.y, z },
                            enemySeed, data.regularEnemies, preset, changeMap)
 
         for (let objEntity of mapObjects) {
