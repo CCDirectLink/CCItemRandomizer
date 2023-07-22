@@ -90,7 +90,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const randTypeIndex = seedrandom(0, compatibleEnemyTypes.length, enemySeed)
     enemySeed += 1000
     const randType = compatibleEnemyTypes[randTypeIndex][0]
-    console.log('rand', randTypeIndex, 'from', enemyInfo.type, 'to', randType)
+    // console.log('rand', randTypeIndex, 'from', enemyInfo.type, 'to', randType)
 
     const randLevel = seedrandom(origLevel - preset.levelRange[0], origLevel + preset.levelRange[1], enemySeed)
 
