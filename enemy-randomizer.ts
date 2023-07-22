@@ -4,7 +4,7 @@ declare const ig: any;
 let mapId = 1000
 
 export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
-    console.log('enemy', enemy, seed, data, preset)
+    // console.log('enemy', enemy, seed, data, preset)
 
     return getRandomEnemy(enemy.settings.enemyInfo, 
                           { x: enemy.x, y: enemy.y, width: 16, height: 16, z: levels[enemy.level].height},
@@ -14,7 +14,7 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
 
 
 export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels) {
-    console.log('spawner', spawner, seed, data, preset)
+    // console.log('spawner', spawner, seed, data, preset)
 
     const spawnerSeed = Math.pow(spawner.x, 2) * Math.pow(spawner.y, 2) * parseInt(seed.substring(2))
     const allMapObjects = []
