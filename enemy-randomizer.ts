@@ -6,8 +6,10 @@ let mapId = 1000
 export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
     // console.log('enemy', enemy, seed, data, preset)
 
+    let level = enemy.level
+    if (typeof level == 'object') { level = level.level + level.offset }
     return getRandomEnemy(enemy.settings.enemyInfo, 
-                          { x: enemy.x, y: enemy.y, width: 16, height: 16, z: levels[enemy.level].height},
+                          { x: enemy.x, y: enemy.y, width: 16, height: 16, z: levels[level].height},
                           Math.pow(enemy.x, 2) * Math.pow(enemy.y, 2) * parseInt(seed.substring(2)),
                           data.regularEnemies, preset, changeMap)
 }
@@ -20,13 +22,16 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
     const allMapObjects = []
     let allObjectsSet = new Set()
 
+    let level = spawner.level
+    if (typeof level == 'object') { level = level.level + level.offset }
+
     let i = 1
     for (let obj of spawner.settings.enemyTypes) {
         const enemyInfo = obj.info
         let enemySeed = spawnerSeed * i
         const mapObjects = getRandomEnemy(enemyInfo, 
                            { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
-                               height: spawner.settings.size.y, z: levels[spawner.level].height },
+                               height: spawner.settings.size.y, z: levels[level].height },
                            enemySeed, data.regularEnemies, preset, changeMap)
 
         for (let objEntity of mapObjects) {
