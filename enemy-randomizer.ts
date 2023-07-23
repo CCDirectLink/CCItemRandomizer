@@ -88,7 +88,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const myDbEntry = data[enemyType]
 
     if (! myDbEntry || enemyInfo.state) { console.log(enemyType, 'not found in db'); return [] }
-    if (enemyType == 'mine-runbot') { return [] }
+    // if (enemyType == 'mine-runbot') { return [] }
 
     const endurance = myDbEntry.endurance
     
