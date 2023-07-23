@@ -1,6 +1,6 @@
 import { getChecks } from "./chests.js";
 import { extractMarkers } from "./extract-markers.js";
-import { randomizeEnemy, randomizeSpawner } from "./enemy-randomizer.js";
+import { randomizeEnemy, randomizeSpawner, loadAllEnemyTypes } from "./enemy-randomizer.js";
 
 // @ts-ignore
 const fs = require('fs');
@@ -29,9 +29,10 @@ async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
         enable: true,
         randomizeSpawners: true,
         randomizeEnemies: true,
-        levelRange: [3, 5],
+        levelRange: [5, 3],
         elementCompatibility: true,
         spawnMapObjects: true,
+        enduranceRange: [1, 1.5],
     }
 
     fs.promises.writeFile('randomizerState.json', JSON.stringify({spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, seed}));
@@ -99,8 +100,11 @@ export default class ItemRandomizer {
         const { maps, quests, shops, markers, overrides, enemyRandomizerPreset, seed } = await generateRandomizerState();
         console.log('seed', seed);
 
-        const enemyData = await (await fetch(baseDirectory.substring(7) + 'enemy-data.json')).json();
         let mapObjectSpawnQueue = []
+        let enemyData
+        if (enemyRandomizerPreset?.enable) {
+            enemyData = await (await fetch(baseDirectory.substring(7) + 'enemy-data.json')).json();
+        }
 
         ig.ENTITY.Chest.inject({
             _reallyOpenUp() {
@@ -246,6 +250,7 @@ export default class ItemRandomizer {
 
                 if (enemyRandomizerPreset?.enable) {
                     mapObjectSpawnQueue = []
+                    const mapEntityGroups = {}
                     const changeMap = {}
                     for (const entity of map.entities) {
                         let mapObjects
@@ -361,7 +366,7 @@ export default class ItemRandomizer {
                 }
                 
                 checkMarkers();
-
+                
                 for (const entity of mapObjectSpawnQueue) {
                     ig.game.spawnEntity(entity.type, entity.x, entity.y, entity.z, entity.settings)
                 }

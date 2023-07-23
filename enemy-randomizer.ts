@@ -3,6 +3,12 @@ declare const ig: any;
 
 let mapId = 1000
 
+export async function loadAllEnemyTypes(data) {
+    for (let enemy in data) {
+        new sc.EnemyType(enemy)
+    }
+}
+
 export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
     // console.log('enemy', ig.copy(enemy), seed, data, preset)
 
@@ -14,6 +20,10 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
     } else {
         z = levels[level].height
     }
+    
+    let enemyGroup = enemy.settings.enemyInfo.group
+    let enemyType = enemy.settings.enemyInfo.type
+
     return getRandomEnemy(enemy.settings.enemyInfo, 
                           { x: enemy.x, y: enemy.y, width: 16, height: 16, z },
                           Math.pow(enemy.x, 2) * Math.pow(enemy.y, 2) * parseInt(seed.substring(2)),
@@ -76,14 +86,22 @@ function seedrandom(min, max, seed) {
 function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const enemyType = enemyInfo.type
     const myDbEntry = data[enemyType]
+
+    if (! myDbEntry || enemyInfo.state) { console.log(enemyType, 'not found in db'); return [] }
+    if (enemyType == 'mine-runbot') { return [] }
+
+    const endurance = myDbEntry.endurance
     
-    if (! myDbEntry || enemyInfo.state || enemyType == 'mine-runbot') { return [] }
     const gameDbEntry = ig.database.data.enemies[enemyType]
     const origLevel = gameDbEntry.level
 
     const elements = getCurrentPlayerElements()
 
     const compatibleEnemyTypes = Object.entries(data).filter(entry => {
+        let entryEndurance = data[entry[0]].endurance
+
+        if (entryEndurance - preset.enduranceRange[0] > endurance ||
+               entryEndurance + preset.enduranceRange[1] < endurance) { return false }
         if (! preset.elementCompatibility) { return true }
 
         const val = entry[1]
@@ -110,7 +128,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const randTypeIndex = seedrandom(0, compatibleEnemyTypes.length, enemySeed)
     enemySeed += 1000
     const randType = compatibleEnemyTypes[randTypeIndex][0]
-    // console.log('rand', randTypeIndex, 'from', enemyType, 'to', randType)
+    // console.log('rand', randTypeIndex, 'from', enemyType, 'to', randType, 'endurance', endurance, 'to', data[randType].endurance)
 
     const randLevel = seedrandom(origLevel - preset.levelRange[0], origLevel + preset.levelRange[1], enemySeed)
 
