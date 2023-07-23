@@ -396,6 +396,11 @@ export default class ItemRandomizer {
                         this.fallCount = -100
                     }
                 }
+            },
+            doEnemyAction(...args) {
+                try {
+                    this.parent(...args)
+                } catch (error) { }
             }
         })
 
