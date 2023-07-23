@@ -26,7 +26,7 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
 
     return getRandomEnemy(enemy.settings.enemyInfo, 
                           { x: enemy.x, y: enemy.y, width: 16, height: 16, z },
-                          Math.pow(enemy.x, 2) * Math.pow(enemy.y, 2) * parseInt(seed.substring(2)),
+                          (enemy.x * enemy.y * parseInt(seed.substring(2))) % 1000000,
                           data.regularEnemies, preset, changeMap)
 }
 
@@ -34,7 +34,7 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
 export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels) {
     // console.log('spawner', spawner, seed, data, preset)
 
-    const spawnerSeed = Math.pow(spawner.x, 2) * Math.pow(spawner.y, 2) * parseInt(seed.substring(2))
+    const spawnerSeed = (spawner.x * spawner.y * parseInt(seed.substring(2))) % 1000000
     const allMapObjects = []
     let allObjectsSet = new Set()
 
@@ -47,23 +47,31 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
         z = levels[level].height
     }
 
-    let i = 1
-    for (let obj of spawner.settings.enemyTypes) {
-        const enemyInfo = obj.info
-        let enemySeed = spawnerSeed * i
-        const mapObjects = getRandomEnemy(enemyInfo, 
-                           { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
-                               height: spawner.settings.size.y, z },
-                           enemySeed, data.regularEnemies, preset, changeMap)
+    const newEnemyTypes = []
+    for (let i = 0; i < spawner.settings.enemyTypes.length; i++) {
+        const entry = spawner.settings.enemyTypes[i]
 
-        for (let objEntity of mapObjects) {
-            let type = objEntity.type
-            if (allObjectsSet.has(type)) { continue }
-            allObjectsSet.add(type)
-            allMapObjects.push(objEntity)
+        for (let h = 0; h < entry.count; h++) {
+            let newEntry = ig.copy(entry)
+            newEntry.count = 1
+            let newEnemyInfo = newEntry.info
+            let enemySeed = spawnerSeed * (i+1) * (h+1)
+            const mapObjects = getRandomEnemy(newEnemyInfo, 
+                               { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
+                                   height: spawner.settings.size.y, z },
+                               enemySeed, data.regularEnemies, preset, changeMap)
+
+            newEnemyTypes.push(newEntry)
+            for (let objEntity of mapObjects) {
+                let type = objEntity.type
+                if (allObjectsSet.has(type)) { continue }
+                allObjectsSet.add(type)
+                allMapObjects.push(objEntity)
+            }
         }
-        i++
     }
+
+    spawner.settings.enemyTypes = newEnemyTypes
 
     return allMapObjects
 }
@@ -87,7 +95,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const enemyType = enemyInfo.type
     const myDbEntry = data[enemyType]
 
-    if (! myDbEntry || enemyInfo.state) { console.log(enemyType, 'not found in db'); return [] }
+    if (! myDbEntry) { console.log('enemy randomizer:', enemyType, 'not found in db'); return [] }
     // if (enemyType == 'mine-runbot') { return [] }
 
     const endurance = myDbEntry.endurance
@@ -126,10 +134,10 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     })
 
     const randTypeIndex = seedrandom(0, compatibleEnemyTypes.length, enemySeed)
-    enemySeed += 1000
     const randType = compatibleEnemyTypes[randTypeIndex][0]
-    // console.log('rand', randTypeIndex, 'from', enemyType, 'to', randType, 'endurance', endurance, 'to', data[randType].endurance)
+    // console.log('rand', enemySeed, randTypeIndex, 'from', enemyType, 'to', randType, 'endurance', endurance, 'to', data[randType].endurance)
 
+    enemySeed *= 1.5
     const randLevel = seedrandom(origLevel - preset.levelRange[0], origLevel + preset.levelRange[1], enemySeed)
 
     if (! changeMap[enemyType]) {
