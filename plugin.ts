@@ -1,6 +1,6 @@
 import { getChecks } from "./chests.js";
+import { randomizeEnemy, randomizeSpawner } from "./enemy-randomizer.js";
 import { extractMarkers } from "./extract-markers.js";
-import { randomizeEnemy, randomizeSpawner, loadAllEnemyTypes } from "./enemy-randomizer.js";
 
 // @ts-ignore
 const fs = require('fs');
@@ -240,6 +240,15 @@ export default class ItemRandomizer {
                     default:                
                         sc.model.player.addItem(check.replacedWith.item, check.replacedWith.amount, false)
                 }
+            }
+        });
+
+        ig.EVENT_STEP.RESET_SKILL_TREE.inject({
+            start() {
+                if (maps[ig.game.mapName]) {
+                    return; //Do not reset the skilltree if there is a check in the room.
+                }
+                return this.parent();
             }
         })
 
