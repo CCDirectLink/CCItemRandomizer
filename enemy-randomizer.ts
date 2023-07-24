@@ -35,7 +35,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
     // console.log('spawner', spawner, seed, data, preset)
 
     const spawnerSeed = (spawner.x * spawner.y * parseInt(seed.substring(2))) % 1000000
-    const allMapObjects = []
+    const allMapObjects: any = []
     let allObjectsSet = new Set()
 
     let level = spawner.level
@@ -47,7 +47,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
         z = levels[level].height
     }
 
-    const newEnemyTypes = []
+    const newEnemyTypes: any = []
     for (let i = 0; i < spawner.settings.enemyTypes.length; i++) {
         const entry = spawner.settings.enemyTypes[i]
 
@@ -56,7 +56,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
             newEntry.count = 1
             let newEnemyInfo = newEntry.info
             let enemySeed = spawnerSeed * (i+1) * (h+1)
-            const mapObjects = getRandomEnemy(newEnemyInfo, 
+            const mapObjects: any = getRandomEnemy(newEnemyInfo, 
                                { x: spawner.x, y: spawner.y, width: spawner.settings.size.x,
                                    height: spawner.settings.size.y, z },
                                enemySeed, data.regularEnemies, preset, changeMap)
@@ -112,7 +112,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
                entryEndurance + preset.enduranceRange[1] < endurance) { return false }
         if (! preset.elementCompatibility) { return true }
 
-        const val = entry[1]
+        const val: any = entry[1]
 
         // check for element compatibility
         // check if any elements are available
@@ -150,7 +150,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     enemyInfo.customGenerated = true
 
 
-    let mapObjects = []
+    let mapObjects: any = []
     if (preset.spawnMapObjects) {
         mapObjects = spawnMapObjects(data[randType].mapElements, rect, elements)
     }

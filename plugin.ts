@@ -100,7 +100,7 @@ export default class ItemRandomizer {
         const { maps, quests, shops, markers, overrides, enemyRandomizerPreset, seed } = await generateRandomizerState();
         console.log('seed', seed);
 
-        let mapObjectSpawnQueue = []
+        let mapObjectSpawnQueue: any = []
         let enemyData
         if (enemyRandomizerPreset?.enable) {
             enemyData = await (await fetch(baseDirectory.substring(7) + 'enemy-data.json')).json();
@@ -252,17 +252,20 @@ export default class ItemRandomizer {
                     mapObjectSpawnQueue = []
                     const mapEntityGroups = {}
                     const changeMap = {}
+                    const entityNameToTypeMap = {}
                     for (const entity of map.entities) {
                         let mapObjects
                         if (entity.type == 'EnemySpawner' && enemyRandomizerPreset.randomizeSpawners) {
                             mapObjects = randomizeSpawner(entity, seed, enemyData, enemyRandomizerPreset, changeMap, map.levels)
                         } else if (entity.type == 'Enemy' && enemyRandomizerPreset.randomizeEnemies) {
+                            entityNameToTypeMap[entity.settings.name] = entity.settings.enemyInfo.type
                             mapObjects = randomizeEnemy(entity, seed, enemyData, enemyRandomizerPreset, changeMap, map.levels)
                         }
                         if (mapObjects) {
                             mapObjectSpawnQueue = mapObjectSpawnQueue.concat(mapObjects)
                         }
                     }
+
 
                     // search for SET_TYPED_ENEMY_TARGET in EventTrigger's and replace old enemy types with new
                     for (const entity of map.entities) {
@@ -272,23 +275,38 @@ export default class ItemRandomizer {
 
                         for (let i = 0; i < events.length; i++) {
                             const event = ig.copy(events[i])
-                            if (event.type != 'SET_TYPED_ENEMY_TARGET') { continue }
-                            const oldType = event.enemyType
+                            if (event.type == 'SET_TYPED_ENEMY_TARGET') {
+                                const oldType = event.enemyType
 
-                            const newTypes = changeMap[oldType]
-                            if (! newTypes) { continue }
+                                const newTypes = changeMap[oldType]
+                                if (! newTypes) { continue }
 
-                            events.splice(i, 1)
-                            const alreadyAdded = new Set()
-                            for (const newType of newTypes) {
-                                if (alreadyAdded.has(newType)) { continue }
-                                alreadyAdded.add(newType)
-                                const newEvent = ig.copy(event)
-                                newEvent.enemyType = newType
-                                events.splice(i, 0, newEvent)
-                                i++
+                                console.log(JSON.stringify(events[i]))
+                                events.splice(i, 1)
+                                const alreadyAdded = new Set()
+                                for (const newType of newTypes) {
+                                    if (alreadyAdded.has(newType)) { continue }
+                                    alreadyAdded.add(newType)
+                                    const newEvent = ig.copy(event)
+                                    newEvent.enemyType = newType
+                                    events.splice(i, 0, newEvent)
+                                    i++
+                                }
+                            } else if (event.type == 'WAIT_UNTIL_ACTION_DONE' || event.type == 'DO_ACTION') {
+                                if (event.entity) {
+                                    const entityName = event.entity.name
+                                    if (changeMap[entityNameToTypeMap[entityName]]) {
+                                        events.splice(i, 1)
+                                        events.splice(i, 0, {
+                                            type: 'SET_ENEMY_TARGET',
+                                            enemy: { global: true, name: entityName },
+                                            target: { player: true },
+                                        })
+                                    }
+                                }
                             }
                         }
+                        console.log('changed event', ig.copy(entity))
                     }
                 }
                 
@@ -388,7 +406,7 @@ export default class ItemRandomizer {
                 if (this.customGenerated) {
                     if (! this.fallCount) { this.fallCount = 0 }
                     this.fallCount++
-                    if (this.fallCount >= 5) {
+                    if (this.fallCount >= 2) {
                         let newPos = ig.copy(ig.game.playerEntity.coll.pos)
                         newPos.z += 256
                         this.setRespawnPoint(newPos)
