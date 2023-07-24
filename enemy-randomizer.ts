@@ -77,6 +77,9 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
 }
 
 function getCurrentPlayerElements() {
+    if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+        return [false, false, false, false];
+    }
     return [
         sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_HEAT),
         sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_COLD),
