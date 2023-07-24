@@ -420,6 +420,14 @@ export default class ItemRandomizer {
             }
         })
 
+        sc.EnemyType.inject({
+            updateAction(...args) {
+                try {
+                    this.parent(...args)
+                } catch (error) { }
+            }
+        })
+
         function checkMarkers() {
             if (markers 
                 && Object.values(sc.menu.mapStamps as Record<string, any[]>).every(v => v.every(c => !c))) {
