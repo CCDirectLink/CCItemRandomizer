@@ -281,7 +281,6 @@ export default class ItemRandomizer {
                                 const newTypes = changeMap[oldType]
                                 if (! newTypes) { continue }
 
-                                console.log(JSON.stringify(events[i]))
                                 events.splice(i, 1)
                                 const alreadyAdded = new Set()
                                 for (const newType of newTypes) {
@@ -306,7 +305,6 @@ export default class ItemRandomizer {
                                 }
                             }
                         }
-                        console.log('changed event', ig.copy(entity))
                     }
                 }
                 
