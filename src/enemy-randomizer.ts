@@ -1,15 +1,76 @@
+import { EnemyData, RawRegularEnemies } from "./enemy-data.model";
+import { fixedRandomInt } from "./utils";
+
 declare const sc: any;
 declare const ig: any;
 
 let mapId = 1000
 
-export async function loadAllEnemyTypes(data) {
+interface Enemy {
+    settings: {
+        enemyInfo: EnemyInfo
+    };
+    x: number;
+    y: number;
+    level: number | { level: number; offset: number; };
+}
+
+interface Spawner {
+    settings: {
+        enemyTypes: EnemyType[];
+        size: {
+            x: number;
+            y: number;
+        };
+    };
+    x: number;
+    y: number;
+    level: number | { level: number; offset: number; };
+}
+
+interface EnemyType {
+    count: number;
+    info: EnemyInfo;
+}
+
+interface EnemyInfo {
+    type: string;
+    level: number;
+    customGenerated?: true;
+}
+
+interface Rectangle {
+    x: number;
+    y: number;
+    z: number;
+    width: number;
+    height: number;
+}
+
+export interface EnemyGeneratorPreset {
+    enable: boolean;
+    randomizeSpawners: boolean;
+    randomizeEnemies: boolean;
+    elementCompatibility: boolean;
+    spawnMapObjects: boolean;
+
+    enduranceRange: [min: number, max: number];
+    levelRange: [min: number, max: number];
+}
+
+interface Level {
+    height: number;
+}
+
+type ElementFlags = [heat: boolean, cold: boolean, shock: boolean, wave: boolean];
+
+export async function loadAllEnemyTypes(data: RawRegularEnemies) {
     for (let enemy in data) {
         new sc.EnemyType(enemy)
     }
 }
 
-export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
+export function randomizeEnemy(enemy: Enemy, seed: string, data: EnemyData, preset: EnemyGeneratorPreset, changeMap: Record<string, string[]>, levels: Level[]) {
     // console.log('enemy', ig.copy(enemy), seed, data, preset)
 
     let level = enemy.level
@@ -21,8 +82,8 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
         z = levels[level].height
     }
     
-    let enemyGroup = enemy.settings.enemyInfo.group
-    let enemyType = enemy.settings.enemyInfo.type
+    // let enemyGroup = enemy.settings.enemyInfo.group
+    // let enemyType = enemy.settings.enemyInfo.type
 
     return getRandomEnemy(enemy.settings.enemyInfo, 
                           { x: enemy.x, y: enemy.y, width: 16, height: 16, z },
@@ -31,7 +92,7 @@ export function randomizeEnemy(enemy, seed, data, preset, changeMap, levels) {
 }
 
 
-export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels) {
+export function randomizeSpawner(spawner: Spawner, seed: string, data: EnemyData, preset: EnemyGeneratorPreset, changeMap: Record<string, string[]>, levels: Level[]) {
     // console.log('spawner', spawner, seed, data, preset)
 
     const spawnerSeed = (spawner.x * spawner.y * parseInt(seed.substring(2))) % 1000000
@@ -52,7 +113,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
         const entry = spawner.settings.enemyTypes[i]
 
         for (let h = 0; h < entry.count; h++) {
-            let newEntry = ig.copy(entry)
+            let newEntry: EnemyType = ig.copy(entry)
             newEntry.count = 1
             let newEnemyInfo = newEntry.info
             let enemySeed = spawnerSeed * (i+1) * (h+1)
@@ -76,7 +137,7 @@ export function randomizeSpawner(spawner, seed, data, preset, changeMap, levels)
     return allMapObjects
 }
 
-function getCurrentPlayerElements() {
+function getCurrentPlayerElements(): ElementFlags {
     if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
         return [false, false, false, false];
     }
@@ -88,13 +149,7 @@ function getCurrentPlayerElements() {
     ]
 }
 
-function seedrandom(min, max, seed) {
-    const x = Math.sin(seed) * 10000
-    const random = (x - Math.floor(x)) * (max - min) + min
-    return Math.floor(random)
-}
-
-function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
+function getRandomEnemy(enemyInfo: EnemyInfo, rect: Rectangle, enemySeed: number, data: RawRegularEnemies, preset: EnemyGeneratorPreset, changeMap: Record<string, string[]>) {
     const enemyType = enemyInfo.type
     const myDbEntry = data[enemyType]
 
@@ -104,7 +159,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     const endurance = myDbEntry.endurance
     
     const gameDbEntry = ig.database.data.enemies[enemyType]
-    const origLevel = gameDbEntry.level
+    const origLevel: number = gameDbEntry.level
 
     const elements = getCurrentPlayerElements()
 
@@ -115,7 +170,7 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
                entryEndurance + preset.enduranceRange[1] < endurance) { return false }
         if (! preset.elementCompatibility) { return true }
 
-        const val: any = entry[1]
+        const val = entry[1]
 
         // check for element compatibility
         // check if any elements are available
@@ -136,12 +191,12 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
         return true
     })
 
-    const randTypeIndex = seedrandom(0, compatibleEnemyTypes.length, enemySeed)
+    const randTypeIndex = fixedRandomInt(enemySeed, 0, compatibleEnemyTypes.length)
     const randType = compatibleEnemyTypes[randTypeIndex][0]
     // console.log('rand', enemySeed, randTypeIndex, 'from', enemyType, 'to', randType, 'endurance', endurance, 'to', data[randType].endurance)
 
     enemySeed *= 1.5
-    let randLevel = seedrandom(origLevel - preset.levelRange[0], origLevel + preset.levelRange[1], enemySeed)
+    let randLevel = fixedRandomInt(enemySeed, origLevel - preset.levelRange[0], origLevel + preset.levelRange[1])
     if (randLevel <= 0) {
         randLevel = 1 
     }
@@ -163,19 +218,18 @@ function getRandomEnemy(enemyInfo, rect, enemySeed, data, preset, changeMap) {
     return mapObjects
 }
 
-function spawnMapObjects(mapObject, rect, elements) {
+function spawnMapObjects(mapObject: string, rect: Rectangle, elements: ElementFlags) {
     let mx = rect.x + rect.width/2
     let my = rect.y + rect.height/2
-    rect.x2 = rect.x + rect.width
-    rect.y2 = rect.y + rect.height
+    const x2 = rect.x + rect.width
+    const y2 = rect.y + rect.height
     let z = rect.z
     switch (mapObject) {
         case 'pole': {
             return [ elementPole(mx - 8, my + 64, z) ]
         }
         case 'magnet': {
-            let side = 'NORTH'
-            return [ magnet(mx - 8, rect.y2 - 24, z, side) ]
+            return [ magnet(mx - 8, y2 - 24, z, 'NORTH') ]
         }
         case 'teslaCoil': {
             return [
@@ -188,18 +242,18 @@ function spawnMapObjects(mapObject, rect, elements) {
         case 'compressor': {
             return [
                 boldPntMarker(mx - 16, my - 16, z, 1),
-                compressor(rect.x + 80, rect.y2 - 80, z),
+                compressor(rect.x + 80, y2 - 80, z),
             ]
         }
         case 'waveTeleport': {
             let arr = [
                 waveTeleport(rect.x + 32, rect.y + 32, z),
-                waveTeleport(rect.x2 - 32, rect.y2 - 32, z),
+                waveTeleport(x2 - 32, y2 - 32, z),
             ]
             // if player is missing wave
             if (! elements[3]) {
-                arr.push(ballChangerElement(rect.x + 32, rect.y2 - 48, z, 'WAVE', 'NORTH'))
-                arr.push(ballChangerElement(rect.x2 - 48, rect.y + 32, z, 'WAVE', 'NORTH'))
+                arr.push(ballChangerElement(rect.x + 32, y2 - 48, z, 'WAVE', 'NORTH'))
+                arr.push(ballChangerElement(x2 - 48, rect.y + 32, z, 'WAVE', 'NORTH'))
             }
             return arr
         }
@@ -212,7 +266,7 @@ function spawnMapObjects(mapObject, rect, elements) {
 
 
 
-function elementPole(x, y, z) {
+function elementPole(x: number, y: number, z: number) {
     return {
         type: 'ElementPole',
         x, y, z,
@@ -225,7 +279,7 @@ function elementPole(x, y, z) {
     }
 }
 
-function waterBubblePanel(x, y, z) {
+function waterBubblePanel(x: number, y: number, z: number) {
     return {
         type: 'WaterBubblePanel',
         x, y, z,
@@ -236,7 +290,7 @@ function waterBubblePanel(x, y, z) {
     }
 }
 
-function waveTeleport(x, y, z) {
+function waveTeleport(x: number, y: number, z: number) {
     return {
         type: 'WaveTeleport',
         x, y, z,
@@ -247,7 +301,7 @@ function waveTeleport(x, y, z) {
     }
 }
 
-function ballChangerElement(x, y, z, element, dir) {
+function ballChangerElement(x: number, y: number, z: number, element: 'HEAT' | 'COLD' | 'WAVE' | 'HEAT', dir: 'NORTH' | 'SOUTH' | 'EAST' | 'WEST') {
     return {
         type: 'BallChanger',
         x, y, z,
@@ -266,7 +320,7 @@ function ballChangerElement(x, y, z, element, dir) {
     }
 }
 
-function compressor(x, y, z) {
+function compressor(x: number, y: number, z: number) {
     return {
         type: 'Compressor',
         x, y, z,
@@ -277,7 +331,7 @@ function compressor(x, y, z) {
     }
 }
 
-function antiCompressor(x, y, z) {
+function antiCompressor(x: number, y: number, z: number) {
     return {
         type: 'AntiCompressor',
         x, y, z,
@@ -288,7 +342,7 @@ function antiCompressor(x, y, z) {
     }
 }
 
-function boldPntMarker(x, y, z, index) {
+function boldPntMarker(x: number, y: number, z: number, index: number) {
     return {
         type: 'Marker',
         x, y, z,
@@ -300,7 +354,7 @@ function boldPntMarker(x, y, z, index) {
     }
 }
 
-function magnet(x, y, z, dir) {
+function magnet(x: number, y: number, z: number, dir: 'NORTH' | 'SOUTH' | 'EAST' | 'WEST') {
     return {
         type: 'Magnet',
         x, y, z,
@@ -312,8 +366,7 @@ function magnet(x, y, z, dir) {
     }
 }
 
-// type: SOURCE, EXTENDER, GROUND_DISCHARGE
-function teslaCoil(x, y, z, type) {
+function teslaCoil(x: number, y: number, z: number, type: 'SOURCE' | 'EXTENDER' | 'GROUND_DISCHARGE') {
     return {
         type: 'TeslaCoil',
         x, y, z,

@@ -1,23 +1,67 @@
-export async function getChecks(baseDirectory, fixedSeed) {
-    const data = await (await fetch(baseDirectory.slice(7) + 'item-data.json')).json();
+import { ChestType, ItemData } from "./item-data.model";
+import { initRandom, randomInt } from "./utils";
 
-    if (fixedSeed) {
-        if (!fixedSeed.includes('_') && data.version) {
-            console.warn('Seed from another version was used. This will not give you the same result.')
-        } else if (fixedSeed.includes('_') && data.version !== fixedSeed.split('_')[0]) {
-            console.warn('Seed from another version was used. This will not give you the same result.')
-        }
+export type Element = 'heat' | 'cold' | 'shock' | 'wave';
+export type Check = ({
+    type: 'element';
+    map: string;
+    item: Element;
+    amount: 1;
+    mapId: number;
+    conditions: string[];
+} | {
+    type: 'chest';
+    map: string;
+    mapId: number;
+    item: number;
+    amount: number;
+    conditions: string[];
+    chestType: ChestType;
+} | {
+    type: 'event';
+    map: string;
+    mapId: number;
+    item: number;
+    amount: number;
+    conditions: string[];
+    path: string;
+} | {
+    type: 'shop';
+    name: string;
+    item: number;
+    amount: number;
+    conditions: string[];
+    price: number;
+} | {
+    type: 'quest';
+    name: string;
+    item: number;
+    amount: number;
+    conditions: string[];
+}) & {
+    replacedWith?: {
+        item: number | Element;
+        amount: number;
     }
+};
 
-    const seed = fixedSeed || ((data.version ? data.version + '_' : '') + (Math.random() + '').slice(2));
-    // @ts-ignore
-    Math.seedrandomSeed(seed);
+export type Overrides = Record<string, {disabledEvents: string[], variablesOnLoad: Record<string, unknown>}>;
 
-    const areaConditions: Record<string, any> = {};
+export async function getChecks(baseDirectory: string, fixedSeed?: string) {
+    const data: ItemData = await (await fetch(baseDirectory.slice(7) + 'data/item-data.json')).json();
+
+    const seed = checkSeed(data.version, fixedSeed);
+
+    initRandom(seed);
+
+    const areaConditions: Record<string, string[]> = {};
     areaConditions[data.startingArea] = [];
     for (const area of data.areas) {
         const [from, _type, to, ...condition] = area;
-        areaConditions[to] = areaConditions[from].concat(condition).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
+        areaConditions[to] = areaConditions[from]
+            .concat(condition)
+            .filter(c => c)
+            .filter((c, i, arr) => arr.indexOf(c) === i);
     }
 
     const checks = [
@@ -25,7 +69,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         { type: 'element', map: 'heat-dng.f2.room-cold', item: 'cold', amount: 1, mapId: 78, conditions: [...areaConditions["16"]] },
         { type: 'element', map: 'wave-dng.b1.center-05-element', item: 'shock', amount: 1, mapId: 248, conditions: [...areaConditions["27"]] },
         { type: 'element', map: 'shock-dng.f2.room-element', item: 'wave', amount: 1, mapId: 86, conditions: [...areaConditions["25"]] },
-    ] as any[];
+    ] as Check[];
     for (const map of Object.keys(data.items)) {
         for (const mapId of Object.keys(data.items[map].chests)) {
             const { item, amount, type, condition } = data.items[map].chests[mapId];
@@ -42,9 +86,13 @@ export async function getChecks(baseDirectory, fixedSeed) {
     }
 
     checks.sort((a, b) => {
+        if (!('map' in a) || !('map' in b)) {
+            return 0;
+        }
+        
         const d = a.map.localeCompare(b.map);
         if (d !== 0) {
-            return d;
+            return d!;
         }
 
         return a.mapId - b.mapId;
@@ -53,7 +101,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
     for (const [shopName, shopData] of Object.entries(data.shops) as Iterable<[string, any]>) {
         const conditions = (areaConditions[shopData.area] || ['softlock']).concat(['softlock']).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
         for (const item of shopData.items) {
-            checks.push({type: 'shop', name: shopName, item: +item, amount: 1, price: randomNumber(1, 10) * 1000 * shopData.scale, conditions})
+            checks.push({type: 'shop', name: shopName, item: +item, amount: 1, price: randomInt(1, 10) * 1000 * shopData.scale, conditions})
         }
     }
 
@@ -61,9 +109,13 @@ export async function getChecks(baseDirectory, fixedSeed) {
     checks.push({ type: 'quest', name: 'basin-mush-2', conditions: [...areaConditions["23"]], item: 345, amount: 1 });
 
 
-    const requiredItems = ([] as any[]).concat(...Object.values(areaConditions)).concat(Object.values(data.keys)).map(c => c.includes('>=') ? Number(c.slice(5, c.length - 12)) : c).filter(c => c).filter((c, i, arr) => arr.indexOf(c) === i);
+    const requiredItems = ([] as string[]).concat(...Object.values(areaConditions))
+        .concat(Object.values(data.keys))
+        .map(c => c.includes('>=') ? Number(c.slice(5, c.length - 12)) : c as Element)
+        .filter(c => c)
+        .filter((c, i, arr) => arr.indexOf(c) === i);
     const allItems = [...requiredItems];
-    const nonRequiredItems: any[] = [];
+    const nonRequiredItems: (number | Element)[] = [];
     for (const check of checks) {
         if (!allItems.includes(check.item)) {
             allItems.push(check.item);
@@ -71,15 +123,15 @@ export async function getChecks(baseDirectory, fixedSeed) {
         }
     }
 
-    const withAmounts = {};
+    const withAmounts: Record<string | number, {item: Element | number, amount: number}[]> = {};
     for (const item of allItems) {
         withAmounts[item] = checks.filter(c => c.item == item).map(c => ({item: c.item, amount: c.amount}));;
     }
     
-    const spoilerLog: any[] = [];
+    const spoilerLog: Check[] = [];
 
-    const fulfilledConditions = new Set();
-    const fulfilledItems = {};
+    const fulfilledConditions = new Set<string>();
+    const fulfilledItems: Record<number, number> = {};
 
     for (const item of requiredItems) {
         replaceChecks(withAmounts[item], checks, spoilerLog, fulfilledConditions, fulfilledItems);
@@ -89,9 +141,9 @@ export async function getChecks(baseDirectory, fixedSeed) {
         replaceChecks(withAmounts[item], checks, spoilerLog, fulfilledConditions, fulfilledItems);
     }
 
-    const maps = {};
-    const quests: any[] = [];
-    const shops = {};
+    const maps: Record<string, Record<number, Check[]>> = {};
+    const quests: Check[] = [];
+    const shops: Record<string, Check[]> = {};
     for (const check of spoilerLog) {
         if (check.type === 'quest') {
             quests.push(check);
@@ -112,7 +164,7 @@ export async function getChecks(baseDirectory, fixedSeed) {
         entry.push(check);
     }
 
-    const overrides = {};
+    const overrides: Overrides = {};
     for (const [mapName, mapData] of Object.entries(data.items) as Iterable<[string, any]>) {
         overrides[mapName] = {
             disabledEvents: mapData.disabledEvents,
@@ -123,28 +175,21 @@ export async function getChecks(baseDirectory, fixedSeed) {
     return {spoilerLog, quests, maps, shops, overrides, seed};
 }
 
-function randomNumber(min, max) {
-        // @ts-ignore
-    return (Math.randomSeed() * (max - min) + min) >>> 0;
-}
-
-function replaceChecks(items, input, output, fulfilledConditions, fulfilledItems) {
+function replaceChecks(items: {item: Element | number, amount: number}[], input: Check[], output: Check[], fulfilledConditions: Set<string>, fulfilledItems: Record<number, number>) {
     while (items.length > 0) {
         const fulfilledChecks = input.filter(check => check.conditions.every(c => fulfilledConditions.has(c)));
-        const nextCheck = fulfilledChecks[randomNumber(0, fulfilledChecks.length)];
-        // const nextCheck = fulfilledChecks[0];
+        const nextCheck = fulfilledChecks[randomInt(0, fulfilledChecks.length)];
         output.push(nextCheck);
 
-        if (!nextCheck) {
-debugger;
-        }
-
         const replacedWith = items.shift();
+        if (!replacedWith) {
+            throw new Error('unreachable: Ran out of items to replace checks with');
+        }
         nextCheck.replacedWith = replacedWith;
 
         input.splice(input.indexOf(nextCheck), 1);
 
-        if (isNaN(Number(replacedWith.item))) {
+        if (typeof replacedWith.item === 'string') {
             fulfilledConditions.add(replacedWith.item);
         } else {
             const count = fulfilledItems[replacedWith.item] || 0;
@@ -154,4 +199,16 @@ debugger;
             }
         }
     }
+}
+
+function checkSeed(version: string, fixedSeed?: string) {
+    if (fixedSeed) {
+        if (!fixedSeed.includes('_') && version) {
+            console.warn('Seed from another version was used. This will not give you the same result.')
+        } else if (fixedSeed.includes('_') && version !== fixedSeed.split('_')[0]) {
+            console.warn('Seed from another version was used. This will not give you the same result.')
+        }
+    }
+
+    return fixedSeed || ((version ? version + '_' : '') + (Math.random() + '').slice(2));
 }

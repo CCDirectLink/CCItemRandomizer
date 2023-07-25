@@ -1,19 +1,29 @@
-import { getChecks } from "./chests.js";
-import { randomizeEnemy, randomizeSpawner } from "./enemy-randomizer.js";
-import { extractMarkers } from "./extract-markers.js";
+import { Check, Element, Overrides, getChecks } from "./checks.js";
+import { EnemyData } from "./enemy-data.model.js";
+import { EnemyGeneratorPreset, randomizeEnemy, randomizeSpawner } from "./enemy-randomizer.js";
+import { Markers, extractMarkers } from "./extract-markers.js";
 
 // @ts-ignore
-const fs = require('fs');
+const fs: typeof import('fs') = require('fs');
 
 declare const ig: any;
 declare const sc: any;
 
 let baseDirectory = '';
 
-async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
+async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any): Promise<{
+    spoilerLog: Check[],
+    maps: Record<string, Record<number, Check[]>>, 
+    quests: Check[], 
+    shops: Record<string, Check[]>, 
+    overrides: Overrides, 
+    markers: Markers, 
+    enemyRandomizerPreset: EnemyGeneratorPreset,
+    seed: string,
+}> {
     const stateExists = fs.existsSync('randomizerState.json');
     if (!forceGenerate && stateExists) {
-        return JSON.parse(await fs.readFileSync('randomizerState.json'));
+        return JSON.parse(await fs.readFileSync('randomizerState.json') as unknown as string);
     }
 
     const {spoilerLog, maps, quests, shops, overrides, seed} = await getChecks(baseDirectory, fixedSeed);
@@ -25,7 +35,7 @@ async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
 
     const markers = await extractMarkers(spoilerLog, mapNames, mapData, areaNames, areas);
 
-    const enemyRandomizerPreset = {
+    const enemyRandomizerPreset: EnemyGeneratorPreset = {
         enable: true,
         randomizeSpawners: true,
         randomizeEnemies: true,
@@ -57,12 +67,12 @@ async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
         return mapName;
     });
 
-    function getPrettyName(log) {
+    function getPrettyName(log: Check) {
         if (log.type === 'shop') {
             return shopsDatabase[log.name].name.en_US;
         }
 
-        if (log.name) {
+        if ('name' in log) {
             return log.name; //TODO: quest names
         }
 
@@ -75,14 +85,14 @@ async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
     }
 
     const pretty = spoilerLog.map(log => {
-        return `${((log.chestType || '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith.amount} ${(items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${log.map || log.name})`
+        return `${(('chestType' in log ? log.chestType : '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith!.amount} ${(items[log.replacedWith!.item] ? items[log.replacedWith!.item].name.en_US : log.replacedWith!.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${'map' in log ? log.map : log.name})`
     });
 
     const prettyOrderd = spoilerLog
         .filter(() => true) //Copy array
         .sort((a, b) => getPrettyName(a).localeCompare(getPrettyName(b)))
         .map(log => {
-            return `${((log.chestType || '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith.amount} ${(items[log.replacedWith.item] ? items[log.replacedWith.item].name.en_US : log.replacedWith.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${log.map || log.name})`
+            return `${(('chestType' in log ? log.chestType : '') + ' ' + log.type).padStart(13, ' ')} contains ${log.replacedWith!.amount} ${(items[log.replacedWith!.item] ? items[log.replacedWith!.item].name.en_US : log.replacedWith!.item).padEnd(20, ' ')} at ${getPrettyName(log).padEnd(40, ' ')} (${'map' in log ? log.map : log.name})`
         });
 
     await fs.promises.writeFile('spoilerlog.txt', `Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'));
@@ -90,7 +100,7 @@ async function generateRandomizerState(forceGenerate?: any, fixedSeed?: any) {
 }
 
 export default class ItemRandomizer {
-    constructor(mod) {
+    constructor(mod: { baseDirectory: string; }) {
         baseDirectory = mod.baseDirectory;
     }
 
@@ -100,10 +110,10 @@ export default class ItemRandomizer {
         const { maps, quests, shops, markers, overrides, enemyRandomizerPreset, seed } = await generateRandomizerState();
         console.log('seed', seed);
 
-        let mapObjectSpawnQueue: any = []
-        let enemyData
+        let mapObjectSpawnQueue: any[] = []
+        let enemyData: EnemyData
         if (enemyRandomizerPreset?.enable) {
-            enemyData = await (await fetch(baseDirectory.substring(7) + 'enemy-data.json')).json();
+            enemyData = await (await fetch(baseDirectory.substring(7) + 'data/enemy-data.json')).json();
         }
 
         ig.ENTITY.Chest.inject({
@@ -121,7 +131,7 @@ export default class ItemRandomizer {
 
                 const stamps = sc.menu.mapStamps[sc.map.currentArea.path];
                 if (stamps) {
-                    const stamp = stamps.find(s => s?.map === ig.game.mapName && s?.mapId === this.mapId);
+                    const stamp = stamps.find((s: { map: any; mapId: any; }) => s?.map === ig.game.mapName && s?.mapId === this.mapId);
                     if (stamp) {
                         stamp.key = 'DEFAULT';
                     }
@@ -129,7 +139,7 @@ export default class ItemRandomizer {
 
                 const old = sc.ItemDropEntity.spawnDrops;
                 try {
-                    switch (check[0].replacedWith.item) {
+                    switch (check[0].replacedWith?.item) {
                         case "heat":
                             sc.ItemDropEntity.spawnDrops = () => {};
                             if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
@@ -178,8 +188,8 @@ export default class ItemRandomizer {
                             this.amount = 0;
                             return this.parent();
                         default:       
-                            this.item = check[0].replacedWith.item;
-                            this.amount = check[0].replacedWith.amount;         
+                            this.item = check[0].replacedWith?.item;
+                            this.amount = check[0].replacedWith?.amount;         
                             return this.parent();
                     }
                 } finally {
@@ -190,7 +200,7 @@ export default class ItemRandomizer {
 
         const elements = [sc.PLAYER_CORE.ELEMENT_HEAT, sc.PLAYER_CORE.ELEMENT_COLD, sc.PLAYER_CORE.ELEMENT_WAVE, sc.PLAYER_CORE.ELEMENT_SHOCK];
         ig.EVENT_STEP.SET_PLAYER_CORE.inject({
-            init(settings) {
+            init(settings: { bypass: any; alsoGiveElementChange: any; }) {
                 this.bypass = !!settings.bypass;
                 this.alsoGiveElementChange = !!settings.alsoGiveElementChange;
                 return this.parent(settings);
@@ -253,15 +263,15 @@ export default class ItemRandomizer {
         })
 
         ig.Game.inject({
-            loadLevel(map, ...args) {
+            loadLevel(map: any, ...args: unknown[]) {
                 const mapChecks = maps[map.name.replace(/[\\\/]/g, '.')] || {};
                 const mapOverrides = overrides && overrides[map.name.replace(/[\\\/]/g, '.')] || {};
 
                 if (enemyRandomizerPreset?.enable) {
                     mapObjectSpawnQueue = []
                     const mapEntityGroups = {}
-                    const changeMap = {}
-                    const entityNameToTypeMap = {}
+                    const changeMap: Record<string, string[]> = {}
+                    const entityNameToTypeMap: Record<string, string> = {}
                     for (const entity of map.entities) {
                         let mapObjects
                         if (entity.type == 'EnemySpawner' && enemyRandomizerPreset.randomizeSpawners) {
@@ -339,7 +349,7 @@ export default class ItemRandomizer {
                                 for (const check of mapChecks[entity.settings.mapId]) {
                                     if (check.type === 'event') {
                                         const path = check.path.slice(1).split(/\./g);
-                                        switch (check.replacedWith.item) {
+                                        switch (check.replacedWith?.item) {
                                             case "heat":
                                                 set(entity, 'SET_PLAYER_CORE', [...path, 'type']);
                                                 set(entity, 'ELEMENT_HEAT', [...path, 'core']);
@@ -369,8 +379,8 @@ export default class ItemRandomizer {
                                                 set(entity, true, [...path, 'alsoGiveElementChange']);
                                                 break;
                                             default:                
-                                                set(entity, check.replacedWith.item, [...path, 'item'], 0);
-                                                set(entity, check.replacedWith.amount, [...path, 'amount'], 0);
+                                                set(entity, check.replacedWith?.item, [...path, 'item'], 0);
+                                                set(entity, check.replacedWith?.amount, [...path, 'amount'], 0);
                                                 break;
                                         }
                                     }
@@ -400,13 +410,13 @@ export default class ItemRandomizer {
         });
 
         ig.ENTITY.Enemy.inject({
-            init(a, b, d, settings) {
+            init(a: unknown, b: unknown, d: unknown, settings: { enemyInfo: { customGenerated?: boolean; }; }) {
                 this.parent(a, b, d, settings)
                 if (settings.enemyInfo && settings.enemyInfo.customGenerated) {
                     this.customGenerated = true
                 }
             },
-            onFallBehavior(...args) {
+            onFallBehavior(...args: unknown[]) {
                 this.parent(args)
                 // when a flying entity that is over a hole is randomized into a non-flying entity,
                 // fix the entity falling over and over by settings the respawn point to the player pos
@@ -422,7 +432,7 @@ export default class ItemRandomizer {
                     }
                 }
             },
-            doEnemyAction(...args) {
+            doEnemyAction(...args: unknown[]) {
                 try {
                     this.parent(...args)
                 } catch (error) { }
@@ -430,19 +440,19 @@ export default class ItemRandomizer {
         })
 
         sc.EnemyType.inject({
-            updateAction(a) {
+            updateAction(a: unknown) {
                 try { return this.parent(a) } catch (error) { }
             },
-            postActionUpdate(a) {
+            postActionUpdate(a: unknown) {
                 try { return this.parent(a) } catch (error) { }
             },
-            getAppearAction(a) {
+            getAppearAction(a: unknown) {
                 try { return this.parent(a) } catch (error) { }
             }
         })
 
         sc.EnemyState.inject({
-            selectAction(a) {
+            selectAction(a: unknown) {
                 try { return this.parent(a); } catch (error) { }
             }
         })
@@ -455,20 +465,20 @@ export default class ItemRandomizer {
         }
 
         sc.MenuModel.inject({
-            onStoragePreLoad(data) {
+            onStoragePreLoad(data: unknown) {
                 this.parent(data);
                 checkMarkers();
             }
         })
 
         sc.QuestModel.inject({
-            _collectRewards(quest) {
-                const check = quests.find(q => q.name === quest.id);
+            _collectRewards(quest: { id: string; }) {
+                const check = quests.find(q => 'name' in q && q.name === quest.id);
                 if (!check) {
                     return this.parent(quest);
                 }
                 if (check) {
-                    switch (check.replacedWith.item) {
+                    switch (check.replacedWith?.item) {
                         case "heat":
                             if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
                                 sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
@@ -509,7 +519,7 @@ export default class ItemRandomizer {
                             sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
                             return;
                         default:                
-                            sc.model.player.addItem(check.replacedWith.item, check.replacedWith.amount, false);
+                            sc.model.player.addItem(check.replacedWith?.item, check.replacedWith?.amount, false);
                             return;
                     }
                 }
@@ -519,10 +529,10 @@ export default class ItemRandomizer {
 
         if (shops) {
             ig.Database.inject({
-                onload(data) {
+                onload(data: any) {
                     for (const [shopName, shopChecks] of Object.entries(shops) as Iterable<[string, any]>) {
                         const original = data.shops[shopName].pages[0];
-                        original.content = shopChecks.map(check => {
+                        original.content = shopChecks.map((check: any) => {
                             return {
                                 item: check.replacedWith.item + '',
                                 price: (check.price / check.replacedWith.amount) >>> 0, 
@@ -536,7 +546,7 @@ export default class ItemRandomizer {
 
             //Only needed for elements in shops
             sc.PlayerModel.inject({
-                addItem(id, ...args) {
+                addItem(id: number | Element, ...args: unknown[]) {
                     switch (id) {
                         case "heat":
                             if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
@@ -584,7 +594,7 @@ export default class ItemRandomizer {
             })
 
             sc.Inventory.inject({
-                onload(data) {
+                onload(data: unknown) {
                     this.parent(data);
                     this.items.heat = getElementItem('heat');
                     this.items.cold = getElementItem('cold');
@@ -593,13 +603,13 @@ export default class ItemRandomizer {
                 }
             });
 
-            function getElementItem(name) {
-                name = {
+            function getElementItem(element: Element) {
+                const name = {
                     'heat': 'Heat Element',
                     'cold': 'Cold Element',
                     'wave': 'Wave Element',
                     'shock': 'Shock Element',
-                }[name] || name;
+                }[element] || element;
                 return {
                     "name": {
                         "en_US": name,
@@ -658,7 +668,7 @@ export default class ItemRandomizer {
     }
 }
 
-function set(root, value, path, offset = 0) {
+function set(root: any, value: unknown, path: string[], offset = 0) {
     if (path.length <= offset) {
         return;
     }

@@ -1,14 +1,28 @@
-export async function extractMarkers(spoilerLog, mapNames, mapData, areaNames, areas) {
-    const markers = {};
+import { Check } from "./checks";
+
+export interface Marker {
+    key:  "CHEST" | "UNKNOWN";
+    x: number;
+    y: number; 
+    level: number; 
+    index: number; 
+    map: string; 
+    mapId: number;
+}
+
+export type Markers = Record<string, Marker[]>;
+
+export async function extractMarkers(spoilerLog: Check[], mapNames: string[], mapData: any[], areaNames: string[], areas: any[]) {
+    const markers: Markers = {};
     for (const check of spoilerLog) {
-        if (!check.map || !check.mapId) {
+        if (!('map' in check)) {
             continue;
         }
 
         const map = mapData[mapNames.indexOf(check.map)];
         const { mapWidth, mapHeight } = map;
 
-        const entity = map.entities.find(e => e.settings.mapId === check.mapId);
+        const entity = map.entities.find((e: { settings: { mapId: number; }; }) => e.settings.mapId === check.mapId);
 
         const { x, y, level } = entity;
 
@@ -22,7 +36,7 @@ export async function extractMarkers(spoilerLog, mapNames, mapData, areaNames, a
         let floor;
         let index = -1;
         for (const f of area.floors) {
-            index = f.maps.findIndex(map => map.path === check.map);
+            index = f.maps.findIndex((map: { path: string; }) => map.path === check.map);
             if (index >= 0) {
                 floor = f;
                 index++;

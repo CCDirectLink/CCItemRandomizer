@@ -1,11 +1,11 @@
 // @ts-ignore
-const fs = require('fs');
+const fs: typeof import('fs') = require('fs');
 // @ts-ignore
-const path = require('path');
+const path: typeof import('path') = require('path');
 
 export async function extract() {
     const kvs = await extractFolder('./assets/data/maps/');
-    const result = {};
+    const result: any = {};
     for (const [key, value] of kvs) {
         if (Object.keys(value).length > 0) {
             result[prettyNameFromPath(key)] = value;
@@ -14,14 +14,14 @@ export async function extract() {
     return result;
 }
 
-function prettyNameFromPath(name) {
+function prettyNameFromPath(name: string) {
     name = name.slice(17, name.length - 5);
     return name.replace(/[\\/]/g, '.');
 }
 
-async function extractFolder(name): Promise<any[]> {
+async function extractFolder(name: string): Promise<any[]> {
     const files = await fs.promises.readdir(name, {recursive: true, withFileTypes: true});
-    return [].concat(...await Promise.all(files.map(async file => {
+    return ([] as string[]).concat(...await Promise.all(files.map(async file => {
         const p = path.join(name, file.name);
         if (file.isFile()) {
             return [await extractFile(p)];
@@ -33,10 +33,10 @@ async function extractFolder(name): Promise<any[]> {
     })));
 }
 
-async function extractFile(name) {
+async function extractFile(name: string) {
     const contentRaw = await fs.promises.readFile(name);
-    const content = JSON.parse(contentRaw);
-    const result = {};
+    const content = JSON.parse(contentRaw as unknown as string);
+    const result: any = {};
     for (const entity of content.entities) {
         if (entity.type === 'Chest') {
             result[entity.settings.mapId] = { type: entity.settings.chestType, mapId: entity.settings.mapId, item: entity.settings.item, amount: entity.settings.amount, chestType: entity.settings.chestType };
@@ -50,7 +50,7 @@ async function extractFile(name) {
     return [name, result];
 }
 
-function searchObject(obj, path) {
+function searchObject(obj: any, path: string) {
     if (!obj) {
         return [];
     }
@@ -77,10 +77,10 @@ function searchObject(obj, path) {
     return result;
 }
 
-export async function printChests(chests) {
+export async function printChests(chests: Record<string, Record<string, {item: number, amount: number}>>) {
     let text = 'Map;Id;Item;Amount;Area';
     for (const [map, mapData] of Object.entries(chests)) {
-        for (const [id, data] of Object.entries(mapData as any)) {
+        for (const [id, data] of Object.entries(mapData)) {
             text += `\r\n${map};${id};${(data as any).item};${(data as any).amount};`;
         }
     } 
