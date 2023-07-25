@@ -176,7 +176,6 @@ function spawnMapObjects(mapObject, rect, elements) {
         case 'magnet': {
             let side = 'NORTH'
             return [ magnet(mx - 8, rect.y2 - 24, z, side) ]
-            break
         }
         case 'teslaCoil': {
             return [

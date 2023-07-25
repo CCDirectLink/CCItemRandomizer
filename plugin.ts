@@ -430,20 +430,20 @@ export default class ItemRandomizer {
         })
 
         sc.EnemyType.inject({
-            updateAction(...args) {
-                try { this.parent(...args) } catch (error) { }
+            updateAction(a) {
+                try { return this.parent(a) } catch (error) { }
             },
-            postActionUpdate(...args) {
-                try { this.parent(...args) } catch (error) { }
+            postActionUpdate(a) {
+                try { return this.parent(a) } catch (error) { }
             },
-            getAppearAction(...args) {
-                try { this.parent(...args) } catch (error) { }
+            getAppearAction(a) {
+                try { return this.parent(a) } catch (error) { }
             }
         })
 
         sc.EnemyState.inject({
-            selectAction(...args) {
-                try { this.parent(...args) } catch (error) { }
+            selectAction(a) {
+                try { return this.parent(a); } catch (error) { }
             }
         })
 
