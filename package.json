@@ -13,6 +13,7 @@
         "@typescript-eslint/eslint-plugin": "^6.2.0",
         "@typescript-eslint/parser": "^6.2.0",
         "esbuild": "^0.18.15",
+        "prettier": "3.0.0",
         "typescript": "^5.1.6"
     }
 }
