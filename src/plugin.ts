@@ -343,7 +343,7 @@ export default class ItemRandomizer {
 									events.splice(i, 0, newEvent);
 									i++;
 								}
-							} else if (event.type == 'WAIT_UNTIL_ACTION_DONE' || event.type == 'DO_ACTION') {
+							} else if (event.type == 'WAIT_UNTIL_ACTION_DONE') {
 								if (event.entity) {
 									const entityName = event.entity.name;
 									if (changeMap[entityNameToTypeMap[entityName]]) {
@@ -448,7 +448,7 @@ export default class ItemRandomizer {
 				}
 			},
 			onFallBehavior(...args: unknown[]) {
-				this.parent(args);
+				const ret: unknown = this.parent(args);
 				// when a flying entity that is over a hole is randomized into a non-flying entity,
 				// fix the entity falling over and over by settings the respawn point to the player pos
 				if (this.customGenerated) {
@@ -464,6 +464,7 @@ export default class ItemRandomizer {
 						this.fallCount = -100;
 					}
 				}
+                return ret
 			},
 			doEnemyAction(...args: unknown[]) {
 				try {
@@ -473,27 +474,27 @@ export default class ItemRandomizer {
 		});
 
 		sc.EnemyType.inject({
-			updateAction(a: unknown) {
+			updateAction(...args: unknown[]) {
 				try {
-					return this.parent(a);
+					return this.parent(...args);
 				} catch (error) {}
 			},
-			postActionUpdate(a: unknown) {
+			postActionUpdate(...args: unknown[]) {
 				try {
-					return this.parent(a);
+					return this.parent(...args);
 				} catch (error) {}
 			},
-			getAppearAction(a: unknown) {
+			getAppearAction(...args: unknown[]) {
 				try {
-					return this.parent(a);
+					return this.parent(...args);
 				} catch (error) {}
 			},
 		});
 
 		sc.EnemyState.inject({
-			selectAction(a: unknown) {
+			selectAction(...args: unknown[]) {
 				try {
-					return this.parent(a);
+					return this.parent(...args);
 				} catch (error) {}
 			},
 		});
