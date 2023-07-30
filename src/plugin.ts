@@ -64,7 +64,8 @@ export default class ItemRandomizer {
 		addTitleMenuButton({
 			...deserialize(seed),
 			itemTemplatePath: baseDirectory + 'data/item-data.json',
-			enemyTemplatePath: baseDirectory + 'data/enemy-data.json'
+			enemyTemplatePath: baseDirectory + 'data/enemy-data.json',
+			statePath: 'randomizerState.json'
 		}, options => this.generate(options));
 
 		let mapObjectSpawnQueue: any[] = [];

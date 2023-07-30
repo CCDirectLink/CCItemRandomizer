@@ -23,7 +23,7 @@ const RANDOMIZER_OPTIONS = {
         set: "enemy",
         cost: 0,
         getter: () => options.enemyRandomizerPreset?.enable ?? true,
-        setter: (value: boolean) =>  {
+        setter: (value: boolean) => {
             options.enemyRandomizerPreset ??= {
                 enable: true,
                 randomizeSpawners: true,
@@ -40,7 +40,7 @@ const RANDOMIZER_OPTIONS = {
         set: "shop",
         cost: 0,
         getter: () => options.shops?.enable ?? true,
-        setter: (value: boolean) =>  {
+        setter: (value: boolean) => {
             options.shops ??= {
                 enable: true,
             };
@@ -51,7 +51,7 @@ const RANDOMIZER_OPTIONS = {
         set: "shop",
         cost: 0,
         getter: () => options.shops?.containsKeyItems ?? false,
-        setter: (value: boolean) =>  {
+        setter: (value: boolean) => {
             options.shops ??= {
                 enable: true,
             };
@@ -62,7 +62,7 @@ const RANDOMIZER_OPTIONS = {
 
 export function addTitleMenuButton(initialOptions: GenerateOptions, update: (options: GenerateOptions) => Promise<unknown>) {
     options = initialOptions;
-    
+
     Object.assign(window, {
         RANDOMIZER_OPTIONS,
         RANDOMIZER_SETS,
@@ -162,9 +162,9 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         },
         updateToggleState() {
             const enabled = RANDOMIZER_OPTIONS[this.data.id as keyof typeof RANDOMIZER_OPTIONS]?.getter() || false;
-            const enabledText = 
-                this.set.type == sc.TOGGLE_SET_TYPE.SINGLE 
-                    ? "\\i[" + (enabled ? "toggle-item-on-radio"  :"toggle-item-off-radio") + (this.active ? "" : "-grey") + "]" 
+            const enabledText =
+                this.set.type == sc.TOGGLE_SET_TYPE.SINGLE
+                    ? "\\i[" + (enabled ? "toggle-item-on-radio" : "toggle-item-off-radio") + (this.active ? "" : "-grey") + "]"
                     : "\\i[" + (enabled ? "toggle-item-on" : "toggle-item-off") + (this.active ? "" : "-grey") + "]";
             this.button.textChild.setText(enabledText + this.button.getButtonText());
         },
@@ -180,7 +180,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         buttons: [],
         set: null,
         listIndex: 0,
-        init(setName: keyof typeof RANDOMIZER_SETS, list: any, globalRow: number, listIndex: number, counterObject: {counter: number}) {
+        init(setName: keyof typeof RANDOMIZER_SETS, list: any, globalRow: number, listIndex: number, counterObject: { counter: number }) {
             this.parent();
             this.setSize(363, 9);
             this.listIndex = listIndex;
@@ -234,7 +234,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
                     otherButton.updateToggleState();
                 }
             }
-            
+
             if (button) {
                 const anim = new sc.ItemMenuToggleAnimation(
                     () => { button.updateToggleState() },
@@ -308,7 +308,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             this.createListEntries();
             this.doStateTransition("HIDDEN", true)
         },
-        createListEntries: function() {
+        createListEntries: function () {
             this.buttongroup.clear();
             this.list.clear(true);
             this.sets.length = 0;
@@ -331,37 +331,37 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             this.list.list.columns = 2;
             this.buttongroup.fillEmptySpace()
         },
-        updateEntries: function(skipSetSynop: any) {
-            if (!skipSetSynop){
+        updateEntries: function (skipSetSynop: any) {
+            if (!skipSetSynop) {
                 sc.menu.setSynopPressed()
             }
         },
-        addObservers: function() {
+        addObservers: function () {
             sc.Model.addObserver(sc.menu, this)
         },
-        removeObservers: function() {
+        removeObservers: function () {
             sc.Model.removeObserver(sc.menu, this)
         },
-        show: function() {
+        show: function () {
             ig.interact.setBlockDelay(0.2);
             this.updateEntries(true);
             this.list.activate();
             this.doStateTransition("DEFAULT")
         },
-        hide: function() {
+        hide: function () {
             this.list.deactivate();
             sc.menu.setInfoText("", false);
             sc.menu.setBuffText("", false);
             this.doStateTransition("HIDDEN")
         },
-        onGetHeightAtIndex: function(_: unknown, y: any) {
+        onGetHeightAtIndex: function (_: unknown, y: any) {
             const element = this.buttongroup.getYElementAt(y) ?? this.buttongroup.getElementAt(this.buttongroup.current.x - 1, y);
             if (y >= 0 && element) {
                 return element.setGui.hook.pos.y + element.hook.pos.y + element.hook.size.y;
-            } 
+            }
             return 0;
         },
-        onItemButtonPressed: function(button: any) {
+        onItemButtonPressed: function (button: any) {
             const id = button.data.id as keyof typeof RANDOMIZER_OPTIONS;
             const toggleOn = !RANDOMIZER_OPTIONS[id].getter();
             RANDOMIZER_OPTIONS[id]?.setter(toggleOn);
@@ -374,16 +374,16 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             }
             this.updateEntries()
         },
-        isNonMouseMenuInput: function() {
-            return sc.control.menuConfirm() 
-            || sc.control.rightDown() 
-            || sc.control.leftDown() 
-            || sc.control.downDown() 
-            || sc.control.upDown() 
-            || sc.control.menuCircleLeft() 
-            || sc.control.menuCircleRight()
+        isNonMouseMenuInput: function () {
+            return sc.control.menuConfirm()
+                || sc.control.rightDown()
+                || sc.control.leftDown()
+                || sc.control.downDown()
+                || sc.control.upDown()
+                || sc.control.menuCircleLeft()
+                || sc.control.menuCircleRight()
         },
-        modelChanged: function() {}
+        modelChanged: function () { }
     })
 
     const RandomizerMenu = sc.ListInfoMenu.extend({
@@ -440,6 +440,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
                 forceGenerate: true,
                 itemTemplatePath: initialOptions.itemTemplatePath,
                 enemyTemplatePath: initialOptions.enemyTemplatePath,
+                statePath: initialOptions.statePath,
             }
             this.button.setActive(false);
             await update(result);
