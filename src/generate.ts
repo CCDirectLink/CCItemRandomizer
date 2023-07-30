@@ -16,6 +16,12 @@ export interface GenerateOptions {
     itemTemplatePath: string;
     enemyTemplatePath?: string;
     statePath?: string;
+    shops?: ShopsPreset;
+}
+
+export interface ShopsPreset {
+    enable: boolean;
+    containsKeyItems?: boolean;
 }
 
 export async function generateRandomizerState(
@@ -24,7 +30,7 @@ export async function generateRandomizerState(
     spoilerLog: Check[];
     maps: Record<string, Record<number, Check[]>>;
     quests: Check[];
-    shops: Record<string, Check[]>;
+    shops: Record<string, Check[]> | undefined;
     overrides: Overrides;
     markers: Markers;
     enemyRandomizerPreset: EnemyGeneratorPreset;
@@ -50,7 +56,7 @@ export async function generateRandomizerState(
     }
 	initRandom(seed);
 
-    const { spoilerLog, maps, quests, shops, overrides } = await getChecks(data);
+    const { spoilerLog, maps, quests, shops, overrides } = await getChecks(data, options);
 
     const mapNames = Object.keys(maps);
     const mapData = await Promise.all(
@@ -149,10 +155,10 @@ function serialize(options: GenerateOptions) {
     let result = options.version + '_' + options.seed;
     if (options.enemyRandomizerPreset?.enable) {
         if (!options.enemyRandomizerPreset.randomizeSpawners) {
-            result += '_es'
+            result += '_es';
         }
         if (!options.enemyRandomizerPreset.randomizeEnemies) {
-            result += '_ee'
+            result += '_ee';
         }
         if (options.enemyRandomizerPreset.levelRange[0] !== 5) {
             result += '_el0' + options.enemyRandomizerPreset.levelRange[0];
@@ -161,10 +167,10 @@ function serialize(options: GenerateOptions) {
             result += '_el1' + options.enemyRandomizerPreset.levelRange[1];
         }
         if (!options.enemyRandomizerPreset.elementCompatibility) {
-            result += '_ec'
+            result += '_ec';
         }
         if (!options.enemyRandomizerPreset.spawnMapObjects) {
-            result += '_em'
+            result += '_em';
         }
         if (options.enemyRandomizerPreset.enduranceRange[0] !== 1) {
             result += '_er0' + options.enemyRandomizerPreset.enduranceRange[0];
@@ -173,7 +179,15 @@ function serialize(options: GenerateOptions) {
             result += '_er1' + options.enemyRandomizerPreset.enduranceRange[1];
         }
     } else {
-        result += '_e'
+        result += '_e';
+    }
+
+    if (options.shops?.enable) {
+        if (options.shops.containsKeyItems) {
+            result += '_sk';
+        }
+    } else {
+        result += '_s';
     }
 
     return result;
@@ -209,6 +223,10 @@ export function deserialize(input: string): GenerateOptions {
         enduranceRange: [1, 1.5],
     };
 
+    const shopPreset: ShopsPreset = {
+        enable: true
+    }
+
     const version = parts.shift();
     const seed = parts.shift();
 
@@ -230,6 +248,12 @@ export function deserialize(input: string): GenerateOptions {
             case 'em':
                 enemyRandomizerPreset.spawnMapObjects = false;
                 break;
+            case 's':
+                shopPreset.enable = false;
+                break;
+            case 'sk':
+                shopPreset.containsKeyItems = true;
+                break;
             default:
                 if (next?.startsWith('el0')) {
                     enemyRandomizerPreset.levelRange[0] = +next.slice(3);
@@ -249,6 +273,7 @@ export function deserialize(input: string): GenerateOptions {
     return {
         seed: seed ?? '',
         enemyRandomizerPreset,
+        shops: shopPreset,
         itemTemplatePath: '',
         enemyTemplatePath: '',
         forceGenerate: false,

@@ -1,3 +1,4 @@
+import { GenerateOptions, ShopsPreset } from './generate.js';
 import { ChestType, ItemData } from './item-data.model.js';
 import { randomInt } from './utils.js';
 
@@ -53,7 +54,11 @@ export type Check = (
 
 export type Overrides = Record<string, { disabledEvents: string[]; variablesOnLoad: Record<string, unknown> }>;
 
-export async function getChecks(data: ItemData) {
+export async function getChecks(data: ItemData, options: GenerateOptions) {
+    const shopPreset: ShopsPreset = options.shops ?? {
+        enable: true
+    }
+	
 	const areaConditions: Record<string, string[]> = {};
 	areaConditions[data.startingArea] = [];
 	for (const area of data.areas) {
@@ -133,20 +138,23 @@ export async function getChecks(data: ItemData) {
 		return a.mapId - b.mapId;
 	});
 
-	for (const [shopName, shopData] of Object.entries(data.shops) as Iterable<[string, any]>) {
-		const conditions = (areaConditions[shopData.area] || ['softlock'])
-			.concat(['softlock'])
-			.filter(c => c)
-			.filter((c, i, arr) => arr.indexOf(c) === i);
-		for (const item of shopData.items) {
-			checks.push({
-				type: 'shop',
-				name: shopName,
-				item: +item,
-				amount: 1,
-				price: randomInt(1, 10) * 1000 * shopData.scale,
-				conditions,
-			});
+	if (shopPreset.enable) {
+		const softlockOption = shopPreset.containsKeyItems ? [] : ['softlock'];
+		for (const [shopName, shopData] of Object.entries(data.shops) as Iterable<[string, any]>) {
+			const conditions = (areaConditions[shopData.area] || softlockOption)
+				.concat(softlockOption)
+				.filter(c => c)
+				.filter((c, i, arr) => arr.indexOf(c) === i);
+			for (const item of shopData.items) {
+				checks.push({
+					type: 'shop',
+					name: shopName,
+					item: +item,
+					amount: 1,
+					price: randomInt(1, 10) * 1000 * shopData.scale,
+					conditions,
+				});
+			}
 		}
 	}
 
@@ -217,7 +225,7 @@ export async function getChecks(data: ItemData) {
 		};
 	}
 
-	return { spoilerLog, quests, maps, shops, overrides };
+	return { spoilerLog, quests, maps, shops: shopPreset.enable ? shops : undefined, overrides };
 }
 
 function replaceChecks(

@@ -11,7 +11,7 @@ declare const sc: any;
 let baseDirectory = '';
 let maps: Record<string, Record<number, Check[]>>;
 let quests: Check[];
-let shops: Record<string, Check[]>;
+let shops: Record<string, Check[]> | undefined;
 let markers: Markers;
 let overrides: Overrides;
 let enemyRandomizerPreset: EnemyGeneratorPreset;
@@ -86,7 +86,7 @@ export default class ItemRandomizer {
 				try {
 					switch (check[0].replacedWith?.item) {
 						case 'heat':
-							sc.ItemDropEntity.spawnDrops = () => {};
+							sc.ItemDropEntity.spawnDrops = () => { };
 							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
@@ -97,7 +97,7 @@ export default class ItemRandomizer {
 							this.amount = 0;
 							return this.parent();
 						case 'cold':
-							sc.ItemDropEntity.spawnDrops = () => {};
+							sc.ItemDropEntity.spawnDrops = () => { };
 							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
@@ -109,7 +109,7 @@ export default class ItemRandomizer {
 							this.amount = 0;
 							return this.parent();
 						case 'wave':
-							sc.ItemDropEntity.spawnDrops = () => {};
+							sc.ItemDropEntity.spawnDrops = () => { };
 							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
@@ -121,7 +121,7 @@ export default class ItemRandomizer {
 							this.amount = 0;
 							return this.parent();
 						case 'shock':
-							sc.ItemDropEntity.spawnDrops = () => {};
+							sc.ItemDropEntity.spawnDrops = () => { };
 							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
 								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
@@ -385,12 +385,12 @@ export default class ItemRandomizer {
 						this.fallCount = -100;
 					}
 				}
-                return ret
+				return ret
 			},
 			doEnemyAction(...args: unknown[]) {
 				try {
 					this.parent(...args);
-				} catch (error) {}
+				} catch (error) { }
 			},
 		});
 
@@ -398,17 +398,17 @@ export default class ItemRandomizer {
 			updateAction(...args: unknown[]) {
 				try {
 					return this.parent(...args);
-				} catch (error) {}
+				} catch (error) { }
 			},
 			postActionUpdate(...args: unknown[]) {
 				try {
 					return this.parent(...args);
-				} catch (error) {}
+				} catch (error) { }
 			},
 			getAppearAction(...args: unknown[]) {
 				try {
 					return this.parent(...args);
-				} catch (error) {}
+				} catch (error) { }
 			},
 		});
 
@@ -416,7 +416,7 @@ export default class ItemRandomizer {
 			selectAction(...args: unknown[]) {
 				try {
 					return this.parent(...args);
-				} catch (error) {}
+				} catch (error) { }
 			},
 		});
 
@@ -489,123 +489,152 @@ export default class ItemRandomizer {
 			},
 		});
 
-		if (shops) {
-			ig.Database.inject({
-				onload(data: any) {
-					for (const [shopName, shopChecks] of Object.entries(shops) as Iterable<[string, any]>) {
-						const original = data.shops[shopName].pages[0];
-						original.content = shopChecks.map((check: any) => {
-							return {
-								item: check.replacedWith.item + '',
-								price: (check.price / check.replacedWith.amount) >>> 0,
-							};
-						});
+		let shopCache: Record<string, Check[]>;
+		ig.Database.inject({
+			get(key: string) {
+				if (key !== 'shops') {
+					return this.parent(key);
+				}
+
+				if (!this.data.originalShops) {
+					//Deep copy shops
+					this.data.originalShops = {};
+					for (const shopName of Object.keys(this.data.shops)) {
+						this.data.originalShops[shopName] = {
+							...this.data.shops[shopName],
+							pages: this.data.shops[shopName].pages ? [
+								{
+									content: Object.assign(this.data.shops[shopName].pages[0].content),
+								},
+								...this.data.shops[shopName].pages.slice(1)
+							] : this.data.shops[shopName].pages
+						}
 					}
+				}
 
-					this.parent(data);
-				},
-			});
+				if (!shops) {
+					return this.data.originalShops;
+				}
 
-			//Only needed for elements in shops
-			sc.PlayerModel.inject({
-				addItem(id: number | Element, ...args: unknown[]) {
-					switch (id) {
-						case 'heat':
-							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
-							}
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
-							return;
-						case 'cold':
-							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
-							}
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
-							return;
-						case 'wave':
-							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
-							}
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
-							return;
-						case 'shock':
-							if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
-								sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
-							}
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
-							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
-							return;
-						default:
-							return this.parent(id, ...args);
-					}
-				},
-			});
+				if (shopCache === shops) {
+					this.parent(key);
+				}
 
-			sc.Inventory.inject({
-				onload(data: unknown) {
-					this.parent(data);
-					this.items.heat = getElementItem('heat');
-					this.items.cold = getElementItem('cold');
-					this.items.shock = getElementItem('shock');
-					this.items.wave = getElementItem('wave');
-				},
-			});
+				for (const [shopName, shopChecks] of Object.entries(shops) as Iterable<[string, any]>) {
+					const original = this.data.shops[shopName].pages[0];
+					original.content = shopChecks.map((check: any) => {
+						return {
+							item: check.replacedWith.item + '',
+							price: (check.price / check.replacedWith.amount) >>> 0,
+						};
+					});
+				}
+				shopCache = shops;
 
-			function getElementItem(element: Element) {
-				const name =
-					{
-						heat: 'Heat Element',
-						cold: 'Cold Element',
-						wave: 'Wave Element',
-						shock: 'Shock Element',
-					}[element] || element;
-				return {
-					name: {
-						en_US: name,
-						de_DE: name,
-						fr_FR: name,
-						zh_CN: name,
-						ja_JP: name,
-						ko_KR: name,
-						zh_TW: name,
-					},
-					description: {
-						en_US: name,
-						de_DE: name,
-						fr_FR: name,
-						zh_CN: name,
-						ja_JP: name,
-						ko_KR: name,
-						zh_TW: name,
-					},
-					type: 'KEY',
-					icon: 'item-key',
-					order: 0,
-					level: 1,
-					effect: {
-						sheet: '',
-						name: null,
-					},
-					rarity: 0,
-					cost: 0,
-					noTrack: true,
-					sources: [],
-				};
+				this.parent(key);
 			}
+		});
+
+		//Only needed for elements in shops
+		sc.PlayerModel.inject({
+			addItem(id: number | Element, ...args: unknown[]) {
+				switch (id) {
+					case 'heat':
+						if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+						}
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, true);
+						return;
+					case 'cold':
+						if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+						}
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, true);
+						return;
+					case 'wave':
+						if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, false);
+						}
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, true);
+						return;
+					case 'shock':
+						if (!sc.model.player.getCore(sc.PLAYER_CORE.ELEMENT_CHANGE)) {
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_HEAT, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_COLD, false);
+							sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_WAVE, false);
+						}
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_CHANGE, true);
+						sc.model.player.setCore(sc.PLAYER_CORE.ELEMENT_SHOCK, true);
+						return;
+					default:
+						return this.parent(id, ...args);
+				}
+			},
+		});
+
+		//Only needed for elements in shops
+		sc.Inventory.inject({
+			onload(data: unknown) {
+				this.parent(data);
+				this.items.heat = getElementItem('heat');
+				this.items.cold = getElementItem('cold');
+				this.items.shock = getElementItem('shock');
+				this.items.wave = getElementItem('wave');
+			},
+		});
+
+		function getElementItem(element: Element) {
+			const name =
+				{
+					heat: 'Heat Element',
+					cold: 'Cold Element',
+					wave: 'Wave Element',
+					shock: 'Shock Element',
+				}[element] || element;
+			return {
+				name: {
+					en_US: name,
+					de_DE: name,
+					fr_FR: name,
+					zh_CN: name,
+					ja_JP: name,
+					ko_KR: name,
+					zh_TW: name,
+				},
+				description: {
+					en_US: name,
+					de_DE: name,
+					fr_FR: name,
+					zh_CN: name,
+					ja_JP: name,
+					ko_KR: name,
+					zh_TW: name,
+				},
+				type: 'KEY',
+				icon: 'item-key',
+				order: 0,
+				level: 1,
+				effect: {
+					sheet: '',
+					name: null,
+				},
+				rarity: 0,
+				cost: 0,
+				noTrack: true,
+				sources: [],
+			};
 		}
 	}
 
