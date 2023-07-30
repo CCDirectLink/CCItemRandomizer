@@ -1,141 +1,63 @@
-import { Check, Element, Overrides, getChecks } from './checks.js';
+import { Check, Element, Overrides } from './checks.js';
 import { EnemyData } from './enemy-data.model.js';
 import { EnemyGeneratorPreset, randomizeEnemy, randomizeSpawner } from './enemy-randomizer.js';
-import { Markers, extractMarkers } from './extract-markers.js';
+import { Markers } from './extract-markers.js';
+import { GenerateOptions, deserialize, generateRandomizerState } from './generate.js';
 
-// @ts-ignore
-const fs: typeof import('fs') = require('fs');
 
 declare const ig: any;
 declare const sc: any;
 
 let baseDirectory = '';
+let maps: Record<string, Record<number, Check[]>>;
+let quests: Check[];
+let shops: Record<string, Check[]>;
+let markers: Markers;
+let overrides: Overrides;
+let enemyRandomizerPreset: EnemyGeneratorPreset;
+let seed: string;
+let enemyData: EnemyData | undefined;
 
-async function generateRandomizerState(
-	forceGenerate?: any,
-	fixedSeed?: any,
-): Promise<{
-	spoilerLog: Check[];
-	maps: Record<string, Record<number, Check[]>>;
-	quests: Check[];
-	shops: Record<string, Check[]>;
-	overrides: Overrides;
-	markers: Markers;
-	enemyRandomizerPreset: EnemyGeneratorPreset;
-	seed: string;
-}> {
-	const stateExists = fs.existsSync('randomizerState.json');
-	if (!forceGenerate && stateExists) {
-		return JSON.parse((await fs.readFileSync('randomizerState.json')) as unknown as string);
-	}
-
-	const { spoilerLog, maps, quests, shops, overrides, seed } = await getChecks(baseDirectory, fixedSeed);
-
-	const mapNames = Object.keys(maps);
-	const mapData = await Promise.all(
-		mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())),
-	);
-	const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
-	const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())));
-
-	const markers = await extractMarkers(spoilerLog, mapNames, mapData, areaNames, areas);
-
-	const enemyRandomizerPreset: EnemyGeneratorPreset = {
-		enable: true,
-		randomizeSpawners: true,
-		randomizeEnemies: true,
-		levelRange: [5, 3],
-		elementCompatibility: true,
-		spawnMapObjects: true,
-		enduranceRange: [1, 1.5],
-	};
-
-	fs.promises.writeFile(
-		'randomizerState.json',
-		JSON.stringify({ spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, seed }),
-	);
-
-	const items = (await (await fetch('data/item-database.json')).json()).items;
-	const database = await (await fetch('data/database.json')).json();
-	const shopsDatabase = database.shops;
-	const areasDatabase = database.areas;
-
-	const fullMapNames = mapData.map((d, i) => {
-		const ai = areaNames.indexOf(d.attributes.area);
-		const area = areas[ai];
-		const areaName = areasDatabase[d.attributes.area].name.en_US;
-		const mapName = mapNames[i];
-		for (const floor of area.floors) {
-			for (const map of floor.maps) {
-				if (map.path === mapName) {
-					return areaName + ' - ' + map.name.en_US;
-				}
-			}
-		}
-		return mapName;
-	});
-
-	function getPrettyName(log: Check) {
-		if (log.type === 'shop') {
-			return shopsDatabase[log.name].name.en_US;
-		}
-
-		if ('name' in log) {
-			return log.name; //TODO: quest names
-		}
-
-		const index = mapNames.indexOf(log.map);
-		if (index < 0) {
-			return log.map;
-		}
-
-		return fullMapNames[index];
-	}
-
-	const pretty = spoilerLog.map(log => {
-		return `${(('chestType' in log ? log.chestType : '') + ' ' + log.type).padStart(13, ' ')} contains ${
-			log.replacedWith!.amount
-		} ${(items[log.replacedWith!.item] ? items[log.replacedWith!.item].name.en_US : log.replacedWith!.item).padEnd(
-			20,
-			' ',
-		)} at ${getPrettyName(log).padEnd(40, ' ')} (${'map' in log ? log.map : log.name})`;
-	});
-
-	const prettyOrderd = spoilerLog
-		.filter(() => true) //Copy array
-		.sort((a, b) => getPrettyName(a).localeCompare(getPrettyName(b)))
-		.map(log => {
-			return `${(('chestType' in log ? log.chestType : '') + ' ' + log.type).padStart(13, ' ')} contains ${
-				log.replacedWith!.amount
-			} ${(items[log.replacedWith!.item] ? items[log.replacedWith!.item].name.en_US : log.replacedWith!.item).padEnd(
-				20,
-				' ',
-			)} at ${getPrettyName(log).padEnd(40, ' ')} (${'map' in log ? log.map : log.name})`;
-		});
-
-	await fs.promises.writeFile(
-		'spoilerlog.txt',
-		`Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'),
-	);
-	return { spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, seed };
-}
 
 export default class ItemRandomizer {
 	constructor(mod: { baseDirectory: string }) {
 		baseDirectory = mod.baseDirectory;
 	}
 
+	private async generate(options: GenerateOptions) {
+		const state = await generateRandomizerState(options);
+		maps = state.maps;
+		quests = state.quests;
+		shops = state.shops;
+		markers = state.markers;
+		overrides = state.overrides;
+		enemyRandomizerPreset = state.enemyRandomizerPreset;
+		enemyData = state.enemyData;
+		seed = state.seed;
+		console.log('seed', seed);
+	}
+
 	async prestart() {
 		// @ts-ignore
-		window.generateRandomizerState = generateRandomizerState;
-		const { maps, quests, shops, markers, overrides, enemyRandomizerPreset, seed } = await generateRandomizerState();
-		console.log('seed', seed);
+		window.generateRandomizerState = (options: GenerateOptions) => this.generate({
+			...options,
+			itemTemplatePath: options.itemTemplatePath ?? (baseDirectory + 'data/item-data.json'),
+			enemyTemplatePath: options.enemyTemplatePath ?? (baseDirectory + 'data/enemy-data.json'),
+		});
+		// @ts-ignore
+		window.generateRandizerFromSeed = (seed: string, itemTemplatePath?: string, enemyTemplatePath?: string) => this.generate({
+			...deserialize(seed),
+			itemTemplatePath: itemTemplatePath ?? (baseDirectory + 'data/item-data.json'),
+			enemyTemplatePath: enemyTemplatePath ?? (baseDirectory + 'data/enemy-data.json'),
+			forceGenerate: true,
+		});
+
+		await this.generate({
+			itemTemplatePath: baseDirectory + 'data/item-data.json',
+			enemyTemplatePath: baseDirectory + 'data/enemy-data.json'
+		});
 
 		let mapObjectSpawnQueue: any[] = [];
-		let enemyData: EnemyData;
-		if (enemyRandomizerPreset?.enable) {
-			enemyData = await (await fetch(baseDirectory.substring(7) + 'data/enemy-data.json')).json();
-		}
 
 		ig.ENTITY.Chest.inject({
 			_reallyOpenUp() {
@@ -295,9 +217,8 @@ export default class ItemRandomizer {
 				const mapChecks = maps[map.name.replace(/[\\\/]/g, '.')] || {};
 				const mapOverrides = (overrides && overrides[map.name.replace(/[\\\/]/g, '.')]) || {};
 
-				if (enemyRandomizerPreset?.enable) {
+				if (enemyRandomizerPreset?.enable && enemyData) {
 					mapObjectSpawnQueue = [];
-					const mapEntityGroups = {};
 					const changeMap: Record<string, string[]> = {};
 					const entityNameToTypeMap: Record<string, string> = {};
 					for (const entity of map.entities) {

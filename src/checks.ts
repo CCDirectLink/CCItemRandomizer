@@ -1,5 +1,5 @@
 import { ChestType, ItemData } from './item-data.model.js';
-import { initRandom, randomInt } from './utils.js';
+import { randomInt } from './utils.js';
 
 export type Element = 'heat' | 'cold' | 'shock' | 'wave';
 export type Check = (
@@ -53,13 +53,7 @@ export type Check = (
 
 export type Overrides = Record<string, { disabledEvents: string[]; variablesOnLoad: Record<string, unknown> }>;
 
-export async function getChecks(baseDirectory: string, fixedSeed?: string) {
-	const data: ItemData = await (await fetch(baseDirectory.slice(7) + 'data/item-data.json')).json();
-
-	const seed = checkSeed(data.version, fixedSeed);
-
-	initRandom(seed);
-
+export async function getChecks(data: ItemData) {
 	const areaConditions: Record<string, string[]> = {};
 	areaConditions[data.startingArea] = [];
 	for (const area of data.areas) {
@@ -223,7 +217,7 @@ export async function getChecks(baseDirectory: string, fixedSeed?: string) {
 		};
 	}
 
-	return { spoilerLog, quests, maps, shops, overrides, seed };
+	return { spoilerLog, quests, maps, shops, overrides };
 }
 
 function replaceChecks(
@@ -256,16 +250,4 @@ function replaceChecks(
 			}
 		}
 	}
-}
-
-function checkSeed(version: string, fixedSeed?: string) {
-	if (fixedSeed) {
-		if (!fixedSeed.includes('_') && version) {
-			console.warn('Seed from another version was used. This will not give you the same result.');
-		} else if (fixedSeed.includes('_') && version !== fixedSeed.split('_')[0]) {
-			console.warn('Seed from another version was used. This will not give you the same result.');
-		}
-	}
-
-	return fixedSeed || (version ? version + '_' : '') + (Math.random() + '').slice(2);
 }

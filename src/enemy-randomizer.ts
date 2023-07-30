@@ -83,8 +83,7 @@ export function randomizeEnemy(
 	let level = enemy.level;
 	let z;
 	if (typeof level == 'object') {
-		level = level.level;
-		z = levels[level].height + level.offset;
+		z = levels[level.level].height + level.offset;
 	} else {
 		z = levels[level].height;
 	}
@@ -95,7 +94,7 @@ export function randomizeEnemy(
 	return getRandomEnemy(
 		enemy.settings.enemyInfo,
 		{ x: enemy.x, y: enemy.y, width: 16, height: 16, z },
-		(enemy.x * enemy.y * parseInt(seed.substring(2))) % 1000000,
+		(enemy.x * enemy.y * parseInt(seed.split('_')[1])) % 1000000,
 		data.regularEnemies,
 		preset,
 		changeMap,
@@ -112,15 +111,14 @@ export function randomizeSpawner(
 ) {
 	// console.log('spawner', spawner, seed, data, preset)
 
-	const spawnerSeed = (spawner.x * spawner.y * parseInt(seed.substring(2))) % 1000000;
+	const spawnerSeed = (spawner.x * spawner.y * parseInt(seed.split('_')[1])) % 1000000;
 	const allMapObjects: any = [];
 	let allObjectsSet = new Set();
 
 	let level = spawner.level;
 	let z;
 	if (typeof level == 'object') {
-		level = level.level;
-		z = levels[level].height + level.offset;
+		z = levels[level.level].height + level.offset;
 	} else {
 		z = levels[level].height;
 	}
