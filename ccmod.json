@@ -1,6 +1,6 @@
 {
     "id": "item-rando",
     "title": "Item randomizer",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "plugin": "plugin.js"
 }
