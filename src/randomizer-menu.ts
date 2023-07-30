@@ -62,6 +62,11 @@ const RANDOMIZER_OPTIONS = {
 
 export function addTitleMenuButton(initialOptions: GenerateOptions, update: (options: GenerateOptions) => Promise<unknown>) {
     options = initialOptions;
+    
+    Object.assign(window, {
+        RANDOMIZER_OPTIONS,
+        RANDOMIZER_SETS,
+    })
 
     const RandomizerCartEntry = ig.GuiElementBase.extend({
         text: null,
