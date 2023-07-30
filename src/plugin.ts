@@ -515,6 +515,7 @@ export default class ItemRandomizer {
 							...this.data.shops[shopName],
 							pages: this.data.shops[shopName].pages ? [
 								{
+									...this.data.shops[shopName].pages[0],
 									content: Object.assign(this.data.shops[shopName].pages[0].content),
 								},
 								...this.data.shops[shopName].pages.slice(1)
@@ -528,7 +529,7 @@ export default class ItemRandomizer {
 				}
 
 				if (shopCache === shops) {
-					this.parent(key);
+					return this.parent(key);
 				}
 
 				for (const [shopName, shopChecks] of Object.entries(shops) as Iterable<[string, any]>) {
@@ -542,7 +543,7 @@ export default class ItemRandomizer {
 				}
 				shopCache = shops;
 
-				this.parent(key);
+				return this.parent(key);
 			}
 		});
 
