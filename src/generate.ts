@@ -151,7 +151,7 @@ export async function generateRandomizerState(
     return { spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, enemyData, seed: serialize(options) };
 }
 
-function serialize(options: GenerateOptions) {
+export function serialize(options: GenerateOptions) {
     let result = options.version + '_' + options.seed;
     if (options.enemyRandomizerPreset?.enable) {
         if (!options.enemyRandomizerPreset.randomizeSpawners) {

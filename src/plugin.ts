@@ -3,6 +3,7 @@ import { EnemyData } from './enemy-data.model.js';
 import { EnemyGeneratorPreset, randomizeEnemy, randomizeSpawner } from './enemy-randomizer.js';
 import { Markers } from './extract-markers.js';
 import { GenerateOptions, deserialize, generateRandomizerState } from './generate.js';
+import { addTitleMenuButton } from './randomizer-menu.js';
 
 
 declare const ig: any;
@@ -18,6 +19,8 @@ let enemyRandomizerPreset: EnemyGeneratorPreset;
 let seed: string;
 let enemyData: EnemyData | undefined;
 
+let currentOptions: GenerateOptions;
+
 
 export default class ItemRandomizer {
 	constructor(mod: { baseDirectory: string }) {
@@ -25,6 +28,7 @@ export default class ItemRandomizer {
 	}
 
 	private async generate(options: GenerateOptions) {
+		currentOptions = options;
 		const state = await generateRandomizerState(options);
 		maps = state.maps;
 		quests = state.quests;
@@ -56,6 +60,12 @@ export default class ItemRandomizer {
 			itemTemplatePath: baseDirectory + 'data/item-data.json',
 			enemyTemplatePath: baseDirectory + 'data/enemy-data.json'
 		});
+
+		addTitleMenuButton({
+			...deserialize(seed),
+			itemTemplatePath: baseDirectory + 'data/item-data.json',
+			enemyTemplatePath: baseDirectory + 'data/enemy-data.json'
+		}, options => this.generate(options));
 
 		let mapObjectSpawnQueue: any[] = [];
 
@@ -668,6 +678,29 @@ export default class ItemRandomizer {
 		ig.MapStyle.registerStyle('default', 'effect', { sheet: 'area.cold-dng' });
 
 		ig.MapStyle.registerStyle('cold-dng', 'puzzle2', { sheet: 'media/entity/style/default-puzzle-2-fix.png' });
+
+
+		ig.lang.labels.sc.gui.menu.randomizer = {
+			start: 'Generate',
+			sets: {
+				enemy: 'Enemy Randomizer',
+				shop: 'Shop Randomizer',
+			},
+			options: {
+				names: {
+					'enemy-enabled': 'Enabled',
+					'shop-enabled': 'Enabled',
+					'shop-key-items': 'Key items'
+				},
+				descriptions: {
+					'enemy-enabled': 'Enables or disables the enemy randomizer.',
+					'shop-enabled': 'Enabled or disables the shop randomizer.',
+					'shop-key-items': 'Determines whether a shop may include key items.'
+				}
+			},
+			seed: 'Seed',
+		}
+
 	}
 }
 
