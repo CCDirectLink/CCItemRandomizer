@@ -36,13 +36,14 @@ export async function generateRandomizerState(
     enemyRandomizerPreset: EnemyGeneratorPreset;
     enemyData: EnemyData | undefined;
     seed: string;
+    currentVersion: string;
 }> {
+	const data: ItemData = await readJsonFromFile(options.itemTemplatePath);
     const stateExists = fs.existsSync(options.statePath ?? 'randomizerState.json');
     if (!options.forceGenerate && stateExists) {
-        return await readJsonFromFile(options.statePath ?? 'randomizerState.json');
+        return { ...await readJsonFromFile(options.statePath ?? 'randomizerState.json'), currentVersion: data.version };
     }
     
-	const data: ItemData = await readJsonFromFile(options.itemTemplatePath);
 
     if (options.version !== undefined && data.version !== options.version) {
         console.warn('Seed from another template was used. This will not give you the same result.');
@@ -148,7 +149,7 @@ export async function generateRandomizerState(
         enemyData = await readJsonFromFile(options.enemyTemplatePath);
     }
 
-    return { spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, enemyData, seed: serialize(options) };
+    return { spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, enemyData, seed: serialize(options), currentVersion: data.version };
 }
 
 export function serialize(options: GenerateOptions) {

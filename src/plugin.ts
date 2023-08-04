@@ -17,6 +17,7 @@ let markers: Markers;
 let overrides: Overrides;
 let enemyRandomizerPreset: EnemyGeneratorPreset;
 let seed: string;
+let currentVersion: string;
 let enemyData: EnemyData | undefined;
 
 let currentOptions: GenerateOptions;
@@ -38,6 +39,7 @@ export default class ItemRandomizer {
 		enemyRandomizerPreset = state.enemyRandomizerPreset;
 		enemyData = state.enemyData;
 		seed = state.seed;
+		currentVersion = state.currentVersion;
 		console.log('seed', seed);
 	}
 
@@ -66,7 +68,7 @@ export default class ItemRandomizer {
 			itemTemplatePath: baseDirectory + 'data/item-data.json',
 			enemyTemplatePath: baseDirectory + 'data/enemy-data.json',
 			statePath: 'randomizerState.json'
-		}, options => this.generate(options));
+		}, currentVersion, options => this.generate(options));
 
 		let mapObjectSpawnQueue: any[] = [];
 

@@ -186,13 +186,17 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 	const fulfilledConditions = new Set<string>();
 	const fulfilledItems: Record<number, number> = {};
 
-	for (const item of requiredItems) {
-		replaceChecks(withAmounts[item], checks, spoilerLog, fulfilledConditions, fulfilledItems);
-	}
+	const requiredItemsWithItems = requiredItems.map(i => withAmounts[i]).flat();
+	replaceChecks(requiredItemsWithItems, checks, spoilerLog, fulfilledConditions, fulfilledItems);
+
 	fulfilledConditions.add('softlock');
-	for (const item of nonRequiredItems) {
-		replaceChecks(withAmounts[item], checks, spoilerLog, fulfilledConditions, fulfilledItems);
-	}
+	const nonRequiredItemsWithItems = nonRequiredItems.map(i => withAmounts[i]).flat();
+	replaceChecks(nonRequiredItemsWithItems, checks, spoilerLog, fulfilledConditions, fulfilledItems);
+
+	const indexes = new Map(requiredItems.concat(nonRequiredItems).map((value, index) => [value, index]));
+	spoilerLog.sort((a, b) => {
+		return indexes.get(a.replacedWith!.item)! - indexes.get(b.replacedWith!.item)!;
+	})
 
 	const maps: Record<string, Record<number, Check[]>> = {};
 	const quests: Check[] = [];
@@ -240,7 +244,7 @@ function replaceChecks(
 		const nextCheck = fulfilledChecks[randomInt(0, fulfilledChecks.length)];
 		output.push(nextCheck);
 
-		const replacedWith = items.shift();
+		const replacedWith = items.splice(randomInt(0, Math.min(items.length, fulfilledChecks.length)), 1)[0];
 		if (!replacedWith) {
 			throw new Error('unreachable: Ran out of items to replace checks with');
 		}

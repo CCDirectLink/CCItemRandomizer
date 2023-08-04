@@ -61,7 +61,7 @@ const RANDOMIZER_OPTIONS = {
     }
 };
 
-export function addTitleMenuButton(initialOptions: GenerateOptions, update: (options: GenerateOptions) => Promise<unknown>) {
+export function addTitleMenuButton(initialOptions: GenerateOptions, currentVersion: string, update: (options: GenerateOptions) => Promise<unknown>) {
     options = initialOptions;
 
     Object.assign(window, {
@@ -134,6 +134,10 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             this.regenButton.setPos(2, 55);
             this.regenButton.onButtonPress = () => {
                 options.seed = Math.random().toString().slice(2);
+                if (options.version !== currentVersion) {
+                    sc.Dialogs.showWarningDialog('Seed version has changed', true, () => {});
+                }
+                options.version = currentVersion;
                 this.resetSeed(true);
             };
             this.regenButton.setActive(true);
@@ -154,12 +158,11 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             this.pasteButton.setAlign(ig.GUI_ALIGN.X_RIGHT, ig.GUI_ALIGN.Y_BOTTOM);
             this.pasteButton.setPos(2, 30);
             this.pasteButton.onButtonPress = () => {
-                const version = options.version;
                 options = deserialize(new nw.Clipboard().get('text'));
-                if (options.version !== version) {
+                if (options.version !== currentVersion) {
                     sc.Dialogs.showWarningDialog('Seed version has changed', true, () => {});
                 }
-                options.version = version;
+                options.version = currentVersion;
                 updateActiveState();
                 this.resetSeed(true);
             };

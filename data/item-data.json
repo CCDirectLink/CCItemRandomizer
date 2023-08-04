@@ -1,5 +1,5 @@
 {
-    "version": "4",
+    "version": "5",
     "areas": [
         ["2", "<->", "3", "item.145.amount >= 1"],
         ["3", "<->", "4", "item.149.amount >= 1", "item.170.amount >= 1"],
