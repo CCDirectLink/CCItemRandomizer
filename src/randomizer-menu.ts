@@ -2,6 +2,7 @@ import { GenerateOptions, deserialize, serialize } from "./generate";
 
 declare const ig: any;
 declare const sc: any;
+declare const nw: any;
 declare const KEY_SPLINES: any;
 
 
@@ -109,13 +110,16 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         cost: null,
         rest: null,
         enabled: true,
-        init() {
+        regenButton: null,
+        copyButton: null,
+        pasteButton: null,
+        init(updateActiveState: () => unknown) {
             this.parent(sc.MenuPanelType.TOP_RIGHT_EDGE);
-            this.setSize(164, 87);
+            this.setSize(164, 110);
             this.setAlign(ig.GUI_ALIGN.X_LEFT, ig.GUI_ALIGN.Y_BOTTOM);
             this.setPos(8, 28);
             var b = 5,
-                a = new sc.TextGui(ig.lang.get("sc.gui.menu.new-game.overview"), {
+                a = new sc.TextGui(ig.lang.get("sc.gui.menu.randomizer.seedTitle"), {
                     font: sc.fontsystem.tinyFont
                 });
             a.setPos(2, b);
@@ -124,7 +128,48 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             this.points = new RandomizerCartEntry(ig.lang.get("sc.gui.menu.randomizer.seed"));
             this.points.setPos(4, b);
             this.addChildGui(this.points);
-            this.doStateTransition("HIDDEN", true)
+
+            this.regenButton = new sc.ButtonGui("\\i[tech]" + ig.lang.get("sc.gui.menu.randomizer.regenerate"), 160);
+            this.regenButton.setAlign(ig.GUI_ALIGN.X_LEFT, ig.GUI_ALIGN.Y_BOTTOM);
+            this.regenButton.setPos(2, 55);
+            this.regenButton.onButtonPress = () => {
+                options.seed = Math.random().toString().slice(2);
+                this.resetSeed(true);
+            };
+            this.regenButton.setActive(true);
+            this.addChildGui(this.regenButton);
+
+            this.copyButton = new sc.ButtonGui("\\i[quest]" + ig.lang.get("sc.gui.menu.randomizer.copy"), 80);
+            this.copyButton.setAlign(ig.GUI_ALIGN.X_LEFT, ig.GUI_ALIGN.Y_BOTTOM);
+            this.copyButton.setPos(2, 30);
+            this.copyButton.onButtonPress = () => {
+                new nw.Clipboard().set(serialize(options), 'text');
+                sc.Dialogs.showInfoDialog('Copied seed to clipboard', true, () => {})
+            };
+            this.copyButton.setActive(true);
+            this.addChildGui(this.copyButton);
+            // this.buttonGroup.addFocusGui(this.copyButton, 0, 0, false)
+
+            this.pasteButton = new sc.ButtonGui("\\i[save-star]" + ig.lang.get("sc.gui.menu.randomizer.paste"), 80);
+            this.pasteButton.setAlign(ig.GUI_ALIGN.X_RIGHT, ig.GUI_ALIGN.Y_BOTTOM);
+            this.pasteButton.setPos(2, 30);
+            this.pasteButton.onButtonPress = () => {
+                const version = options.version;
+                options = deserialize(new nw.Clipboard().get('text'));
+                if (options.version !== version) {
+                    sc.Dialogs.showWarningDialog('Seed version has changed', true, () => {});
+                }
+                options.version = version;
+                updateActiveState();
+                this.resetSeed(true);
+            };
+            this.pasteButton.setActive(true);
+            this.addChildGui(this.pasteButton);
+            // this.buttonGroup.addFocusGui(this.copyButton, 0, 1, false)
+
+            this.doStateTransition("HIDDEN", true);
+            
+            // ig.interact.addEntry(this.buttonInteract);
         },
         resetSeed(flag: boolean) {
             this.points.setValue(serialize(options), flag);
@@ -135,14 +180,19 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         updateDrawables(renderer: any) {
             this.parent(renderer);
             renderer.addColor("#7E7E7E", 0, 12, this.hook.size.x, 1);
-            renderer.addColor("#FFF", 3, 42, this.hook.size.x - 6, 1)
         },
         show() {
             this.resetSeed(true);
-            this.doStateTransition("DEFAULT")
+            sc.menu.buttonInteract.addGlobalButton(this.regenButton, () => false);
+            sc.menu.buttonInteract.addGlobalButton(this.copyButton, () => false);
+            sc.menu.buttonInteract.addGlobalButton(this.pasteButton, () => false);
+            this.doStateTransition("DEFAULT");
         },
         hide() {
-            this.doStateTransition("HIDDEN")
+            sc.menu.buttonInteract.removeGlobalButton(this.regenButton);
+            sc.menu.buttonInteract.removeGlobalButton(this.copyButton);
+            sc.menu.buttonInteract.removeGlobalButton(this.pasteButton);
+            this.doStateTransition("HIDDEN");
         }
     });
 
@@ -271,6 +321,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         buttongroup: null,
         toggleOnSound: null,
         toggleOffSound: null,
+        listEntries: [],
         _curElement: -1,
         init() {
             this.parent();
@@ -319,17 +370,24 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
             };
             let row = 0;
             let index = 0;
+            this.listEntries = [];
             for (const name of Object.keys(RANDOMIZER_SETS)) {
                 counterObj.counter = 0;
                 const button = new RandomizerToggleSet(name, this.list, row, index, counterObj);
                 this.list.addButton(button, true);
                 row = row + Math.ceil(counterObj.counter / 2);
                 this.sets[index] = button;
-                index++
+                index++;
+                this.listEntries.push(button);
             }
             this.list.list.paddingTop = 1;
             this.list.list.columns = 2;
             this.buttongroup.fillEmptySpace()
+        },
+        updateActiveState() {
+            for (const entry of this.listEntries) {
+                entry.updateActiveState();
+            }
         },
         updateEntries: function (skipSetSynop: any) {
             if (!skipSetSynop) {
@@ -390,8 +448,9 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
         points: null,
         button: null,
         init() {
-            this.parent(new RandomizerList, null, true);
-            this.points = new RandomizerCart();
+            const list = new RandomizerList();
+            this.parent(list, null, true);
+            this.points = new RandomizerCart(() => list.updateActiveState());
             this.addChildGui(this.points);
             this.button = new sc.ButtonGui("\\i[help2]" + ig.lang.get("sc.gui.menu.randomizer.start"), 160);
             this.button.hook.transitions = {
@@ -409,7 +468,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, update: (opt
                     timeFunction: KEY_SPLINES.LINEAR
                 }
             };
-            this.button.keepMouseFocus = true;
+            // this.button.keepMouseFocus = true;
             this.button.setAlign(ig.GUI_ALIGN.X_LEFT, ig.GUI_ALIGN.Y_BOTTOM);
             this.button.setPos(10, 30);
             this.button.doStateTransition("HIDDEN", true);

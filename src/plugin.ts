@@ -684,6 +684,9 @@ export default class ItemRandomizer {
 
 		ig.lang.labels.sc.gui.menu.randomizer = {
 			start: 'Generate',
+			copy: 'Copy',
+			paste: 'Paste',
+			regenerate: 'Regenerate',
 			sets: {
 				enemy: 'Enemy Randomizer',
 				shop: 'Shop Randomizer',
@@ -701,8 +704,9 @@ export default class ItemRandomizer {
 				}
 			},
 			seed: 'Seed',
+			seedTitle: 'Randomizer'
 		}
-
+		ig.lang.labels.sc.gui.menu['menu-titles'].randomizer = 'Randomizer';
 	}
 }
 
