@@ -50,14 +50,12 @@ export default class ItemRandomizer {
 		// @ts-ignore
 		window.generateRandomizerState = (options: GenerateOptions) => this.generate({
 			...options,
-			itemTemplatePath: options.itemTemplatePath ?? (baseDirectory + 'data/item-data.json'),
-			enemyTemplatePath: options.enemyTemplatePath ?? (baseDirectory + 'data/enemy-data.json'),
+			templatePath: options.templatePath ?? (baseDirectory + 'data/data.json'),
 		});
 		// @ts-ignore
-		window.generateRandizerFromSeed = (seed: string, itemTemplatePath?: string, enemyTemplatePath?: string) => this.generate({
+		window.generateRandizerFromSeed = (seed: string, templatePath?: string) => this.generate({
 			...deserialize(seed),
-			itemTemplatePath: itemTemplatePath ?? (baseDirectory + 'data/item-data.json'),
-			enemyTemplatePath: enemyTemplatePath ?? (baseDirectory + 'data/enemy-data.json'),
+			templatePath: templatePath ?? (baseDirectory + 'data/data.json'),
 			forceGenerate: true,
 		});
 		// @ts-ignore
@@ -67,14 +65,12 @@ export default class ItemRandomizer {
 		}
 
 		await this.generate({
-			itemTemplatePath: baseDirectory + 'data/item-data.json',
-			enemyTemplatePath: baseDirectory + 'data/enemy-data.json'
+			templatePath: baseDirectory + 'data/data.json',
 		});
 
 		addTitleMenuButton({
 			...deserialize(seed),
-			itemTemplatePath: baseDirectory + 'data/item-data.json',
-			enemyTemplatePath: baseDirectory + 'data/enemy-data.json',
+			templatePath: baseDirectory + 'data/data.json',
 			statePath: 'randomizerState.json'
 		}, currentVersion, options => this.generate(options));
 

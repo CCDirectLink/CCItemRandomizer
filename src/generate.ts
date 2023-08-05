@@ -13,8 +13,7 @@ export interface GenerateOptions {
     forceGenerate?: boolean;
     seed?: string;
     enemyRandomizerPreset?: EnemyGeneratorPreset;
-    itemTemplatePath: string;
-    enemyTemplatePath?: string;
+    templatePath: string;
     statePath?: string;
     shops?: ShopsPreset;
 }
@@ -38,7 +37,7 @@ export async function generateRandomizerState(
     seed: string;
     currentVersion: string;
 }> {
-	const data: ItemData = await readJsonFromFile(options.itemTemplatePath);
+	const data: ItemData = await readJsonFromFile(options.templatePath);
     const stateExists = fs.existsSync(options.statePath ?? 'randomizerState.json');
     if (!options.forceGenerate && stateExists) {
         return { ...await readJsonFromFile(options.statePath ?? 'randomizerState.json'), currentVersion: data.version };
@@ -60,7 +59,7 @@ export async function generateRandomizerState(
     const { spoilerLog, maps, quests, shops, overrides } = await getChecks(data, options);
 
     const enemyRandomizerPreset: EnemyGeneratorPreset = options.enemyRandomizerPreset ?? {
-        enable: !!options.enemyTemplatePath,
+        enable: true,
         randomizeSpawners: true,
         randomizeEnemies: true,
         levelRange: [5, 3],
@@ -114,11 +113,7 @@ export async function generateRandomizerState(
         `Seed: ${seed}\r\n` + pretty.join('\r\n') + '\r\n\r\n' + prettyOrderd.join('\r\n'),
     );
 
-    let enemyData: EnemyData | undefined;
-    if (enemyRandomizerPreset?.enable && options.enemyTemplatePath) {
-        enemyData = await readJsonFromFile(options.enemyTemplatePath);
-    }
-
+    const enemyData: EnemyData | undefined = data.enemyData;
     return { spoilerLog, maps, quests, shops, overrides, markers: data.markers, enemyRandomizerPreset, enemyData, seed: serialize(options), currentVersion: data.version };
 }
 
@@ -178,8 +173,7 @@ export function deserialize(input: string): GenerateOptions {
                 spawnMapObjects: true,
                 enduranceRange: [1, 1.5],
             },
-            itemTemplatePath: '',
-            enemyTemplatePath: '',
+            templatePath: '',
             version: '',
         }
     }
@@ -245,8 +239,7 @@ export function deserialize(input: string): GenerateOptions {
         seed: seed ?? '',
         enemyRandomizerPreset,
         shops: shopPreset,
-        itemTemplatePath: '',
-        enemyTemplatePath: '',
+        templatePath: '',
         forceGenerate: false,
         statePath: '',
         version: version ?? ''

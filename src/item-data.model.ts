@@ -1,3 +1,5 @@
+import { EnemyData } from "./enemy-data.model";
+
 export interface ItemData {
 	version: string;
 	areas: RawAreas;
@@ -7,6 +9,7 @@ export interface ItemData {
 	items: RawItems;
 	shops: RawShops;
 	markers: Record<string, Marker[]>;
+	enemyData: EnemyData;
 }
 
 export type RawAreas = [from: string, type: '<->', to: string, ...conditions: string[]];

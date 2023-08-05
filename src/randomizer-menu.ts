@@ -500,8 +500,7 @@ export function addTitleMenuButton(initialOptions: GenerateOptions, currentVersi
             const result: GenerateOptions = {
                 ...deserialize(serialize(options)),
                 forceGenerate: true,
-                itemTemplatePath: initialOptions.itemTemplatePath,
-                enemyTemplatePath: initialOptions.enemyTemplatePath,
+                templatePath: initialOptions.templatePath,
                 statePath: initialOptions.statePath,
             }
             this.button.setActive(false);
