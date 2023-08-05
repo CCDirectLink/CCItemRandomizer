@@ -6,6 +6,7 @@ export interface ItemData {
 	keys: Record<ChestType, string>;
 	items: RawItems;
 	shops: RawShops;
+	markers: Record<string, Marker[]>;
 }
 
 export type RawAreas = [from: string, type: '<->', to: string, ...conditions: string[]];
@@ -13,6 +14,7 @@ export type RawAreas = [from: string, type: '<->', to: string, ...conditions: st
 export type RawItems = { [mapName: string]: RawMapItems };
 
 export interface RawMapItems {
+	name: string;
 	chests: RawChests;
 	events: RawEvents;
 	disabledEvents: number[];
@@ -46,4 +48,14 @@ export interface RawShop {
 	scale: number;
 	area: string;
 	items: string[];
+}
+
+export interface Marker {
+	key:  'CHEST' | 'UNKNOWN';
+	x: number;
+	y: number;
+	level: number;
+	index: number;
+	map: string;
+	mapId: number;
 }

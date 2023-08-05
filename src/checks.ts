@@ -7,6 +7,7 @@ export type Check = (
 	| {
 			type: 'element';
 			map: string;
+			mapName: string;
 			item: Element;
 			amount: 1;
 			mapId: number;
@@ -15,6 +16,7 @@ export type Check = (
 	| {
 			type: 'chest';
 			map: string;
+			mapName: string;
 			mapId: number;
 			item: number;
 			amount: number;
@@ -24,6 +26,7 @@ export type Check = (
 	| {
 			type: 'event';
 			map: string;
+			mapName: string;
 			mapId: number;
 			item: number;
 			amount: number;
@@ -73,6 +76,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 		{
 			type: 'element',
 			map: 'cold-dng.b3.room7',
+			mapName: 'Temple Mine - Chamber of Fire',
 			item: 'heat',
 			amount: 1,
 			mapId: 45,
@@ -81,6 +85,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 		{
 			type: 'element',
 			map: 'heat-dng.f2.room-cold',
+			mapName: 'Faj\'ro Temple - Chamber of Ice',
 			item: 'cold',
 			amount: 1,
 			mapId: 78,
@@ -89,6 +94,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 		{
 			type: 'element',
 			map: 'wave-dng.b1.center-05-element',
+			mapName: 'So\'najiz Temple - Chamber of Shock',
 			item: 'shock',
 			amount: 1,
 			mapId: 248,
@@ -97,6 +103,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 		{
 			type: 'element',
 			map: 'shock-dng.f2.room-element',
+			mapName: 'Zir\'vitar Temple - Chamber of Wave',
 			item: 'wave',
 			amount: 1,
 			mapId: 86,
@@ -111,7 +118,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 				.concat([data.keys[type]])
 				.filter(c => c)
 				.filter((c, i, arr) => arr.indexOf(c) === i);
-			checks.push({ type: 'chest', map, mapId: Number(mapId), item, amount, conditions, chestType: type });
+			checks.push({ type: 'chest', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, conditions, chestType: type });
 		}
 		for (const mapId of Object.keys(data.items[map].events)) {
 			for (const event of data.items[map].events[mapId]) {
@@ -120,7 +127,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 					.concat(condition.slice(1))
 					.filter(c => c)
 					.filter((c, i, arr) => arr.indexOf(c) === i);
-				checks.push({ type: 'event', map, mapId: Number(mapId), item, amount, path, conditions });
+				checks.push({ type: 'event', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, path, conditions });
 			}
 		}
 	}

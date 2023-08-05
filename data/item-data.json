@@ -43,6 +43,7 @@
     },
     "items": {
         "arid.cliff-1": {
+            "name": "Vermillion Wasteland - Spiral Cliff",
             "chests": {
                 "467": {
                     "item": 191,
@@ -66,6 +67,7 @@
             "events": {}
         },
         "arid.interior.stealth-2": {
+            "name": "Vermillion Wasteland - Storage Basement",
             "chests": {
                 "94": {
                     "item": 79,
@@ -80,6 +82,7 @@
             "events": {}
         },
         "arid.lake-1": {
+            "name": "Vermillion Wasteland - Crimson Lake",
             "chests": {
                 "646": {
                     "item": 28,
@@ -103,6 +106,7 @@
             "events": {}
         },
         "arid.town-1": {
+            "name": "Vermillion Wasteland - East Town",
             "chests": {
                 "334": {
                     "item": 480,
@@ -135,6 +139,7 @@
             "events": {}
         },
         "arid.town-2": {
+            "name": "Vermillion Wasteland - West Town",
             "chests": {
                 "485": {
                     "item": 191,
@@ -167,6 +172,7 @@
             "events": {}
         },
         "autumn.caves.cave-3-to-6": {
+            "name": "Autumn's Rise - Drippy Den",
             "chests": {
                 "2": {
                     "item": 454,
@@ -181,6 +187,7 @@
             "events": {}
         },
         "autumn.cubaum": {
+            "name": "Autumn's Rise - Normal Clearing",
             "chests": {
                 "200": {
                     "item": 27,
@@ -204,6 +211,7 @@
             "events": {}
         },
         "autumn.entrance": {
+            "name": "Autumn's Rise - Entrance",
             "chests": {
                 "112": {
                     "item": 1,
@@ -218,6 +226,7 @@
             "events": {}
         },
         "autumn.lake-observatory": {
+            "name": "Autumn's Rise - Old Observatory",
             "chests": {
                 "329": {
                     "item": 18,
@@ -232,6 +241,7 @@
             "events": {}
         },
         "autumn.path-1-1": {
+            "name": "Autumn's Rise - Quiet Passage 1",
             "chests": {
                 "378": {
                     "item": 74,
@@ -246,6 +256,7 @@
             "events": {}
         },
         "autumn.path-1-2": {
+            "name": "Autumn's Rise - Quiet Passage 2",
             "chests": {
                 "346": {
                     "item": 81,
@@ -260,6 +271,7 @@
             "events": {}
         },
         "autumn.path-1-3": {
+            "name": "Autumn's Rise - Hedgehag's Den",
             "chests": {
                 "322": {
                     "item": 133,
@@ -274,6 +286,7 @@
             "events": {}
         },
         "autumn.path-1": {
+            "name": "Autumn's Rise - Pathway 1",
             "chests": {
                 "137": {
                     "item": 93,
@@ -288,6 +301,7 @@
             "events": {}
         },
         "autumn.path-2": {
+            "name": "Autumn's Rise - Pathway 2",
             "chests": {
                 "268": {
                     "item": 65,
@@ -302,6 +316,7 @@
             "events": {}
         },
         "autumn.path-3-1": {
+            "name": "Autumn's Rise - Pathway 3",
             "chests": {
                 "291": {
                     "item": 71,
@@ -329,6 +344,7 @@
             }
         },
         "autumn.path-3-2": {
+            "name": "Autumn's Rise - Off Road 1",
             "chests": {
                 "305": {
                     "item": 68,
@@ -343,6 +359,7 @@
             "events": {}
         },
         "autumn.path-3-4": {
+            "name": "Autumn's Rise - Off Road 2",
             "chests": {
                 "265": {
                     "item": 116,
@@ -357,6 +374,7 @@
             "events": {}
         },
         "autumn.path-7-1": {
+            "name": "Autumn's Rise - Pathway 6",
             "chests": {
                 "283": {
                     "item": 48,
@@ -389,6 +407,7 @@
             "events": {}
         },
         "autumn.path-7-2": {
+            "name": "Autumn's Rise - Pathway 7",
             "chests": {
                 "1115": {
                     "item": 165,
@@ -412,6 +431,7 @@
             "events": {}
         },
         "autumn.path-8": {
+            "name": "Autumn's Rise - Ending Pathway",
             "chests": {
                 "12": {
                     "item": 487,
@@ -439,6 +459,7 @@
             }
         },
         "autumn.path4": {
+            "name": "Autumn's Rise - Obelisk Lake",
             "chests": {
                 "22": {
                     "item": 0,
@@ -462,6 +483,7 @@
             "events": {}
         },
         "autumn.path5": {
+            "name": "Autumn's Rise - Pathway 4",
             "chests": {
                 "2": {
                     "item": 82,
@@ -494,6 +516,7 @@
             "events": {}
         },
         "autumn.path6": {
+            "name": "Autumn's Rise - Pathway 5",
             "chests": {
                 "13": {
                     "item": 7,
@@ -517,6 +540,7 @@
             "events": {}
         },
         "autumn-fall.caves.path-03-exit": {
+            "name": "Autumn's Fall - Ruby Tunnel",
             "chests": {
                 "29": {
                     "item": 192,
@@ -531,6 +555,7 @@
             "events": {}
         },
         "autumn-fall.caves.path-04-cave-01": {
+            "name": "Autumn's Fall - Lake Cave 1",
             "chests": {
                 "51": {
                     "item": 356,
@@ -545,6 +570,7 @@
             "events": {}
         },
         "autumn-fall.caves.path-04-cave-02": {
+            "name": "Autumn's Fall - Lake Cave 2",
             "chests": {
                 "92": {
                     "item": 381,
@@ -559,6 +585,7 @@
             "events": {}
         },
         "autumn-fall.caves.path-04-cave-03": {
+            "name": "Autumn's Fall - Lake Cave 3",
             "chests": {
                 "157": {
                     "item": 13,
@@ -573,6 +600,7 @@
             "events": {}
         },
         "autumn-fall.caves.path-04-cave-04": {
+            "name": "Autumn's Fall - Lake Cave 4",
             "chests": {
                 "109": {
                     "item": 335,
@@ -587,6 +615,7 @@
             "events": {}
         },
         "autumn-fall.path-01": {
+            "name": "Autumn's Fall - Southern Exit",
             "chests": {
                 "458": {
                     "item": 87,
@@ -619,6 +648,7 @@
             "events": {}
         },
         "autumn-fall.path-02": {
+            "name": "Autumn's Fall - Ruined Path",
             "chests": {
                 "85": {
                     "item": 244,
@@ -642,6 +672,7 @@
             "events": {}
         },
         "autumn-fall.path-03": {
+            "name": "Autumn's Fall - Eastern Exit",
             "chests": {
                 "48": {
                     "item": 302,
@@ -665,6 +696,7 @@
             "events": {}
         },
         "autumn-fall.path-04": {
+            "name": "Autumn's Fall - Ancient Center",
             "chests": {
                 "14": {
                     "item": 491,
@@ -688,6 +720,7 @@
             "events": {}
         },
         "autumn-fall.path-05": {
+            "name": "Autumn's Fall - Northern Exit",
             "chests": {
                 "123": {
                     "item": 79,
@@ -711,6 +744,7 @@
             "events": {}
         },
         "autumn-fall.path-06": {
+            "name": "Autumn's Fall - Pillar Isle",
             "chests": {
                 "39": {
                     "item": 40,
@@ -743,6 +777,7 @@
             "events": {}
         },
         "autumn-fall.path-07": {
+            "name": "Autumn's Fall - Village Remains",
             "chests": {
                 "79": {
                     "item": 246,
@@ -775,6 +810,7 @@
             "events": {}
         },
         "autumn-fall.path-08": {
+            "name": "Autumn's Fall - Secluded Path",
             "chests": {
                 "527": {
                     "item": 380,
@@ -807,6 +843,7 @@
             "events": {}
         },
         "autumn-fall.path-10": {
+            "name": "Autumn's Fall - Villa of Terror",
             "chests": {
                 "68": {
                     "item": 455,
@@ -830,6 +867,7 @@
             "events": {}
         },
         "autumn-fall.raid.raid-01": {
+            "name": "Autumn's Fall - Para Island 1",
             "chests": {
                 "375": {
                     "item": 28,
@@ -844,6 +882,7 @@
             "events": {}
         },
         "bergen.bergen": {
+            "name": "Bergen Village - Bergen South",
             "chests": {
                 "868": {
                     "item": 165,
@@ -885,6 +924,7 @@
             "events": {}
         },
         "bergen.bergen2": {
+            "name": "Bergen Village - Bergen North",
             "chests": {
                 "2003": {
                     "item": 159,
@@ -926,6 +966,7 @@
             "events": {}
         },
         "bergen.elevator": {
+            "name": "Bergen Village - Diving Railway",
             "chests": {
                 "35": {
                     "item": 167,
@@ -940,6 +981,7 @@
             "events": {}
         },
         "bergen.inner-questhub-0": {
+            "name": "Bergen Village - Seeker Hub Cellar",
             "chests": {
                 "130": {
                     "item": 149,
@@ -963,6 +1005,7 @@
             "events": {}
         },
         "bergen.inner-questhub-1": {
+            "name": "Bergen Village - Seeker Hub",
             "chests": {},
             "events": {
                 "135": [
@@ -980,6 +1023,7 @@
             }
         },
         "bergen.mine-entrance": {
+            "name": "Bergen Village - Temple Mine Entrance",
             "chests": {},
             "events": {
                 "316": [
@@ -997,6 +1041,7 @@
             }
         },
         "bergen.storage": {
+            "name": "Bergen Village - Storage Room",
             "chests": {
                 "71": {
                     "item": 366,
@@ -1011,6 +1056,7 @@
             "events": {}
         },
         "bergen-trail.cave.cave-08-smith": {
+            "name": "Bergen Trail - Abandoned Cave ",
             "chests": {
                 "33": {
                     "item": 190,
@@ -1025,6 +1071,7 @@
             "events": {}
         },
         "bergen-trail.cave.cave-4-1-1": {
+            "name": "Bergen Trail - Frozen Cave",
             "chests": {
                 "20": {
                     "item": 190,
@@ -1039,6 +1086,7 @@
             "events": {}
         },
         "bergen-trail.cave.cave-6-1": {
+            "name": "Bergen Trail - Abandoned Ground",
             "chests": {
                 "416": {
                     "item": 191,
@@ -1053,6 +1101,7 @@
             "events": {}
         },
         "bergen-trail.cave.cave-6-3": {
+            "name": "Bergen Trail - Pengpeng's Den",
             "chests": {
                 "24": {
                     "item": 137,
@@ -1067,6 +1116,7 @@
             "events": {}
         },
         "bergen-trail.path-1-entrance": {
+            "name": "Bergen Trail - Entrance",
             "chests": {
                 "531": {
                     "item": 88,
@@ -1090,6 +1140,7 @@
             "events": {}
         },
         "bergen-trail.path-2": {
+            "name": "Bergen Trail - Rising Path 1",
             "chests": {
                 "67": {
                     "item": 3,
@@ -1104,6 +1155,7 @@
             "events": {}
         },
         "bergen-trail.path-3-1": {
+            "name": "Bergen Trail - Off Road 1",
             "chests": {
                 "432": {
                     "item": 66,
@@ -1127,6 +1179,7 @@
             "events": {}
         },
         "bergen-trail.path-3-2": {
+            "name": "Bergen Trail - Off Road 2",
             "chests": {
                 "373": {
                     "item": 107,
@@ -1159,6 +1212,7 @@
             "events": {}
         },
         "bergen-trail.path-3-3": {
+            "name": "Bergen Trail - Off Road 3",
             "chests": {
                 "32": {
                     "item": 129,
@@ -1182,6 +1236,7 @@
             "events": {}
         },
         "bergen-trail.path-4-1-1": {
+            "name": "Bergen Trail - Old Plateau",
             "chests": {
                 "1015": {
                     "item": 132,
@@ -1196,6 +1251,7 @@
             "events": {}
         },
         "bergen-trail.path-4-1": {
+            "name": "Bergen Trail - Rising Path 2",
             "chests": {
                 "288": {
                     "item": 97,
@@ -1210,6 +1266,7 @@
             "events": {}
         },
         "bergen-trail.path-4-2": {
+            "name": "Bergen Trail - Rising Path 3",
             "chests": {
                 "269": {
                     "item": 108,
@@ -1233,6 +1290,7 @@
             "events": {}
         },
         "bergen-trail.path-5": {
+            "name": "Bergen Trail - Spike Heights",
             "chests": {
                 "572": {
                     "item": 72,
@@ -1256,6 +1314,7 @@
             "events": {}
         },
         "bergen-trail.path-6-1": {
+            "name": "Bergen Trail - Icy Cauldron",
             "chests": {
                 "26": {
                     "item": 488,
@@ -1270,6 +1329,7 @@
             "events": {}
         },
         "bergen-trail.path-6": {
+            "name": "Bergen Trail - Bergen Waterfalls",
             "chests": {
                 "493": {
                     "item": 0,
@@ -1284,6 +1344,7 @@
             "events": {}
         },
         "bergen-trail.path-7-1": {
+            "name": "Bergen Trail - Rising Path 4",
             "chests": {
                 "994": {
                     "item": 140,
@@ -1307,6 +1368,7 @@
             "events": {}
         },
         "bergen-trail.path-7-2-1": {
+            "name": "Bergen Trail - Lofty Heights",
             "chests": {
                 "28": {
                     "item": 447,
@@ -1321,6 +1383,7 @@
             "events": {}
         },
         "bergen-trail.path-7-2": {
+            "name": "Bergen Trail - Windy Climb",
             "chests": {
                 "1027": {
                     "item": 141,
@@ -1335,6 +1398,7 @@
             "events": {}
         },
         "bergen-trail.path-8": {
+            "name": "Bergen Trail - Rising Path 5",
             "chests": {
                 "36": {
                     "item": 114,
@@ -1349,6 +1413,7 @@
             "events": {}
         },
         "cold-dng.b1.center": {
+            "name": "Temple Mine - Elevator",
             "chests": {
                 "223": {
                     "item": 159,
@@ -1363,6 +1428,7 @@
             "events": {}
         },
         "cold-dng.b1.room1": {
+            "name": "Temple Mine - Crossing Funnel",
             "chests": {
                 "48": {
                     "item": 139,
@@ -1377,6 +1443,7 @@
             "events": {}
         },
         "cold-dng.b1.room2": {
+            "name": "Temple Mine - Old Shaft 1",
             "chests": {
                 "29": {
                     "item": 129,
@@ -1391,6 +1458,7 @@
             "events": {}
         },
         "cold-dng.b1.room3": {
+            "name": "Temple Mine - Old Shaft 2",
             "chests": {
                 "26": {
                     "item": 487,
@@ -1405,6 +1473,7 @@
             "events": {}
         },
         "cold-dng.b1.room4": {
+            "name": "Temple Mine - Testing Chamber",
             "chests": {
                 "3": {
                     "item": 152,
@@ -1419,6 +1488,7 @@
             "events": {}
         },
         "cold-dng.b1.room6": {
+            "name": "Temple Mine - Old Chamber",
             "chests": {
                 "3": {
                     "item": 152,
@@ -1433,6 +1503,7 @@
             "events": {}
         },
         "cold-dng.b2.room1": {
+            "name": "Temple Mine - Storage Room 1",
             "chests": {
                 "32": {
                     "item": 160,
@@ -1447,6 +1518,7 @@
             "events": {}
         },
         "cold-dng.b2.room2": {
+            "name": "Temple Mine - Frozen Chamber 1",
             "chests": {
                 "40": {
                     "item": 152,
@@ -1461,6 +1533,7 @@
             "events": {}
         },
         "cold-dng.b2.room5": {
+            "name": "Temple Mine - Frozen Chamber 2",
             "chests": {
                 "21": {
                     "item": 154,
@@ -1484,6 +1557,7 @@
             "events": {}
         },
         "cold-dng.b3.room1": {
+            "name": "Temple Mine - Frozen Shaft 1",
             "chests": {
                 "30": {
                     "item": 165,
@@ -1498,6 +1572,7 @@
             "events": {}
         },
         "cold-dng.b3.room2": {
+            "name": "Temple Mine - Frozen Shaft 2",
             "chests": {
                 "55": {
                     "item": 119,
@@ -1512,6 +1587,7 @@
             "events": {}
         },
         "cold-dng.b3.room3": {
+            "name": "Temple Mine - Frozen Shaft 3",
             "chests": {
                 "11": {
                     "item": 152,
@@ -1535,6 +1611,7 @@
             "events": {}
         },
         "cold-dng.b3.room6": {
+            "name": "Temple Mine - Overrun Chamber",
             "chests": {
                 "36": {
                     "item": 152,
@@ -1558,6 +1635,7 @@
             "events": {}
         },
         "cold-dng.b4.center": {
+            "name": "Temple Mine - Elevator",
             "chests": {
                 "298": {
                     "item": 38,
@@ -1572,6 +1650,7 @@
             "events": {}
         },
         "cold-dng.b4.room10": {
+            "name": "Temple Mine - Infested Chamber",
             "chests": {
                 "94": {
                     "item": 153,
@@ -1586,6 +1665,7 @@
             "events": {}
         },
         "cold-dng.b4.room4": {
+            "name": "Temple Mine - Forgotten Shaft 1",
             "chests": {
                 "25": {
                     "item": 152,
@@ -1600,6 +1680,7 @@
             "events": {}
         },
         "cold-dng.b4.room5": {
+            "name": "Temple Mine - Forgotten Shaft 2",
             "chests": {
                 "18": {
                     "item": 164,
@@ -1614,6 +1695,7 @@
             "events": {}
         },
         "cold-dng.b4.room6": {
+            "name": "Temple Mine - Forgotten Shaft 3",
             "chests": {
                 "16": {
                     "item": 152,
@@ -1628,6 +1710,7 @@
             "events": {}
         },
         "cold-dng.b4.room7": {
+            "name": "Temple Mine - Forgotten Shaft 4",
             "chests": {
                 "44": {
                     "item": 152,
@@ -1642,6 +1725,7 @@
             "events": {}
         },
         "cold-dng.b4.room8": {
+            "name": "Temple Mine - Forgotten Shaft 5",
             "chests": {
                 "16": {
                     "item": 152,
@@ -1656,6 +1740,7 @@
             "events": {}
         },
         "cold-dng.g.center": {
+            "name": "Temple Mine - Elevator",
             "chests": {
                 "249": {
                     "item": 0,
@@ -1670,6 +1755,7 @@
             "events": {}
         },
         "cold-dng.g.expo-space": {
+            "name": "cold-dng.g.expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -1687,6 +1773,7 @@
             }
         },
         "cold-dng.g.room2": {
+            "name": "Temple Mine - Temple Chamber 2",
             "chests": {
                 "3": {
                     "item": 152,
@@ -1701,6 +1788,7 @@
             "events": {}
         },
         "forest.caves.cave-013-pandza-01": {
+            "name": "Sapphire Ridge - The Barracks",
             "chests": {
                 "385": {
                     "item": 292,
@@ -1715,6 +1803,7 @@
             "events": {}
         },
         "forest.caves.cave-013-pandza-02": {
+            "name": "Sapphire Ridge - The Bellow",
             "chests": {
                 "133": {
                     "item": 515,
@@ -1729,6 +1818,7 @@
             "events": {}
         },
         "forest.caves.path-01-entrance": {
+            "name": "Sapphire Ridge - Sapphire Tunnel",
             "chests": {
                 "23": {
                     "item": 191,
@@ -1743,6 +1833,7 @@
             "events": {}
         },
         "forest.caves.path-02-to-08": {
+            "name": "Sapphire Ridge - Eroded Passage",
             "chests": {
                 "1": {
                     "item": 391,
@@ -1766,6 +1857,7 @@
             "events": {}
         },
         "forest.caves.path-06-chasm": {
+            "name": "Sapphire Ridge - Spider Chasm",
             "chests": {
                 "40": {
                     "item": 409,
@@ -1789,6 +1881,7 @@
             "events": {}
         },
         "forest.caves.path-07-to-08": {
+            "name": "Sapphire Ridge - Narrow Passage",
             "chests": {
                 "5": {
                     "item": 354,
@@ -1812,6 +1905,7 @@
             "events": {}
         },
         "forest.caves.path-08-to-10": {
+            "name": "Sapphire Ridge - Wheel Passage",
             "chests": {
                 "29": {
                     "item": 424,
@@ -1835,6 +1929,7 @@
             "events": {}
         },
         "forest.interior.expo-space": {
+            "name": "forest.interior.expo-space",
             "chests": {},
             "events": {
                 "137": [
@@ -1852,6 +1947,7 @@
             }
         },
         "forest.interior.inn-og-01": {
+            "name": "Sapphire Ridge - Cave Inn 1F",
             "chests": {
                 "128": {
                     "item": 409,
@@ -1866,6 +1962,7 @@
             "events": {}
         },
         "forest.interior.inn-storage": {
+            "name": "Sapphire Ridge - Cave Inn Storage",
             "chests": {
                 "87": {
                     "item": 497,
@@ -1880,6 +1977,7 @@
             "events": {}
         },
         "forest.path-01-entrance": {
+            "name": "Sapphire Ridge - Western Exit",
             "chests": {
                 "72": {
                     "item": 167,
@@ -1903,6 +2001,7 @@
             "events": {}
         },
         "forest.path-02": {
+            "name": "Sapphire Ridge - North West Path",
             "chests": {
                 "157": {
                     "item": 406,
@@ -1926,6 +2025,7 @@
             "events": {}
         },
         "forest.path-03": {
+            "name": "Sapphire Ridge - River Road",
             "chests": {
                 "11": {
                     "item": 388,
@@ -1958,6 +2058,7 @@
             "events": {}
         },
         "forest.path-04-hostel": {
+            "name": "Sapphire Ridge - The Cave Inn",
             "chests": {
                 "52": {
                     "item": 88,
@@ -1981,6 +2082,7 @@
             "events": {}
         },
         "forest.path-04-vaga": {
+            "name": "Sapphire Ridge - Tranquil Bamboo",
             "chests": {
                 "5": {
                     "item": 408,
@@ -2017,6 +2119,7 @@
             }
         },
         "forest.path-05": {
+            "name": "Sapphire Ridge - Bamboo Thicket",
             "chests": {
                 "4": {
                     "item": 407,
@@ -2040,6 +2143,7 @@
             "events": {}
         },
         "forest.path-06": {
+            "name": "Sapphire Ridge - North East Path",
             "chests": {
                 "33": {
                     "item": 405,
@@ -2063,6 +2167,7 @@
             "events": {}
         },
         "forest.path-07": {
+            "name": "Sapphire Ridge - Flower Lake",
             "chests": {
                 "6": {
                     "item": 423,
@@ -2086,6 +2191,7 @@
             "events": {}
         },
         "forest.path-08": {
+            "name": "Sapphire Ridge - Carved Pathway",
             "chests": {
                 "68": {
                     "item": 336,
@@ -2118,6 +2224,7 @@
             "events": {}
         },
         "forest.path-09": {
+            "name": "Sapphire Ridge - High Ground",
             "chests": {
                 "24": {
                     "item": 329,
@@ -2141,6 +2248,7 @@
             "events": {}
         },
         "forest.path-10": {
+            "name": "Sapphire Ridge - Old Dojo",
             "chests": {
                 "78": {
                     "item": 357,
@@ -2173,6 +2281,7 @@
             "events": {}
         },
         "forest.path-11-behind-maze": {
+            "name": "Sapphire Ridge - Dream Pond",
             "chests": {
                 "59": {
                     "item": 392,
@@ -2187,6 +2296,7 @@
             "events": {}
         },
         "forest.path-12": {
+            "name": "Sapphire Ridge - Ascension Temple",
             "chests": {
                 "298": {
                     "item": 499,
@@ -2219,6 +2329,7 @@
             "events": {}
         },
         "forest.path-13": {
+            "name": "Sapphire Ridge - Baton Pond",
             "chests": {
                 "814": {
                     "item": 167,
@@ -2233,6 +2344,7 @@
             "events": {}
         },
         "heat.caves.cliff-cave-01": {
+            "name": "Maroon Valley - Mystery Cave",
             "chests": {
                 "42": {
                     "item": 183,
@@ -2256,6 +2368,7 @@
             "events": {}
         },
         "heat.caves.maroon-cave-01": {
+            "name": "Maroon Valley - Maroon Cave 1",
             "chests": {
                 "404": {
                     "item": 353,
@@ -2270,6 +2383,7 @@
             "events": {}
         },
         "heat.cliffs.cliffs-path-01": {
+            "name": "Maroon Valley - River Cliff",
             "chests": {
                 "105": {
                     "item": 229,
@@ -2293,6 +2407,7 @@
             "events": {}
         },
         "heat.cliffs.cliffs-path-02": {
+            "name": "Maroon Valley - Endless Pit",
             "chests": {
                 "29": {
                     "item": 182,
@@ -2325,6 +2440,7 @@
             "events": {}
         },
         "heat.dng-expo-space": {
+            "name": "heat.dng-expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -2342,6 +2458,7 @@
             }
         },
         "heat.oasis.oasis-path-01": {
+            "name": "Maroon Valley - Vivid Path",
             "chests": {
                 "8": {
                     "item": 178,
@@ -2365,6 +2482,7 @@
             "events": {}
         },
         "heat.oasis.oasis-path-02": {
+            "name": "Maroon Valley - Maroon Oasis",
             "chests": {
                 "80": {
                     "item": 188,
@@ -2388,6 +2506,7 @@
             "events": {}
         },
         "heat.oasis.oasis-path-03": {
+            "name": "Maroon Valley - Bright Path",
             "chests": {
                 "34": {
                     "item": 221,
@@ -2402,6 +2521,7 @@
             "events": {}
         },
         "heat.path-00": {
+            "name": "Maroon Valley - Rising Railway",
             "chests": {
                 "6": {
                     "item": 139,
@@ -2416,6 +2536,7 @@
             "events": {}
         },
         "heat.path-01-entrance": {
+            "name": "Maroon Valley - East Entrance",
             "chests": {
                 "55": {
                     "item": 487,
@@ -2430,6 +2551,7 @@
             "events": {}
         },
         "heat.path-02": {
+            "name": "Maroon Valley - Dusty Path",
             "chests": {
                 "7": {
                     "item": 228,
@@ -2453,6 +2575,7 @@
             "events": {}
         },
         "heat.path-03": {
+            "name": "Maroon Valley - Crossroad",
             "chests": {
                 "23": {
                     "item": 167,
@@ -2476,6 +2599,7 @@
             "events": {}
         },
         "heat.path-04": {
+            "name": "Maroon Valley - Long Piece",
             "chests": {
                 "34": {
                     "item": 79,
@@ -2490,6 +2614,7 @@
             "events": {}
         },
         "heat.path-05": {
+            "name": "Maroon Valley - Barren Arcs",
             "chests": {
                 "2": {
                     "item": 197,
@@ -2513,6 +2638,7 @@
             "events": {}
         },
         "heat.path-06": {
+            "name": "Maroon Valley - Barren Land",
             "chests": {
                 "16": {
                     "item": 87,
@@ -2527,6 +2653,7 @@
             "events": {}
         },
         "heat.path-07": {
+            "name": "Maroon Valley - Overpass",
             "chests": {
                 "7": {
                     "item": 199,
@@ -2550,6 +2677,7 @@
             "events": {}
         },
         "heat.path-08": {
+            "name": "Maroon Valley - Paw Cliffs",
             "chests": {
                 "1": {
                     "item": 195,
@@ -2573,6 +2701,7 @@
             "events": {}
         },
         "heat.path-09": {
+            "name": "Maroon Valley - Torn Road",
             "chests": {
                 "8": {
                     "item": 487,
@@ -2596,6 +2725,7 @@
             "events": {}
         },
         "heat.path-11": {
+            "name": "Maroon Valley - West Entrance",
             "chests": {
                 "19": {
                     "item": 198,
@@ -2610,6 +2740,7 @@
             "events": {}
         },
         "heat.shortcut-02-09": {
+            "name": "Maroon Valley - Fractured Path",
             "chests": {
                 "17": {
                     "item": 28,
@@ -2633,6 +2764,7 @@
             "events": {}
         },
         "heat-dng.f1.room-03": {
+            "name": "Faj'ro Temple - Right Chamber 1",
             "chests": {
                 "33": {
                     "item": 200,
@@ -2647,6 +2779,7 @@
             "events": {}
         },
         "heat-dng.f3.room-02": {
+            "name": "Faj'ro Temple - Bottom Chamber",
             "chests": {
                 "31": {
                     "item": 202,
@@ -2661,6 +2794,7 @@
             "events": {}
         },
         "heat-dng.f3.room-05": {
+            "name": "Faj'ro Temple - Large Fire Chamber",
             "chests": {
                 "69": {
                     "item": 155,
@@ -2684,6 +2818,7 @@
             "events": {}
         },
         "heat-dng.f3.room-07": {
+            "name": "Faj'ro Temple - Test of Wisdom",
             "chests": {
                 "19": {
                     "item": 146,
@@ -2698,6 +2833,7 @@
             "events": {}
         },
         "heat-dng.f4.room-02": {
+            "name": "Faj'ro Temple - West Pathway",
             "chests": {
                 "38": {
                     "item": 203,
@@ -2712,6 +2848,7 @@
             "events": {}
         },
         "heat-dng.f4.room-03": {
+            "name": "Faj'ro Temple - Test of Surprise",
             "chests": {
                 "21": {
                     "item": 146,
@@ -2726,6 +2863,7 @@
             "events": {}
         },
         "heat-dng.f4.room-05": {
+            "name": "Faj'ro Temple - West Chamber 1",
             "chests": {
                 "56": {
                     "item": 146,
@@ -2740,6 +2878,7 @@
             "events": {}
         },
         "heat-dng.f4.room-09": {
+            "name": "Faj'ro Temple - East Chamber 1",
             "chests": {
                 "92": {
                     "item": 146,
@@ -2754,6 +2893,7 @@
             "events": {}
         },
         "heat-dng.f4.room-10": {
+            "name": "Faj'ro Temple - East Pathway",
             "chests": {
                 "78": {
                     "item": 54,
@@ -2768,6 +2908,7 @@
             "events": {}
         },
         "heat-dng.f4.room-11": {
+            "name": "Faj'ro Temple - Test of Memory",
             "chests": {
                 "27": {
                     "item": 146,
@@ -2782,6 +2923,7 @@
             "events": {}
         },
         "heat-dng.f4.room-12": {
+            "name": "Faj'ro Temple - Chamber of Prosperity",
             "chests": {
                 "85": {
                     "item": 147,
@@ -2796,6 +2938,7 @@
             "events": {}
         },
         "heat-dng.g.room-03": {
+            "name": "Faj'ro Temple - Left Chamber 1",
             "chests": {
                 "71": {
                     "item": 146,
@@ -2810,6 +2953,7 @@
             "events": {}
         },
         "heat-dng.g.room-07": {
+            "name": "Faj'ro Temple - Fire and Sand 2",
             "chests": {
                 "28": {
                     "item": 201,
@@ -2824,6 +2968,7 @@
             "events": {}
         },
         "heat-dng.g.room-09": {
+            "name": "Faj'ro Temple - Balance Room 2",
             "chests": {
                 "85": {
                     "item": 379,
@@ -2847,6 +2992,7 @@
             "events": {}
         },
         "heat-dng.g.room-10": {
+            "name": "Faj'ro Temple - Right Chamber 1",
             "chests": {
                 "16": {
                     "item": 28,
@@ -2861,6 +3007,7 @@
             "events": {}
         },
         "heat-dng.g.room-12": {
+            "name": "Faj'ro Temple - Right Chamber 2",
             "chests": {
                 "110": {
                     "item": 146,
@@ -2875,6 +3022,7 @@
             "events": {}
         },
         "heat-dng.g.room-13": {
+            "name": "Faj'ro Temple - Test of Memory 1",
             "chests": {
                 "2": {
                     "item": 146,
@@ -2889,6 +3037,7 @@
             "events": {}
         },
         "heat-dng.g.room-14": {
+            "name": "Faj'ro Temple - Test of Memory 2",
             "chests": {
                 "2": {
                     "item": 146,
@@ -2903,6 +3052,7 @@
             "events": {}
         },
         "heat-village.baki-1": {
+            "name": "Ba'kii Kum - Solar Farm",
             "chests": {
                 "99": {
                     "item": 187,
@@ -2926,6 +3076,7 @@
             "events": {}
         },
         "heat-village.baki-2": {
+            "name": "Ba'kii Kum - Market",
             "chests": {
                 "259": {
                     "item": 199,
@@ -2949,6 +3100,7 @@
             "events": {}
         },
         "heat-village.interior.house-2": {
+            "name": "Ba'kii Kum - Dusty Home",
             "chests": {},
             "events": {
                 "31": [
@@ -2966,6 +3118,7 @@
             }
         },
         "heat-village.interior.quest-hub-og": {
+            "name": "Ba'kii Kum - Seeker Hub 2nd Floor",
             "chests": {},
             "events": {
                 "112": [
@@ -2983,6 +3136,7 @@
             }
         },
         "heat-village.interior.tradebuilding-eg": {
+            "name": "Ba'kii Kum - Bazaar House",
             "chests": {
                 "131": {
                     "item": 338,
@@ -2997,6 +3151,7 @@
             "events": {}
         },
         "heat-village.special.expo-space": {
+            "name": "heat-village.special.expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -3014,6 +3169,7 @@
             }
         },
         "jungle.caves.grove-cave-01": {
+            "name": "Gaia's Garden - Dripping Cave",
             "chests": {
                 "3": {
                     "item": 488,
@@ -3028,6 +3184,7 @@
             "events": {}
         },
         "jungle.caves.grove-cave-02": {
+            "name": "Gaia's Garden - Tranquility Pond",
             "chests": {
                 "1": {
                     "item": 261,
@@ -3042,6 +3199,7 @@
             "events": {}
         },
         "jungle.clearing.clear-path-01": {
+            "name": "Gaia's Garden - V'rda Vil West",
             "chests": {
                 "5": {
                     "item": 257,
@@ -3074,6 +3232,7 @@
             "events": {}
         },
         "jungle.clearing.clear-path-02": {
+            "name": "Gaia's Garden - V'rda Vil East",
             "chests": {
                 "311": {
                     "item": 331,
@@ -3097,6 +3256,7 @@
             "events": {}
         },
         "jungle.clearing.clear-path-03": {
+            "name": "Gaia's Garden - V'rda Vil North",
             "chests": {
                 "31": {
                     "item": 257,
@@ -3120,6 +3280,7 @@
             "events": {}
         },
         "jungle.clearing.clear-path-04": {
+            "name": "Gaia's Garden - Chief's Den",
             "chests": {
                 "27": {
                     "item": 488,
@@ -3152,6 +3313,7 @@
             "events": {}
         },
         "jungle.dng.shock-expo-space": {
+            "name": "jungle.dng.shock-expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -3169,6 +3331,7 @@
             }
         },
         "jungle.dng.tree-expo-space": {
+            "name": "Grand Krys'kajo - Seeker's Conclusion",
             "chests": {},
             "events": {
                 "60": [
@@ -3186,6 +3349,7 @@
             }
         },
         "jungle.dng.tree-exterior": {
+            "name": "Gaia's Garden - Grand Krys'kajo Entrance",
             "chests": {
                 "432": {
                     "item": 379,
@@ -3200,6 +3364,7 @@
             "events": {}
         },
         "jungle.dng.wave-expo-space": {
+            "name": "jungle.dng.wave-expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -3217,6 +3382,7 @@
             }
         },
         "jungle.dng.wave-exterior": {
+            "name": "Gaia's Garden - So'najiz Temple Entrance",
             "chests": {
                 "521": {
                     "item": 488,
@@ -3231,6 +3397,7 @@
             "events": {}
         },
         "jungle.grove.grove-path-01": {
+            "name": "Gaia's Garden - Covert Path",
             "chests": {
                 "4": {
                     "item": 260,
@@ -3254,6 +3421,7 @@
             "events": {}
         },
         "jungle.grove.grove-path-02": {
+            "name": "Gaia's Garden - Royal Grove",
             "chests": {
                 "67": {
                     "item": 282,
@@ -3295,6 +3463,7 @@
             "events": {}
         },
         "jungle.grove.grove-path-03": {
+            "name": "Gaia's Garden - Calm Backyard",
             "chests": {
                 "41": {
                     "item": 315,
@@ -3318,6 +3487,7 @@
             "events": {}
         },
         "jungle.infested.infested-path-01": {
+            "name": "Gaia's Garden - Lost Lookout",
             "chests": {
                 "22": {
                     "item": 68,
@@ -3350,6 +3520,7 @@
             "events": {}
         },
         "jungle.infested.infested-path-02": {
+            "name": "Gaia's Garden - Seared Lake",
             "chests": {
                 "6": {
                     "item": 66,
@@ -3373,6 +3544,7 @@
             "events": {}
         },
         "jungle.infested.infested-path-03": {
+            "name": "Gaia's Garden - Infested Marshes South",
             "chests": {
                 "18": {
                     "item": 278,
@@ -3414,6 +3586,7 @@
             "events": {}
         },
         "jungle.infested.infested-path-04": {
+            "name": "Gaia's Garden - Infested Marshes North",
             "chests": {
                 "24": {
                     "item": 78,
@@ -3455,6 +3628,7 @@
             "events": {}
         },
         "jungle.left.path-left-01": {
+            "name": "Gaia's Garden - Overgrown Path",
             "chests": {
                 "74": {
                     "item": 277,
@@ -3478,6 +3652,7 @@
             "events": {}
         },
         "jungle.left.path-left-02": {
+            "name": "Gaia's Garden - Drizzle Bosk",
             "chests": {
                 "2": {
                     "item": 332,
@@ -3510,6 +3685,7 @@
             "events": {}
         },
         "jungle.left.path-left-03": {
+            "name": "Gaia's Garden - Wet Passage",
             "chests": {
                 "32": {
                     "item": 87,
@@ -3533,6 +3709,7 @@
             "events": {}
         },
         "jungle.left.path-left-04": {
+            "name": "Gaia's Garden - River's Bed",
             "chests": {
                 "38": {
                     "item": 79,
@@ -3556,6 +3733,7 @@
             "events": {}
         },
         "jungle.path-01-entrance": {
+            "name": "Gaia's Garden - Jungle Entrance",
             "chests": {
                 "12": {
                     "item": 28,
@@ -3579,6 +3757,7 @@
             "events": {}
         },
         "jungle.path-02-crossroads": {
+            "name": "Gaia's Garden - Crossroad",
             "chests": {
                 "13": {
                     "item": 192,
@@ -3602,6 +3781,7 @@
             "events": {}
         },
         "jungle.path-03-sync": {
+            "name": "Gaia's Garden - Tying Greens",
             "chests": {
                 "21": {
                     "item": 276,
@@ -3625,6 +3805,7 @@
             "events": {}
         },
         "jungle.path-04-end": {
+            "name": "Gaia's Garden - Peridot Approach",
             "chests": {
                 "6": {
                     "item": 300,
@@ -3648,6 +3829,7 @@
             "events": {}
         },
         "jungle.right.right-path-01": {
+            "name": "Gaia's Garden - Splitting Stumps",
             "chests": {
                 "40": {
                     "item": 262,
@@ -3671,6 +3853,7 @@
             "events": {}
         },
         "jungle.right.right-path-02": {
+            "name": "Gaia's Garden - Clinging River",
             "chests": {
                 "12": {
                     "item": 493,
@@ -3694,6 +3877,7 @@
             "events": {}
         },
         "jungle.right.right-path-03": {
+            "name": "Gaia's Garden - Ringing River",
             "chests": {
                 "13": {
                     "item": 278,
@@ -3717,6 +3901,7 @@
             "events": {}
         },
         "jungle.right.right-path-04": {
+            "name": "Gaia's Garden - Old Timber",
             "chests": {
                 "30": {
                     "item": 253,
@@ -3731,6 +3916,7 @@
             "events": {}
         },
         "jungle-city.center": {
+            "name": "Basin Keep - Centrum",
             "chests": {
                 "774": {
                     "item": 484,
@@ -3745,6 +3931,7 @@
             "events": {}
         },
         "jungle-city.east": {
+            "name": "Basin Keep - Pond Slums",
             "chests": {
                 "158": {
                     "item": 346,
@@ -3777,6 +3964,7 @@
             "events": {}
         },
         "jungle-city.entrance": {
+            "name": "Gaia's Garden - Basin Keep Entrance",
             "chests": {
                 "423": {
                     "item": 250,
@@ -3791,6 +3979,7 @@
             "events": {}
         },
         "jungle-city.interior.faction-guard-1": {
+            "name": "Basin Keep - Basin Police Force HQ",
             "chests": {
                 "1128": {
                     "item": 358,
@@ -3805,6 +3994,7 @@
             "events": {}
         },
         "jungle-city.interior.questhub-01": {
+            "name": "Basin Keep - Seeker Hub 1st Floor",
             "chests": {
                 "533": {
                     "item": 191,
@@ -3819,6 +4009,7 @@
             "events": {}
         },
         "rhombus-dng.room-1-6": {
+            "name": "Rhombus Dungeon - Ability Room 1",
             "chests": {
                 "183": {
                     "item": 1,
@@ -3884,6 +4075,7 @@
             "events": {}
         },
         "rhombus-sqr.arena-1": {
+            "name": "Rhombus Square - Arena Plaza",
             "chests": {
                 "298": {
                     "item": 459,
@@ -3907,6 +4099,7 @@
             "events": {}
         },
         "rhombus-sqr.center-e": {
+            "name": "Rhombus Square - Garden Boulevard",
             "chests": {
                 "271": {
                     "item": 457,
@@ -3930,6 +4123,7 @@
             "events": {}
         },
         "rhombus-sqr.center-s": {
+            "name": "Rhombus Square - South Arch",
             "chests": {
                 "235": {
                     "item": 456,
@@ -3944,6 +4138,7 @@
             "events": {}
         },
         "rhombus-sqr.center-se": {
+            "name": "Rhombus Square - Lloyd Passage",
             "chests": {
                 "1209": {
                     "item": 489,
@@ -3958,6 +4153,7 @@
             "events": {}
         },
         "rookie-harbor.center": {
+            "name": "Rookie Harbor - Marketplace",
             "chests": {
                 "165": {
                     "item": 73,
@@ -3972,6 +4168,7 @@
             "events": {}
         },
         "rookie-harbor.east": {
+            "name": "Rookie Harbor - Falling Exit",
             "chests": {
                 "157": {
                     "item": 190,
@@ -3986,6 +4183,7 @@
             "events": {}
         },
         "rookie-harbor.expo-space": {
+            "name": "rookie-harbor.expo-space",
             "chests": {},
             "events": {
                 "136": [
@@ -4073,6 +4271,7 @@
             }
         },
         "rookie-harbor.inner-equip-north": {
+            "name": "Rookie Harbor - Weapon & Backer Shop",
             "chests": {
                 "50": {
                     "item": 488,
@@ -4087,6 +4286,7 @@
             "events": {}
         },
         "rookie-harbor.inner-old": {
+            "name": "Rookie Harbor - Dusty Storage",
             "chests": {
                 "72": {
                     "item": 191,
@@ -4101,6 +4301,7 @@
             "events": {}
         },
         "rookie-harbor.south": {
+            "name": "Rookie Harbor - South Harbor",
             "chests": {
                 "216": {
                     "item": 340,
@@ -4115,6 +4316,7 @@
             "events": {}
         },
         "rookie-harbor.teleporter": {
+            "name": "Rookie Harbor - Beginners Arc",
             "chests": {
                 "389": {
                     "item": 64,
@@ -4138,6 +4340,7 @@
             "events": {}
         },
         "shock-dng.f1.room2": {
+            "name": "Zir'vitar Temple - Moving Transmit",
             "chests": {
                 "64": {
                     "item": 289,
@@ -4161,6 +4364,7 @@
             "events": {}
         },
         "shock-dng.f1.room3to4": {
+            "name": "Zir'vitar Temple - Haunted Waves",
             "chests": {
                 "23": {
                     "item": 283,
@@ -4175,6 +4379,7 @@
             "events": {}
         },
         "shock-dng.g.room4to5": {
+            "name": "Zir'vitar Temple - Hoodwink",
             "chests": {
                 "16": {
                     "item": 272,
@@ -4189,6 +4394,7 @@
             "events": {}
         },
         "shock-dng.g.room5": {
+            "name": "Zir'vitar Temple - Spinning Transmit",
             "chests": {
                 "164": {
                     "item": 280,
@@ -4203,6 +4409,7 @@
             "events": {}
         },
         "tree-dng.f3.branch-east": {
+            "name": "Grand Krys'kajo - East Branch",
             "chests": {
                 "166": {
                     "item": 11,
@@ -4235,6 +4442,7 @@
             "events": {}
         },
         "tree-dng.f3.branch-west": {
+            "name": "Grand Krys'kajo - West Branch",
             "chests": {
                 "67": {
                     "item": 28,
@@ -4258,6 +4466,7 @@
             "events": {}
         },
         "tree-dng.f3.center-01": {
+            "name": "Grand Krys'kajo - Falling Leaves",
             "chests": {
                 "136": {
                     "item": 350,
@@ -4272,6 +4481,7 @@
             "events": {}
         },
         "tree-dng.f3.east-01": {
+            "name": "Grand Krys'kajo - Branch Conveyance",
             "chests": {
                 "81": {
                     "item": 349,
@@ -4286,6 +4496,7 @@
             "events": {}
         },
         "tree-dng.f3.west-01": {
+            "name": "Grand Krys'kajo - Branch Transmit",
             "chests": {
                 "81": {
                     "item": 349,
@@ -4309,6 +4520,7 @@
             "events": {}
         },
         "wave-dng.b1.center-01": {
+            "name": "So'najiz Temple - Principle of Conveyance",
             "chests": {
                 "276": {
                     "item": 292,
@@ -4323,6 +4535,7 @@
             "events": {}
         },
         "wave-dng.b1.center-04-long": {
+            "name": "So'najiz Temple - Trial of Persistence",
             "chests": {
                 "205": {
                     "item": 319,
@@ -4373,6 +4586,7 @@
             "events": {}
         },
         "wave-dng.b1.north-01": {
+            "name": "So'najiz Temple - Moving Attraction",
             "chests": {
                 "307": {
                     "item": 319,
@@ -4387,6 +4601,7 @@
             "events": {}
         },
         "wave-dng.b1.north-03": {
+            "name": "So'najiz Temple - Slowing Attraction",
             "chests": {
                 "249": {
                     "item": 331,
@@ -4401,6 +4616,7 @@
             "events": {}
         },
         "wave-dng.b1.north-06": {
+            "name": "So'najiz Temple - Standing Attraction",
             "chests": {
                 "193": {
                     "item": 303,
@@ -4415,6 +4631,7 @@
             "events": {}
         },
         "wave-dng.b1.north-08": {
+            "name": "So'najiz Temple - Attracting Conveyance",
             "chests": {
                 "221": {
                     "item": 314,
@@ -4429,6 +4646,7 @@
             "events": {}
         },
         "wave-dng.b1.south-04": {
+            "name": "So'najiz Temple - Fast Conveyance",
             "chests": {
                 "309": {
                     "item": 319,
@@ -4443,6 +4661,7 @@
             "events": {}
         },
         "wave-dng.b1.south-06": {
+            "name": "So'najiz Temple - Flaming Conveyance",
             "chests": {
                 "242": {
                     "item": 281,
@@ -4714,5 +4933,2809 @@
                 "331"
             ]
         }
+    },
+    "markers": {
+        "rookie-harbor": [{
+            "key": "CHEST",
+            "x": 217.4,
+            "y": 182.64,
+            "level": 0,
+            "index": 0,
+            "map": "rookie-harbor.center",
+            "mapId": 165
+        }, {
+            "key": "CHEST",
+            "x": 285.7,
+            "y": 169.8,
+            "level": 0,
+            "index": 1,
+            "map": "rookie-harbor.east",
+            "mapId": 157
+        }, {
+            "key": "CHEST",
+            "x": 141.52,
+            "y": 88.4,
+            "level": 0,
+            "index": 2,
+            "map": "rookie-harbor.inner-equip-north",
+            "mapId": 50
+        }, {
+            "key": "CHEST",
+            "x": 253.32,
+            "y": 83.7,
+            "level": 0,
+            "index": 3,
+            "map": "rookie-harbor.inner-old",
+            "mapId": 72
+        }, {
+            "key": "CHEST",
+            "x": 154.075,
+            "y": 303.609756097561,
+            "level": 0,
+            "index": 4,
+            "map": "rookie-harbor.south",
+            "mapId": 216
+        }, {
+            "key": "CHEST",
+            "x": 216.1818181818182,
+            "y": 354.6,
+            "level": 0,
+            "index": 5,
+            "map": "rookie-harbor.teleporter",
+            "mapId": 389
+        }, {
+            "key": "CHEST",
+            "x": 228.1818181818182,
+            "y": 406.8,
+            "level": 0,
+            "index": 6,
+            "map": "rookie-harbor.teleporter",
+            "mapId": 402
+        }],
+        "bergen-trails": [{
+            "key": "CHEST",
+            "x": 299.6,
+            "y": 52.96,
+            "level": 0,
+            "index": 0,
+            "map": "bergen-trail.cave.cave-08-smith",
+            "mapId": 33
+        }, {
+            "key": "CHEST",
+            "x": 402.51428571428573,
+            "y": 328.08,
+            "level": 0,
+            "index": 1,
+            "map": "bergen-trail.cave.cave-4-1-1",
+            "mapId": 20
+        }, {
+            "key": "CHEST",
+            "x": 77.86666666666667,
+            "y": 323.2,
+            "level": 0,
+            "index": 2,
+            "map": "bergen-trail.cave.cave-6-1",
+            "mapId": 416
+        }, {
+            "key": "CHEST",
+            "x": 71.6,
+            "y": 185.85,
+            "level": 0,
+            "index": 3,
+            "map": "bergen-trail.cave.cave-6-3",
+            "mapId": 24
+        }, {
+            "key": "CHEST",
+            "x": 336.4,
+            "y": 463.4,
+            "level": 0,
+            "index": 4,
+            "map": "bergen-trail.path-1-entrance",
+            "mapId": 531
+        }, {
+            "key": "CHEST",
+            "x": 370.1714285714286,
+            "y": 464.4,
+            "level": 0,
+            "index": 5,
+            "map": "bergen-trail.path-1-entrance",
+            "mapId": 532
+        }, {
+            "key": "CHEST",
+            "x": 309.4,
+            "y": 417,
+            "level": 0,
+            "index": 6,
+            "map": "bergen-trail.path-2",
+            "mapId": 67
+        }, {
+            "key": "CHEST",
+            "x": 245.78,
+            "y": 408.6666666666667,
+            "level": 0,
+            "index": 7,
+            "map": "bergen-trail.path-3-1",
+            "mapId": 432
+        }, {
+            "key": "CHEST",
+            "x": 238.76,
+            "y": 382.3333333333333,
+            "level": 0,
+            "index": 8,
+            "map": "bergen-trail.path-3-1",
+            "mapId": 454
+        }, {
+            "key": "CHEST",
+            "x": 197.33333333333334,
+            "y": 379.02702702702703,
+            "level": 0,
+            "index": 9,
+            "map": "bergen-trail.path-3-2",
+            "mapId": 373
+        }, {
+            "key": "CHEST",
+            "x": 178.33333333333334,
+            "y": 393.44144144144144,
+            "level": 0,
+            "index": 10,
+            "map": "bergen-trail.path-3-2",
+            "mapId": 399
+        }, {
+            "key": "CHEST",
+            "x": 209.33333333333334,
+            "y": 362.01801801801804,
+            "level": 0,
+            "index": 11,
+            "map": "bergen-trail.path-3-2",
+            "mapId": 451
+        }, {
+            "key": "CHEST",
+            "x": 209.82857142857142,
+            "y": 271.4,
+            "level": 0,
+            "index": 12,
+            "map": "bergen-trail.path-3-3",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 205.8857142857143,
+            "y": 322.4,
+            "level": 0,
+            "index": 13,
+            "map": "bergen-trail.path-3-3",
+            "mapId": 126
+        }, {
+            "key": "CHEST",
+            "x": 340.1714285714286,
+            "y": 312.61538461538464,
+            "level": 0,
+            "index": 14,
+            "map": "bergen-trail.path-4-1",
+            "mapId": 288
+        }, {
+            "key": "CHEST",
+            "x": 401.04,
+            "y": 324.8,
+            "level": 0,
+            "index": 15,
+            "map": "bergen-trail.path-4-1-1",
+            "mapId": 1015
+        }, {
+            "key": "CHEST",
+            "x": 320.9,
+            "y": 259.6056338028169,
+            "level": 0,
+            "index": 16,
+            "map": "bergen-trail.path-4-2",
+            "mapId": 269
+        }, {
+            "key": "CHEST",
+            "x": 354.05,
+            "y": 264.67605633802816,
+            "level": 0,
+            "index": 17,
+            "map": "bergen-trail.path-4-2",
+            "mapId": 643
+        }, {
+            "key": "CHEST",
+            "x": 260.54,
+            "y": 249.15,
+            "level": 0,
+            "index": 18,
+            "map": "bergen-trail.path-5",
+            "mapId": 572
+        }, {
+            "key": "CHEST",
+            "x": 279.98,
+            "y": 260.35,
+            "level": 0,
+            "index": 19,
+            "map": "bergen-trail.path-5",
+            "mapId": 1337
+        }, {
+            "key": "CHEST",
+            "x": 226.85,
+            "y": 169.16923076923075,
+            "level": 0,
+            "index": 20,
+            "map": "bergen-trail.path-6",
+            "mapId": 493
+        }, {
+            "key": "CHEST",
+            "x": 178.6,
+            "y": 177,
+            "level": 0,
+            "index": 21,
+            "map": "bergen-trail.path-6-1",
+            "mapId": 26
+        }, {
+            "key": "CHEST",
+            "x": 354.06666666666666,
+            "y": 126.84,
+            "level": 0,
+            "index": 22,
+            "map": "bergen-trail.path-7-1",
+            "mapId": 994
+        }, {
+            "key": "CHEST",
+            "x": 291.73333333333335,
+            "y": 179.76,
+            "level": 0,
+            "index": 23,
+            "map": "bergen-trail.path-7-1",
+            "mapId": 995
+        }, {
+            "key": "CHEST",
+            "x": 384.4,
+            "y": 197.40625,
+            "level": 0,
+            "index": 24,
+            "map": "bergen-trail.path-7-2",
+            "mapId": 1027
+        }, {
+            "key": "CHEST",
+            "x": 472.5333333333333,
+            "y": 153.73333333333332,
+            "level": 0,
+            "index": 25,
+            "map": "bergen-trail.path-7-2-1",
+            "mapId": 28
+        }, {
+            "key": "CHEST",
+            "x": 337.6421052631579,
+            "y": 48.42,
+            "level": 0,
+            "index": 26,
+            "map": "bergen-trail.path-8",
+            "mapId": 36
+        }],
+        "autumn-area": [{
+            "key": "CHEST",
+            "x": 262.64,
+            "y": 376.25,
+            "level": 0,
+            "index": 0,
+            "map": "autumn.caves.cave-3-to-6",
+            "mapId": 2
+        }, {
+            "key": "CHEST",
+            "x": 503.24,
+            "y": 347,
+            "level": 0,
+            "index": 1,
+            "map": "autumn.cubaum",
+            "mapId": 200
+        }, {
+            "key": "CHEST",
+            "x": 480.14,
+            "y": 339.2,
+            "level": 0,
+            "index": 2,
+            "map": "autumn.cubaum",
+            "mapId": 201
+        }, {
+            "key": "CHEST",
+            "x": 558.05,
+            "y": 392.2,
+            "level": 0,
+            "index": 3,
+            "map": "autumn.entrance",
+            "mapId": 112
+        }, {
+            "key": "CHEST",
+            "x": 133.13333333333333,
+            "y": 394.2888888888889,
+            "level": 0,
+            "index": 4,
+            "map": "autumn.lake-observatory",
+            "mapId": 329
+        }, {
+            "key": "CHEST",
+            "x": 481.8,
+            "y": 401.9047619047619,
+            "level": 0,
+            "index": 5,
+            "map": "autumn.path-1",
+            "mapId": 137
+        }, {
+            "key": "CHEST",
+            "x": 516.45,
+            "y": 458.5,
+            "level": 0,
+            "index": 6,
+            "map": "autumn.path-1-1",
+            "mapId": 378
+        }, {
+            "key": "CHEST",
+            "x": 412.9,
+            "y": 433.3333333333333,
+            "level": 0,
+            "index": 7,
+            "map": "autumn.path-1-2",
+            "mapId": 346
+        }, {
+            "key": "CHEST",
+            "x": 381.2,
+            "y": 482.8,
+            "level": 0,
+            "index": 8,
+            "map": "autumn.path-1-3",
+            "mapId": 322
+        }, {
+            "key": "CHEST",
+            "x": 438.1666666666667,
+            "y": 357.675,
+            "level": 0,
+            "index": 9,
+            "map": "autumn.path-2",
+            "mapId": 268
+        }, {
+            "key": "CHEST",
+            "x": 344.3168316831683,
+            "y": 311.2,
+            "level": 0,
+            "index": 10,
+            "map": "autumn.path-3-1",
+            "mapId": 291
+        }, {
+            "key": "UNKNOWN",
+            "x": 375.2079207920792,
+            "y": 318,
+            "level": 0,
+            "index": 11,
+            "map": "autumn.path-3-1",
+            "mapId": 452
+        }, {
+            "key": "CHEST",
+            "x": 401.28,
+            "y": 387.6,
+            "level": 0,
+            "index": 12,
+            "map": "autumn.path-3-2",
+            "mapId": 305
+        }, {
+            "key": "CHEST",
+            "x": 282.4,
+            "y": 381.4,
+            "level": 0,
+            "index": 13,
+            "map": "autumn.path-3-4",
+            "mapId": 265
+        }, {
+            "key": "CHEST",
+            "x": 69.96000000000001,
+            "y": 247.75,
+            "level": 0,
+            "index": 14,
+            "map": "autumn.path-7-1",
+            "mapId": 283
+        }, {
+            "key": "CHEST",
+            "x": 108.47999999999999,
+            "y": 228.25,
+            "level": 0,
+            "index": 15,
+            "map": "autumn.path-7-1",
+            "mapId": 284
+        }, {
+            "key": "CHEST",
+            "x": 86.34,
+            "y": 239.75,
+            "level": 0,
+            "index": 16,
+            "map": "autumn.path-7-1",
+            "mapId": 1128
+        }, {
+            "key": "CHEST",
+            "x": 55.92,
+            "y": 155.5,
+            "level": 0,
+            "index": 17,
+            "map": "autumn.path-7-2",
+            "mapId": 1115
+        }, {
+            "key": "CHEST",
+            "x": 100.56,
+            "y": 139.75,
+            "level": 0,
+            "index": 18,
+            "map": "autumn.path-7-2",
+            "mapId": 1142
+        }, {
+            "key": "CHEST",
+            "x": 31.5,
+            "y": 105.02439024390245,
+            "level": 0,
+            "index": 19,
+            "map": "autumn.path-8",
+            "mapId": 12
+        }, {
+            "key": "UNKNOWN",
+            "x": 76.8,
+            "y": 58.34146341463415,
+            "level": 0,
+            "index": 20,
+            "map": "autumn.path-8",
+            "mapId": 458
+        }, {
+            "key": "CHEST",
+            "x": 276.42857142857144,
+            "y": 316.2,
+            "level": 0,
+            "index": 21,
+            "map": "autumn.path4",
+            "mapId": 22
+        }, {
+            "key": "CHEST",
+            "x": 310.2857142857143,
+            "y": 357,
+            "level": 0,
+            "index": 22,
+            "map": "autumn.path4",
+            "mapId": 98
+        }, {
+            "key": "CHEST",
+            "x": 231.8,
+            "y": 302.0833333333333,
+            "level": 0,
+            "index": 23,
+            "map": "autumn.path5",
+            "mapId": 2
+        }, {
+            "key": "CHEST",
+            "x": 197.2,
+            "y": 320.5,
+            "level": 0,
+            "index": 24,
+            "map": "autumn.path5",
+            "mapId": 3
+        }, {
+            "key": "CHEST",
+            "x": 205.6,
+            "y": 370.55,
+            "level": 0,
+            "index": 25,
+            "map": "autumn.path5",
+            "mapId": 4
+        }, {
+            "key": "CHEST",
+            "x": 209.89999999999998,
+            "y": 235.2,
+            "level": 0,
+            "index": 26,
+            "map": "autumn.path6",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 215.75,
+            "y": 271.775,
+            "level": 0,
+            "index": 27,
+            "map": "autumn.path6",
+            "mapId": 15
+        }],
+        "cold-dng": [{
+            "key": "CHEST",
+            "x": 143.86666666666667,
+            "y": 201.6,
+            "level": -1,
+            "index": 0,
+            "map": "cold-dng.b1.center",
+            "mapId": 223
+        }, {
+            "key": "CHEST",
+            "x": 180.18,
+            "y": 239.6,
+            "level": -1,
+            "index": 1,
+            "map": "cold-dng.b1.room1",
+            "mapId": 48
+        }, {
+            "key": "CHEST",
+            "x": 72.6,
+            "y": 282.28,
+            "level": -1,
+            "index": 2,
+            "map": "cold-dng.b1.room2",
+            "mapId": 29
+        }, {
+            "key": "CHEST",
+            "x": 115.73529411764706,
+            "y": 283.05,
+            "level": -1,
+            "index": 3,
+            "map": "cold-dng.b1.room3",
+            "mapId": 26
+        }, {
+            "key": "CHEST",
+            "x": 250.89705882352942,
+            "y": 249.9,
+            "level": -1,
+            "index": 4,
+            "map": "cold-dng.b1.room4",
+            "mapId": 3
+        }, {
+            "key": "CHEST",
+            "x": 71.52,
+            "y": 194.2,
+            "level": -1,
+            "index": 5,
+            "map": "cold-dng.b1.room6",
+            "mapId": 3
+        }, {
+            "key": "CHEST",
+            "x": 148.16666666666666,
+            "y": 247.8,
+            "level": -2,
+            "index": 6,
+            "map": "cold-dng.b2.room1",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 188.24,
+            "y": 232.24,
+            "level": -2,
+            "index": 7,
+            "map": "cold-dng.b2.room2",
+            "mapId": 40
+        }, {
+            "key": "CHEST",
+            "x": 148.48,
+            "y": 179.67567567567568,
+            "level": -2,
+            "index": 8,
+            "map": "cold-dng.b2.room5",
+            "mapId": 21
+        }, {
+            "key": "CHEST",
+            "x": 157.44,
+            "y": 179.45945945945945,
+            "level": -2,
+            "index": 9,
+            "map": "cold-dng.b2.room5",
+            "mapId": 66
+        }, {
+            "key": "CHEST",
+            "x": 104.32,
+            "y": 226.4,
+            "level": -3,
+            "index": 10,
+            "map": "cold-dng.b3.room1",
+            "mapId": 30
+        }, {
+            "key": "CHEST",
+            "x": 92.13333333333334,
+            "y": 194.48,
+            "level": -3,
+            "index": 11,
+            "map": "cold-dng.b3.room2",
+            "mapId": 55
+        }, {
+            "key": "CHEST",
+            "x": 131.4,
+            "y": 252.64,
+            "level": -3,
+            "index": 12,
+            "map": "cold-dng.b3.room3",
+            "mapId": 11
+        }, {
+            "key": "CHEST",
+            "x": 105.73333333333333,
+            "y": 254.08,
+            "level": -3,
+            "index": 13,
+            "map": "cold-dng.b3.room3",
+            "mapId": 22
+        }, {
+            "key": "CHEST",
+            "x": 169.84,
+            "y": 262.2,
+            "level": -3,
+            "index": 14,
+            "map": "cold-dng.b3.room6",
+            "mapId": 36
+        }, {
+            "key": "CHEST",
+            "x": 164.44,
+            "y": 274.8,
+            "level": -3,
+            "index": 15,
+            "map": "cold-dng.b3.room6",
+            "mapId": 68
+        }, {
+            "key": "UNKNOWN",
+            "x": 165.92000000000002,
+            "y": 150.4,
+            "level": -3,
+            "index": 16,
+            "map": "cold-dng.b3.room7",
+            "mapId": 45
+        }, {
+            "key": "CHEST",
+            "x": 144.4,
+            "y": 234.9,
+            "level": -4,
+            "index": 17,
+            "map": "cold-dng.b4.center",
+            "mapId": 298
+        }, {
+            "key": "CHEST",
+            "x": 152.22857142857143,
+            "y": 97.36,
+            "level": -4,
+            "index": 18,
+            "map": "cold-dng.b4.room10",
+            "mapId": 94
+        }, {
+            "key": "CHEST",
+            "x": 220,
+            "y": 237,
+            "level": -4,
+            "index": 19,
+            "map": "cold-dng.b4.room4",
+            "mapId": 25
+        }, {
+            "key": "CHEST",
+            "x": 221.44,
+            "y": 261.6,
+            "level": -4,
+            "index": 20,
+            "map": "cold-dng.b4.room5",
+            "mapId": 18
+        }, {
+            "key": "CHEST",
+            "x": 181.76,
+            "y": 286,
+            "level": -4,
+            "index": 21,
+            "map": "cold-dng.b4.room6",
+            "mapId": 16
+        }, {
+            "key": "CHEST",
+            "x": 83.52,
+            "y": 178.73333333333332,
+            "level": -4,
+            "index": 22,
+            "map": "cold-dng.b4.room7",
+            "mapId": 44
+        }, {
+            "key": "CHEST",
+            "x": 96.16,
+            "y": 290.1333333333333,
+            "level": -4,
+            "index": 23,
+            "map": "cold-dng.b4.room8",
+            "mapId": 16
+        }, {
+            "key": "CHEST",
+            "x": 164.2,
+            "y": 221,
+            "level": 0,
+            "index": 24,
+            "map": "cold-dng.g.center",
+            "mapId": 249
+        }, {
+            "key": "CHEST",
+            "x": 180,
+            "y": 163.68421052631578,
+            "level": 0,
+            "index": 25,
+            "map": "cold-dng.g.room2",
+            "mapId": 3
+        }],
+        "bergen": [{
+            "key": "CHEST",
+            "x": 147.92000000000002,
+            "y": 490.8181818181818,
+            "level": 0,
+            "index": 0,
+            "map": "bergen.bergen",
+            "mapId": 868
+        }, {
+            "key": "CHEST",
+            "x": 234.68,
+            "y": 464,
+            "level": 0,
+            "index": 1,
+            "map": "bergen.bergen",
+            "mapId": 1258
+        }, {
+            "key": "CHEST",
+            "x": 178.51999999999998,
+            "y": 544,
+            "level": 0,
+            "index": 2,
+            "map": "bergen.bergen",
+            "mapId": 1265
+        }, {
+            "key": "CHEST",
+            "x": 125.6,
+            "y": 419.9090909090909,
+            "level": 0,
+            "index": 3,
+            "map": "bergen.bergen",
+            "mapId": 1952
+        }, {
+            "key": "CHEST",
+            "x": 147.92000000000002,
+            "y": 261.6333333333333,
+            "level": 0,
+            "index": 4,
+            "map": "bergen.bergen2",
+            "mapId": 2003
+        }, {
+            "key": "CHEST",
+            "x": 110.84,
+            "y": 259.33333333333337,
+            "level": 0,
+            "index": 5,
+            "map": "bergen.bergen2",
+            "mapId": 2012
+        }, {
+            "key": "CHEST",
+            "x": 236.48000000000002,
+            "y": 324.1166666666667,
+            "level": 0,
+            "index": 6,
+            "map": "bergen.bergen2",
+            "mapId": 2021
+        }, {
+            "key": "CHEST",
+            "x": 203.35999999999999,
+            "y": 278.8833333333333,
+            "level": 0,
+            "index": 7,
+            "map": "bergen.bergen2",
+            "mapId": 2889
+        }, {
+            "key": "CHEST",
+            "x": 69.31764705882352,
+            "y": 176.29090909090908,
+            "level": 0,
+            "index": 8,
+            "map": "bergen.elevator",
+            "mapId": 35
+        }, {
+            "key": "CHEST",
+            "x": 161.69230769230768,
+            "y": 147.46666666666667,
+            "level": -1,
+            "index": 9,
+            "map": "bergen.inner-questhub-0",
+            "mapId": 130
+        }, {
+            "key": "CHEST",
+            "x": 196.76923076923077,
+            "y": 143.46666666666667,
+            "level": -1,
+            "index": 10,
+            "map": "bergen.inner-questhub-0",
+            "mapId": 136
+        }, {
+            "key": "UNKNOWN",
+            "x": 183.52,
+            "y": 148.8,
+            "level": 0,
+            "index": 11,
+            "map": "bergen.inner-questhub-1",
+            "mapId": 135
+        }, {
+            "key": "UNKNOWN",
+            "x": 134.31884057971016,
+            "y": 108.16,
+            "level": 0,
+            "index": 12,
+            "map": "bergen.mine-entrance",
+            "mapId": 316
+        }, {
+            "key": "CHEST",
+            "x": 213.92,
+            "y": 500.1333333333333,
+            "level": 0,
+            "index": 13,
+            "map": "bergen.storage",
+            "mapId": 71
+        }],
+        "jungle": [{
+            "key": "CHEST",
+            "x": 329.875,
+            "y": 561.32,
+            "level": 0,
+            "index": 0,
+            "map": "jungle-city.entrance",
+            "mapId": 423
+        }, {
+            "key": "CHEST",
+            "x": 40.5,
+            "y": 406.12,
+            "level": 0,
+            "index": 1,
+            "map": "jungle.caves.grove-cave-01",
+            "mapId": 3
+        }, {
+            "key": "CHEST",
+            "x": 31.52,
+            "y": 382.16,
+            "level": 0,
+            "index": 2,
+            "map": "jungle.caves.grove-cave-02",
+            "mapId": 1
+        }, {
+            "key": "CHEST",
+            "x": 413.3818181818182,
+            "y": 722.9714285714285,
+            "level": 0,
+            "index": 3,
+            "map": "jungle.clearing.clear-path-01",
+            "mapId": 5
+        }, {
+            "key": "CHEST",
+            "x": 478.83636363636367,
+            "y": 680.8571428571429,
+            "level": 0,
+            "index": 4,
+            "map": "jungle.clearing.clear-path-01",
+            "mapId": 6
+        }, {
+            "key": "CHEST",
+            "x": 431.05454545454546,
+            "y": 721.0857142857143,
+            "level": 0,
+            "index": 5,
+            "map": "jungle.clearing.clear-path-01",
+            "mapId": 125
+        }, {
+            "key": "CHEST",
+            "x": 539.6333333333333,
+            "y": 678.2,
+            "level": 0,
+            "index": 6,
+            "map": "jungle.clearing.clear-path-02",
+            "mapId": 311
+        }, {
+            "key": "CHEST",
+            "x": 535.6,
+            "y": 694,
+            "level": 0,
+            "index": 7,
+            "map": "jungle.clearing.clear-path-02",
+            "mapId": 351
+        }, {
+            "key": "CHEST",
+            "x": 532.6,
+            "y": 563.4,
+            "level": 0,
+            "index": 8,
+            "map": "jungle.clearing.clear-path-03",
+            "mapId": 31
+        }, {
+            "key": "CHEST",
+            "x": 528,
+            "y": 580.2,
+            "level": 0,
+            "index": 9,
+            "map": "jungle.clearing.clear-path-03",
+            "mapId": 33
+        }, {
+            "key": "CHEST",
+            "x": 525,
+            "y": 486.3272727272727,
+            "level": 0,
+            "index": 10,
+            "map": "jungle.clearing.clear-path-04",
+            "mapId": 27
+        }, {
+            "key": "CHEST",
+            "x": 534.6,
+            "y": 449.23636363636365,
+            "level": 0,
+            "index": 11,
+            "map": "jungle.clearing.clear-path-04",
+            "mapId": 91
+        }, {
+            "key": "CHEST",
+            "x": 530.4,
+            "y": 504,
+            "level": 0,
+            "index": 12,
+            "map": "jungle.clearing.clear-path-04",
+            "mapId": 135
+        }, {
+            "key": "CHEST",
+            "x": 268,
+            "y": 116.64444444444445,
+            "level": 0,
+            "index": 13,
+            "map": "jungle.dng.tree-exterior",
+            "mapId": 432
+        }, {
+            "key": "CHEST",
+            "x": 163.6,
+            "y": 129.4,
+            "level": 0,
+            "index": 14,
+            "map": "jungle.dng.wave-exterior",
+            "mapId": 521
+        }, {
+            "key": "CHEST",
+            "x": 114,
+            "y": 435,
+            "level": 0,
+            "index": 15,
+            "map": "jungle.grove.grove-path-01",
+            "mapId": 4
+        }, {
+            "key": "CHEST",
+            "x": 88.8,
+            "y": 372.6,
+            "level": 0,
+            "index": 16,
+            "map": "jungle.grove.grove-path-01",
+            "mapId": 5
+        }, {
+            "key": "CHEST",
+            "x": 75.2,
+            "y": 325,
+            "level": 0,
+            "index": 17,
+            "map": "jungle.grove.grove-path-02",
+            "mapId": 67
+        }, {
+            "key": "CHEST",
+            "x": 78.8,
+            "y": 297.2,
+            "level": 0,
+            "index": 18,
+            "map": "jungle.grove.grove-path-02",
+            "mapId": 68
+        }, {
+            "key": "CHEST",
+            "x": 91.6,
+            "y": 282.4,
+            "level": 0,
+            "index": 19,
+            "map": "jungle.grove.grove-path-02",
+            "mapId": 69
+        }, {
+            "key": "CHEST",
+            "x": 60,
+            "y": 256.2,
+            "level": 0,
+            "index": 20,
+            "map": "jungle.grove.grove-path-02",
+            "mapId": 80
+        }, {
+            "key": "CHEST",
+            "x": 151.8,
+            "y": 258.8,
+            "level": 0,
+            "index": 21,
+            "map": "jungle.grove.grove-path-03",
+            "mapId": 41
+        }, {
+            "key": "CHEST",
+            "x": 218.2,
+            "y": 226.6,
+            "level": 0,
+            "index": 22,
+            "map": "jungle.grove.grove-path-03",
+            "mapId": 42
+        }, {
+            "key": "CHEST",
+            "x": 506.3692307692308,
+            "y": 325,
+            "level": 0,
+            "index": 23,
+            "map": "jungle.infested.infested-path-01",
+            "mapId": 22
+        }, {
+            "key": "CHEST",
+            "x": 535.2307692307693,
+            "y": 335.2,
+            "level": 0,
+            "index": 24,
+            "map": "jungle.infested.infested-path-01",
+            "mapId": 63
+        }, {
+            "key": "CHEST",
+            "x": 488.0615384615385,
+            "y": 305.8,
+            "level": 0,
+            "index": 25,
+            "map": "jungle.infested.infested-path-01",
+            "mapId": 170
+        }, {
+            "key": "CHEST",
+            "x": 475.6,
+            "y": 223.6,
+            "level": 0,
+            "index": 26,
+            "map": "jungle.infested.infested-path-02",
+            "mapId": 6
+        }, {
+            "key": "CHEST",
+            "x": 412.4,
+            "y": 246.2,
+            "level": 0,
+            "index": 27,
+            "map": "jungle.infested.infested-path-02",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 512.6,
+            "y": 273.8,
+            "level": 0,
+            "index": 28,
+            "map": "jungle.infested.infested-path-03",
+            "mapId": 18
+        }, {
+            "key": "CHEST",
+            "x": 570.6,
+            "y": 278.6,
+            "level": 0,
+            "index": 29,
+            "map": "jungle.infested.infested-path-03",
+            "mapId": 70
+        }, {
+            "key": "CHEST",
+            "x": 525.6,
+            "y": 242,
+            "level": 0,
+            "index": 30,
+            "map": "jungle.infested.infested-path-03",
+            "mapId": 90
+        }, {
+            "key": "CHEST",
+            "x": 572.8,
+            "y": 237.4,
+            "level": 0,
+            "index": 31,
+            "map": "jungle.infested.infested-path-03",
+            "mapId": 97
+        }, {
+            "key": "CHEST",
+            "x": 509.2,
+            "y": 208.2,
+            "level": 0,
+            "index": 32,
+            "map": "jungle.infested.infested-path-04",
+            "mapId": 24
+        }, {
+            "key": "CHEST",
+            "x": 552.2,
+            "y": 155,
+            "level": 0,
+            "index": 33,
+            "map": "jungle.infested.infested-path-04",
+            "mapId": 58
+        }, {
+            "key": "CHEST",
+            "x": 564.425,
+            "y": 208.475,
+            "level": 0,
+            "index": 34,
+            "map": "jungle.infested.infested-path-04",
+            "mapId": 82
+        }, {
+            "key": "CHEST",
+            "x": 572.6,
+            "y": 156.8,
+            "level": 0,
+            "index": 35,
+            "map": "jungle.infested.infested-path-04",
+            "mapId": 949
+        }, {
+            "key": "CHEST",
+            "x": 160.56296296296296,
+            "y": 622.8,
+            "level": 0,
+            "index": 36,
+            "map": "jungle.left.path-left-01",
+            "mapId": 74
+        }, {
+            "key": "CHEST",
+            "x": 232.27962962962962,
+            "y": 597.575,
+            "level": 0,
+            "index": 37,
+            "map": "jungle.left.path-left-01",
+            "mapId": 75
+        }, {
+            "key": "CHEST",
+            "x": 158.8,
+            "y": 483.0833333333333,
+            "level": 0,
+            "index": 38,
+            "map": "jungle.left.path-left-02",
+            "mapId": 2
+        }, {
+            "key": "CHEST",
+            "x": 137.2,
+            "y": 535.7333333333333,
+            "level": 0,
+            "index": 39,
+            "map": "jungle.left.path-left-02",
+            "mapId": 8
+        }, {
+            "key": "CHEST",
+            "x": 119.2,
+            "y": 495.43333333333334,
+            "level": 0,
+            "index": 40,
+            "map": "jungle.left.path-left-02",
+            "mapId": 12
+        }, {
+            "key": "CHEST",
+            "x": 178.16470588235293,
+            "y": 431.4,
+            "level": 0,
+            "index": 41,
+            "map": "jungle.left.path-left-03",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 186.8235294117647,
+            "y": 366.2,
+            "level": 0,
+            "index": 42,
+            "map": "jungle.left.path-left-03",
+            "mapId": 33
+        }, {
+            "key": "CHEST",
+            "x": 252.4,
+            "y": 298.6,
+            "level": 0,
+            "index": 43,
+            "map": "jungle.left.path-left-04",
+            "mapId": 38
+        }, {
+            "key": "CHEST",
+            "x": 162,
+            "y": 303.2,
+            "level": 0,
+            "index": 44,
+            "map": "jungle.left.path-left-04",
+            "mapId": 39
+        }, {
+            "key": "CHEST",
+            "x": 284.4,
+            "y": 717,
+            "level": 0,
+            "index": 45,
+            "map": "jungle.path-01-entrance",
+            "mapId": 12
+        }, {
+            "key": "CHEST",
+            "x": 296.8,
+            "y": 727,
+            "level": 0,
+            "index": 46,
+            "map": "jungle.path-01-entrance",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 261.6,
+            "y": 609.675,
+            "level": 0,
+            "index": 47,
+            "map": "jungle.path-02-crossroads",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 349.8,
+            "y": 610.025,
+            "level": 0,
+            "index": 48,
+            "map": "jungle.path-02-crossroads",
+            "mapId": 14
+        }, {
+            "key": "CHEST",
+            "x": 290.1090909090909,
+            "y": 330.8,
+            "level": 0,
+            "index": 49,
+            "map": "jungle.path-03-sync",
+            "mapId": 21
+        }, {
+            "key": "CHEST",
+            "x": 295.3454545454546,
+            "y": 295.6,
+            "level": 0,
+            "index": 50,
+            "map": "jungle.path-03-sync",
+            "mapId": 22
+        }, {
+            "key": "CHEST",
+            "x": 331.43333333333334,
+            "y": 256.6,
+            "level": 0,
+            "index": 51,
+            "map": "jungle.path-04-end",
+            "mapId": 6
+        }, {
+            "key": "CHEST",
+            "x": 249.53333333333333,
+            "y": 229.2,
+            "level": 0,
+            "index": 52,
+            "map": "jungle.path-04-end",
+            "mapId": 58
+        }, {
+            "key": "CHEST",
+            "x": 424.4,
+            "y": 580.2,
+            "level": 0,
+            "index": 53,
+            "map": "jungle.right.right-path-01",
+            "mapId": 40
+        }, {
+            "key": "CHEST",
+            "x": 400.4,
+            "y": 617,
+            "level": 0,
+            "index": 54,
+            "map": "jungle.right.right-path-01",
+            "mapId": 105
+        }, {
+            "key": "CHEST",
+            "x": 476.2,
+            "y": 540.64,
+            "level": 0,
+            "index": 55,
+            "map": "jungle.right.right-path-02",
+            "mapId": 12
+        }, {
+            "key": "CHEST",
+            "x": 434,
+            "y": 544.6,
+            "level": 0,
+            "index": 56,
+            "map": "jungle.right.right-path-02",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 424.8,
+            "y": 451,
+            "level": 0,
+            "index": 57,
+            "map": "jungle.right.right-path-03",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 444.4,
+            "y": 399.6,
+            "level": 0,
+            "index": 58,
+            "map": "jungle.right.right-path-03",
+            "mapId": 14
+        }, {
+            "key": "CHEST",
+            "x": 420.8,
+            "y": 326.3272727272727,
+            "level": 0,
+            "index": 59,
+            "map": "jungle.right.right-path-04",
+            "mapId": 30
+        }],
+        "rhombus-dng": [{
+            "key": "CHEST",
+            "x": 121,
+            "y": 127.11428571428571,
+            "level": 0,
+            "index": 0,
+            "map": "rhombus-dng.room-1-6",
+            "mapId": 183
+        }, {
+            "key": "CHEST",
+            "x": 125.5,
+            "y": 127.11428571428571,
+            "level": 0,
+            "index": 1,
+            "map": "rhombus-dng.room-1-6",
+            "mapId": 184
+        }],
+        "arid": [{
+            "key": "CHEST",
+            "x": 103.05,
+            "y": 325.82978723404256,
+            "level": 0,
+            "index": 0,
+            "map": "arid.cliff-1",
+            "mapId": 467
+        }, {
+            "key": "CHEST",
+            "x": 101.95,
+            "y": 289.3191489361702,
+            "level": 0,
+            "index": 1,
+            "map": "arid.cliff-1",
+            "mapId": 468
+        }, {
+            "key": "CHEST",
+            "x": 532.35,
+            "y": 198.5,
+            "level": -1,
+            "index": 2,
+            "map": "arid.interior.stealth-2",
+            "mapId": 94
+        }, {
+            "key": "CHEST",
+            "x": 220.06666666666666,
+            "y": 283,
+            "level": 0,
+            "index": 3,
+            "map": "arid.lake-1",
+            "mapId": 646
+        }, {
+            "key": "CHEST",
+            "x": 258.6,
+            "y": 345.72340425531917,
+            "level": 0,
+            "index": 4,
+            "map": "arid.lake-1",
+            "mapId": 647
+        }, {
+            "key": "CHEST",
+            "x": 435.7,
+            "y": 305.468085106383,
+            "level": 0,
+            "index": 5,
+            "map": "arid.town-1",
+            "mapId": 334
+        }, {
+            "key": "CHEST",
+            "x": 502.56666666666666,
+            "y": 313.6595744680851,
+            "level": 0,
+            "index": 6,
+            "map": "arid.town-1",
+            "mapId": 335
+        }, {
+            "key": "CHEST",
+            "x": 516.1666666666666,
+            "y": 334.25531914893617,
+            "level": 0,
+            "index": 7,
+            "map": "arid.town-1",
+            "mapId": 336
+        }, {
+            "key": "CHEST",
+            "x": 382.65,
+            "y": 248.77142857142857,
+            "level": 0,
+            "index": 8,
+            "map": "arid.town-2",
+            "mapId": 485
+        }, {
+            "key": "CHEST",
+            "x": 326.55,
+            "y": 240.27142857142857,
+            "level": 0,
+            "index": 9,
+            "map": "arid.town-2",
+            "mapId": 486
+        }, {
+            "key": "CHEST",
+            "x": 381.55,
+            "y": 345.1857142857143,
+            "level": 0,
+            "index": 10,
+            "map": "arid.town-2",
+            "mapId": 487
+        }],
+        "wave-dng": [{
+            "key": "CHEST",
+            "x": 407.36,
+            "y": 143.77142857142857,
+            "level": -1,
+            "index": 0,
+            "map": "wave-dng.b1.center-01",
+            "mapId": 276
+        }, {
+            "key": "CHEST",
+            "x": 265.6,
+            "y": 147.45454545454544,
+            "level": -1,
+            "index": 1,
+            "map": "wave-dng.b1.center-04-long",
+            "mapId": 205
+        }, {
+            "key": "CHEST",
+            "x": 265.6,
+            "y": 144.54545454545456,
+            "level": -1,
+            "index": 2,
+            "map": "wave-dng.b1.center-04-long",
+            "mapId": 258
+        }, {
+            "key": "CHEST",
+            "x": 267.73333333333335,
+            "y": 146,
+            "level": -1,
+            "index": 3,
+            "map": "wave-dng.b1.center-04-long",
+            "mapId": 329
+        }, {
+            "key": "CHEST",
+            "x": 115.2,
+            "y": 143.8181818181818,
+            "level": -1,
+            "index": 4,
+            "map": "wave-dng.b1.center-04-long",
+            "mapId": 670
+        }, {
+            "key": "CHEST",
+            "x": 115.2,
+            "y": 148.1818181818182,
+            "level": -1,
+            "index": 5,
+            "map": "wave-dng.b1.center-04-long",
+            "mapId": 671
+        }, {
+            "key": "UNKNOWN",
+            "x": 94.72,
+            "y": 149.8181818181818,
+            "level": -1,
+            "index": 6,
+            "map": "wave-dng.b1.center-05-element",
+            "mapId": 248
+        }, {
+            "key": "CHEST",
+            "x": 280.32,
+            "y": 76.6875,
+            "level": -1,
+            "index": 7,
+            "map": "wave-dng.b1.north-01",
+            "mapId": 307
+        }, {
+            "key": "CHEST",
+            "x": 188.48,
+            "y": 72.96875,
+            "level": -1,
+            "index": 8,
+            "map": "wave-dng.b1.north-03",
+            "mapId": 249
+        }, {
+            "key": "CHEST",
+            "x": 291.52,
+            "y": 42,
+            "level": -1,
+            "index": 9,
+            "map": "wave-dng.b1.north-06",
+            "mapId": 193
+        }, {
+            "key": "CHEST",
+            "x": 108.8,
+            "y": 83.6875,
+            "level": -1,
+            "index": 10,
+            "map": "wave-dng.b1.north-08",
+            "mapId": 221
+        }, {
+            "key": "CHEST",
+            "x": 269.12,
+            "y": 242.1818181818182,
+            "level": -1,
+            "index": 11,
+            "map": "wave-dng.b1.south-04",
+            "mapId": 309
+        }, {
+            "key": "CHEST",
+            "x": 212.48,
+            "y": 212.84375,
+            "level": -1,
+            "index": 12,
+            "map": "wave-dng.b1.south-06",
+            "mapId": 242
+        }],
+        "forest": [{
+            "key": "CHEST",
+            "x": 480.96363636363634,
+            "y": 614.8,
+            "level": 0,
+            "index": 0,
+            "map": "forest.caves.cave-013-pandza-01",
+            "mapId": 385
+        }, {
+            "key": "CHEST",
+            "x": 479.2,
+            "y": 541.7,
+            "level": 0,
+            "index": 1,
+            "map": "forest.caves.cave-013-pandza-02",
+            "mapId": 133
+        }, {
+            "key": "CHEST",
+            "x": 90.73076923076923,
+            "y": 458,
+            "level": 0,
+            "index": 2,
+            "map": "forest.caves.path-01-entrance",
+            "mapId": 23
+        }, {
+            "key": "CHEST",
+            "x": 258.8,
+            "y": 386.3,
+            "level": 0,
+            "index": 3,
+            "map": "forest.caves.path-02-to-08",
+            "mapId": 1
+        }, {
+            "key": "CHEST",
+            "x": 230.85714285714286,
+            "y": 341.3833333333333,
+            "level": 0,
+            "index": 4,
+            "map": "forest.caves.path-02-to-08",
+            "mapId": 30
+        }, {
+            "key": "CHEST",
+            "x": 437.3,
+            "y": 427.5,
+            "level": 0,
+            "index": 5,
+            "map": "forest.caves.path-06-chasm",
+            "mapId": 40
+        }, {
+            "key": "CHEST",
+            "x": 447.8,
+            "y": 397.5,
+            "level": 0,
+            "index": 6,
+            "map": "forest.caves.path-06-chasm",
+            "mapId": 63
+        }, {
+            "key": "CHEST",
+            "x": 307.05454545454546,
+            "y": 389.0285714285714,
+            "level": 0,
+            "index": 7,
+            "map": "forest.caves.path-07-to-08",
+            "mapId": 5
+        }, {
+            "key": "CHEST",
+            "x": 328.1454545454545,
+            "y": 400.34285714285716,
+            "level": 0,
+            "index": 8,
+            "map": "forest.caves.path-07-to-08",
+            "mapId": 13
+        }, {
+            "key": "CHEST",
+            "x": 274,
+            "y": 253.17777777777778,
+            "level": 0,
+            "index": 9,
+            "map": "forest.caves.path-08-to-10",
+            "mapId": 29
+        }, {
+            "key": "CHEST",
+            "x": 325.2,
+            "y": 229.84444444444443,
+            "level": 0,
+            "index": 10,
+            "map": "forest.caves.path-08-to-10",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 338.71794871794873,
+            "y": 573.9285714285714,
+            "level": 1,
+            "index": 11,
+            "map": "forest.interior.inn-og-01",
+            "mapId": 128
+        }, {
+            "key": "CHEST",
+            "x": 290.95238095238096,
+            "y": 554.2,
+            "level": 0,
+            "index": 12,
+            "map": "forest.interior.inn-storage",
+            "mapId": 87
+        }, {
+            "key": "CHEST",
+            "x": 140.6,
+            "y": 448,
+            "level": 0,
+            "index": 13,
+            "map": "forest.path-01-entrance",
+            "mapId": 72
+        }, {
+            "key": "CHEST",
+            "x": 143.9,
+            "y": 462.6,
+            "level": 0,
+            "index": 14,
+            "map": "forest.path-01-entrance",
+            "mapId": 109
+        }, {
+            "key": "CHEST",
+            "x": 239.8,
+            "y": 469.6,
+            "level": 0,
+            "index": 15,
+            "map": "forest.path-02",
+            "mapId": 157
+        }, {
+            "key": "CHEST",
+            "x": 241.6,
+            "y": 435.8,
+            "level": 0,
+            "index": 16,
+            "map": "forest.path-02",
+            "mapId": 160
+        }, {
+            "key": "CHEST",
+            "x": 215.28,
+            "y": 499.2,
+            "level": 0,
+            "index": 17,
+            "map": "forest.path-03",
+            "mapId": 11
+        }, {
+            "key": "CHEST",
+            "x": 241.6,
+            "y": 558.6,
+            "level": 0,
+            "index": 18,
+            "map": "forest.path-03",
+            "mapId": 53
+        }, {
+            "key": "CHEST",
+            "x": 212.66666666666666,
+            "y": 568.6,
+            "level": 0,
+            "index": 19,
+            "map": "forest.path-03",
+            "mapId": 145
+        }, {
+            "key": "CHEST",
+            "x": 299.53684210526313,
+            "y": 575.3142857142857,
+            "level": 0,
+            "index": 20,
+            "map": "forest.path-04-hostel",
+            "mapId": 52
+        }, {
+            "key": "CHEST",
+            "x": 355.36842105263156,
+            "y": 619.4285714285714,
+            "level": 0,
+            "index": 21,
+            "map": "forest.path-04-hostel",
+            "mapId": 184
+        }, {
+            "key": "CHEST",
+            "x": 321.0285714285714,
+            "y": 688.1739130434783,
+            "level": 0,
+            "index": 22,
+            "map": "forest.path-04-vaga",
+            "mapId": 5
+        }, {
+            "key": "CHEST",
+            "x": 317.7714285714286,
+            "y": 651.304347826087,
+            "level": 0,
+            "index": 23,
+            "map": "forest.path-04-vaga",
+            "mapId": 6
+        }, {
+            "key": "UNKNOWN",
+            "x": 320.34285714285716,
+            "y": 663.4782608695652,
+            "level": 0,
+            "index": 24,
+            "map": "forest.path-04-vaga",
+            "mapId": 447
+        }, {
+            "key": "CHEST",
+            "x": 414.26666666666665,
+            "y": 493.4,
+            "level": 0,
+            "index": 25,
+            "map": "forest.path-05",
+            "mapId": 4
+        }, {
+            "key": "CHEST",
+            "x": 381.6,
+            "y": 550.6,
+            "level": 0,
+            "index": 26,
+            "map": "forest.path-05",
+            "mapId": 9
+        }, {
+            "key": "CHEST",
+            "x": 330,
+            "y": 429,
+            "level": 0,
+            "index": 27,
+            "map": "forest.path-06",
+            "mapId": 33
+        }, {
+            "key": "CHEST",
+            "x": 370.4,
+            "y": 460.2,
+            "level": 0,
+            "index": 28,
+            "map": "forest.path-06",
+            "mapId": 53
+        }, {
+            "key": "CHEST",
+            "x": 370,
+            "y": 385.25714285714287,
+            "level": 0,
+            "index": 29,
+            "map": "forest.path-07",
+            "mapId": 6
+        }, {
+            "key": "CHEST",
+            "x": 409.06,
+            "y": 370.6857142857143,
+            "level": 0,
+            "index": 30,
+            "map": "forest.path-07",
+            "mapId": 44
+        }, {
+            "key": "CHEST",
+            "x": 292.97777777777776,
+            "y": 324.4,
+            "level": 0,
+            "index": 31,
+            "map": "forest.path-08",
+            "mapId": 68
+        }, {
+            "key": "CHEST",
+            "x": 332.26666666666665,
+            "y": 359,
+            "level": 0,
+            "index": 32,
+            "map": "forest.path-08",
+            "mapId": 82
+        }, {
+            "key": "CHEST",
+            "x": 328.5333333333333,
+            "y": 321.8,
+            "level": 0,
+            "index": 33,
+            "map": "forest.path-08",
+            "mapId": 90
+        }, {
+            "key": "CHEST",
+            "x": 458.08,
+            "y": 344.88,
+            "level": 0,
+            "index": 34,
+            "map": "forest.path-09",
+            "mapId": 24
+        }, {
+            "key": "CHEST",
+            "x": 476.8,
+            "y": 314.82,
+            "level": 0,
+            "index": 35,
+            "map": "forest.path-09",
+            "mapId": 100
+        }, {
+            "key": "CHEST",
+            "x": 426,
+            "y": 249.475,
+            "level": 0,
+            "index": 36,
+            "map": "forest.path-10",
+            "mapId": 78
+        }, {
+            "key": "CHEST",
+            "x": 364.2,
+            "y": 237.575,
+            "level": 0,
+            "index": 37,
+            "map": "forest.path-10",
+            "mapId": 167
+        }, {
+            "key": "CHEST",
+            "x": 375.8,
+            "y": 223.925,
+            "level": 0,
+            "index": 38,
+            "map": "forest.path-10",
+            "mapId": 904
+        }, {
+            "key": "CHEST",
+            "x": 287.42857142857144,
+            "y": 42.66666666666667,
+            "level": 0,
+            "index": 39,
+            "map": "forest.path-11-behind-maze",
+            "mapId": 59
+        }, {
+            "key": "CHEST",
+            "x": 345.3333333333333,
+            "y": 123.2,
+            "level": 0,
+            "index": 40,
+            "map": "forest.path-12",
+            "mapId": 298
+        }, {
+            "key": "CHEST",
+            "x": 373.8,
+            "y": 117.28,
+            "level": 0,
+            "index": 41,
+            "map": "forest.path-12",
+            "mapId": 301
+        }, {
+            "key": "CHEST",
+            "x": 354.6666666666667,
+            "y": 148.64,
+            "level": 0,
+            "index": 42,
+            "map": "forest.path-12",
+            "mapId": 302
+        }, {
+            "key": "CHEST",
+            "x": 411.4,
+            "y": 663.7142857142857,
+            "level": 0,
+            "index": 43,
+            "map": "forest.path-13",
+            "mapId": 814
+        }],
+        "heat-area": [{
+            "key": "CHEST",
+            "x": 193.37142857142857,
+            "y": 493.4888888888889,
+            "level": 0,
+            "index": 0,
+            "map": "heat.caves.cliff-cave-01",
+            "mapId": 42
+        }, {
+            "key": "CHEST",
+            "x": 204.1142857142857,
+            "y": 469.3777777777778,
+            "level": 0,
+            "index": 1,
+            "map": "heat.caves.cliff-cave-01",
+            "mapId": 43
+        }, {
+            "key": "CHEST",
+            "x": 530.1714285714286,
+            "y": 468.64,
+            "level": -1,
+            "index": 2,
+            "map": "heat.caves.maroon-cave-01",
+            "mapId": 404
+        }, {
+            "key": "CHEST",
+            "x": 268.15,
+            "y": 466.54945054945057,
+            "level": 0,
+            "index": 3,
+            "map": "heat.cliffs.cliffs-path-01",
+            "mapId": 105
+        }, {
+            "key": "CHEST",
+            "x": 219.675,
+            "y": 476,
+            "level": 0,
+            "index": 4,
+            "map": "heat.cliffs.cliffs-path-01",
+            "mapId": 197
+        }, {
+            "key": "CHEST",
+            "x": 326.25454545454545,
+            "y": 517.6901408450705,
+            "level": 0,
+            "index": 5,
+            "map": "heat.cliffs.cliffs-path-02",
+            "mapId": 29
+        }, {
+            "key": "CHEST",
+            "x": 338.4727272727273,
+            "y": 519.7183098591549,
+            "level": 0,
+            "index": 6,
+            "map": "heat.cliffs.cliffs-path-02",
+            "mapId": 30
+        }, {
+            "key": "CHEST",
+            "x": 286.3272727272727,
+            "y": 535.7746478873239,
+            "level": 0,
+            "index": 7,
+            "map": "heat.cliffs.cliffs-path-02",
+            "mapId": 32
+        }, {
+            "key": "CHEST",
+            "x": 507,
+            "y": 416.90666666666664,
+            "level": 0,
+            "index": 8,
+            "map": "heat.oasis.oasis-path-01",
+            "mapId": 8
+        }, {
+            "key": "CHEST",
+            "x": 534.8,
+            "y": 392.82666666666665,
+            "level": 0,
+            "index": 9,
+            "map": "heat.oasis.oasis-path-01",
+            "mapId": 9
+        }, {
+            "key": "CHEST",
+            "x": 534.5866666666667,
+            "y": 480.1904761904762,
+            "level": 0,
+            "index": 10,
+            "map": "heat.oasis.oasis-path-02",
+            "mapId": 80
+        }, {
+            "key": "CHEST",
+            "x": 545.2266666666667,
+            "y": 442.8952380952381,
+            "level": 0,
+            "index": 11,
+            "map": "heat.oasis.oasis-path-02",
+            "mapId": 97
+        }, {
+            "key": "CHEST",
+            "x": 499.4,
+            "y": 536.2,
+            "level": 0,
+            "index": 12,
+            "map": "heat.oasis.oasis-path-03",
+            "mapId": 34
+        }, {
+            "key": "CHEST",
+            "x": 590.6666666666666,
+            "y": 298.42857142857144,
+            "level": 0,
+            "index": 13,
+            "map": "heat.path-00",
+            "mapId": 6
+        }, {
+            "key": "CHEST",
+            "x": 478.4,
+            "y": 273.28,
+            "level": 0,
+            "index": 14,
+            "map": "heat.path-01-entrance",
+            "mapId": 55
+        }, {
+            "key": "CHEST",
+            "x": 457.2,
+            "y": 310,
+            "level": 0,
+            "index": 15,
+            "map": "heat.path-02",
+            "mapId": 7
+        }, {
+            "key": "CHEST",
+            "x": 448,
+            "y": 276.44444444444446,
+            "level": 0,
+            "index": 16,
+            "map": "heat.path-02",
+            "mapId": 14
+        }, {
+            "key": "CHEST",
+            "x": 448,
+            "y": 385.37142857142857,
+            "level": 0,
+            "index": 17,
+            "map": "heat.path-03",
+            "mapId": 23
+        }, {
+            "key": "CHEST",
+            "x": 421.6,
+            "y": 370.2857142857143,
+            "level": 0,
+            "index": 18,
+            "map": "heat.path-03",
+            "mapId": 25
+        }, {
+            "key": "CHEST",
+            "x": 455.54285714285714,
+            "y": 471.1504424778761,
+            "level": 0,
+            "index": 19,
+            "map": "heat.path-04",
+            "mapId": 34
+        }, {
+            "key": "CHEST",
+            "x": 369.8181818181818,
+            "y": 469.8,
+            "level": 0,
+            "index": 20,
+            "map": "heat.path-05",
+            "mapId": 2
+        }, {
+            "key": "CHEST",
+            "x": 402.75,
+            "y": 486.6,
+            "level": 0,
+            "index": 21,
+            "map": "heat.path-05",
+            "mapId": 14
+        }, {
+            "key": "CHEST",
+            "x": 402.225,
+            "y": 364.58666666666664,
+            "level": 0,
+            "index": 22,
+            "map": "heat.path-06",
+            "mapId": 16
+        }, {
+            "key": "CHEST",
+            "x": 301.9047619047619,
+            "y": 403,
+            "level": 0,
+            "index": 23,
+            "map": "heat.path-07",
+            "mapId": 7
+        }, {
+            "key": "CHEST",
+            "x": 249.9047619047619,
+            "y": 409.2,
+            "level": 0,
+            "index": 24,
+            "map": "heat.path-07",
+            "mapId": 78
+        }, {
+            "key": "CHEST",
+            "x": 268.3,
+            "y": 370,
+            "level": 0,
+            "index": 25,
+            "map": "heat.path-08",
+            "mapId": 1
+        }, {
+            "key": "CHEST",
+            "x": 293.15,
+            "y": 311.4,
+            "level": 0,
+            "index": 26,
+            "map": "heat.path-08",
+            "mapId": 4
+        }, {
+            "key": "CHEST",
+            "x": 261.6,
+            "y": 267.2,
+            "level": 0,
+            "index": 27,
+            "map": "heat.path-09",
+            "mapId": 8
+        }, {
+            "key": "CHEST",
+            "x": 286.2,
+            "y": 269,
+            "level": 0,
+            "index": 28,
+            "map": "heat.path-09",
+            "mapId": 41
+        }, {
+            "key": "CHEST",
+            "x": 104.52000000000001,
+            "y": 317.2,
+            "level": 0,
+            "index": 29,
+            "map": "heat.path-11",
+            "mapId": 19
+        }, {
+            "key": "CHEST",
+            "x": 350.72,
+            "y": 258.22222222222223,
+            "level": 0,
+            "index": 30,
+            "map": "heat.shortcut-02-09",
+            "mapId": 17
+        }, {
+            "key": "CHEST",
+            "x": 406.15999999999997,
+            "y": 272.8888888888889,
+            "level": 0,
+            "index": 31,
+            "map": "heat.shortcut-02-09",
+            "mapId": 19
+        }],
+        "autumn-fall": [{
+            "key": "CHEST",
+            "x": 623.725,
+            "y": 380.2,
+            "level": 0,
+            "index": 0,
+            "map": "autumn-fall.caves.path-03-exit",
+            "mapId": 29
+        }, {
+            "key": "CHEST",
+            "x": 249.33333333333334,
+            "y": 333.3333333333333,
+            "level": -1,
+            "index": 1,
+            "map": "autumn-fall.caves.path-04-cave-01",
+            "mapId": 51
+        }, {
+            "key": "CHEST",
+            "x": 190.84444444444443,
+            "y": 331.73333333333335,
+            "level": -1,
+            "index": 2,
+            "map": "autumn-fall.caves.path-04-cave-02",
+            "mapId": 92
+        }, {
+            "key": "CHEST",
+            "x": 153.95555555555555,
+            "y": 332.1333333333333,
+            "level": -1,
+            "index": 3,
+            "map": "autumn-fall.caves.path-04-cave-03",
+            "mapId": 157
+        }, {
+            "key": "CHEST",
+            "x": 162.66666666666666,
+            "y": 293.4,
+            "level": -1,
+            "index": 4,
+            "map": "autumn-fall.caves.path-04-cave-04",
+            "mapId": 109
+        }, {
+            "key": "CHEST",
+            "x": 404.1142857142857,
+            "y": 422.1,
+            "level": 0,
+            "index": 5,
+            "map": "autumn-fall.path-01",
+            "mapId": 458
+        }, {
+            "key": "CHEST",
+            "x": 455.7714285714286,
+            "y": 410.43333333333334,
+            "level": 0,
+            "index": 6,
+            "map": "autumn-fall.path-01",
+            "mapId": 492
+        }, {
+            "key": "CHEST",
+            "x": 435.65714285714284,
+            "y": 469.7,
+            "level": 0,
+            "index": 7,
+            "map": "autumn-fall.path-01",
+            "mapId": 493
+        }, {
+            "key": "CHEST",
+            "x": 362.03333333333336,
+            "y": 336.2,
+            "level": 0,
+            "index": 8,
+            "map": "autumn-fall.path-02",
+            "mapId": 85
+        }, {
+            "key": "CHEST",
+            "x": 392.3666666666667,
+            "y": 379,
+            "level": 0,
+            "index": 9,
+            "map": "autumn-fall.path-02",
+            "mapId": 98
+        }, {
+            "key": "CHEST",
+            "x": 509.1,
+            "y": 376.4,
+            "level": 0,
+            "index": 10,
+            "map": "autumn-fall.path-03",
+            "mapId": 48
+        }, {
+            "key": "CHEST",
+            "x": 551.8,
+            "y": 381.4,
+            "level": 0,
+            "index": 11,
+            "map": "autumn-fall.path-03",
+            "mapId": 494
+        }, {
+            "key": "CHEST",
+            "x": 327.43333333333334,
+            "y": 338,
+            "level": 0,
+            "index": 12,
+            "map": "autumn-fall.path-04",
+            "mapId": 14
+        }, {
+            "key": "CHEST",
+            "x": 238.76666666666668,
+            "y": 361.6,
+            "level": 0,
+            "index": 13,
+            "map": "autumn-fall.path-04",
+            "mapId": 81
+        }, {
+            "key": "CHEST",
+            "x": 303.2,
+            "y": 303.8285714285714,
+            "level": 0,
+            "index": 14,
+            "map": "autumn-fall.path-05",
+            "mapId": 123
+        }, {
+            "key": "CHEST",
+            "x": 298.8,
+            "y": 233.42857142857142,
+            "level": 0,
+            "index": 15,
+            "map": "autumn-fall.path-05",
+            "mapId": 124
+        }, {
+            "key": "CHEST",
+            "x": 178.26666666666665,
+            "y": 371.65714285714284,
+            "level": 0,
+            "index": 16,
+            "map": "autumn-fall.path-06",
+            "mapId": 39
+        }, {
+            "key": "CHEST",
+            "x": 214.66666666666666,
+            "y": 416,
+            "level": 0,
+            "index": 17,
+            "map": "autumn-fall.path-06",
+            "mapId": 40
+        }, {
+            "key": "CHEST",
+            "x": 115.73333333333333,
+            "y": 415.0857142857143,
+            "level": 0,
+            "index": 18,
+            "map": "autumn-fall.path-06",
+            "mapId": 740
+        }, {
+            "key": "CHEST",
+            "x": 108.5,
+            "y": 472.0235294117647,
+            "level": 0,
+            "index": 19,
+            "map": "autumn-fall.path-07",
+            "mapId": 79
+        }, {
+            "key": "CHEST",
+            "x": 160.025,
+            "y": 440.25882352941176,
+            "level": 0,
+            "index": 20,
+            "map": "autumn-fall.path-07",
+            "mapId": 85
+        }, {
+            "key": "CHEST",
+            "x": 168.8,
+            "y": 463.9764705882353,
+            "level": 0,
+            "index": 21,
+            "map": "autumn-fall.path-07",
+            "mapId": 128
+        }, {
+            "key": "CHEST",
+            "x": 558.1,
+            "y": 243.18,
+            "level": 0,
+            "index": 22,
+            "map": "autumn-fall.path-08",
+            "mapId": 527
+        }, {
+            "key": "CHEST",
+            "x": 486.1,
+            "y": 332.36,
+            "level": 0,
+            "index": 23,
+            "map": "autumn-fall.path-08",
+            "mapId": 528
+        }, {
+            "key": "CHEST",
+            "x": 557.8,
+            "y": 327.68,
+            "level": 0,
+            "index": 24,
+            "map": "autumn-fall.path-08",
+            "mapId": 818
+        }, {
+            "key": "CHEST",
+            "x": 90,
+            "y": 361.0322580645161,
+            "level": 0,
+            "index": 25,
+            "map": "autumn-fall.path-10",
+            "mapId": 68
+        }, {
+            "key": "CHEST",
+            "x": 56.2,
+            "y": 369.16129032258067,
+            "level": 0,
+            "index": 26,
+            "map": "autumn-fall.path-10",
+            "mapId": 82
+        }, {
+            "key": "CHEST",
+            "x": 163.32,
+            "y": 290.1714285714286,
+            "level": 0,
+            "index": 27,
+            "map": "autumn-fall.raid.raid-01",
+            "mapId": 375
+        }],
+        "tree-dng": [{
+            "key": "UNKNOWN",
+            "x": 155.0857142857143,
+            "y": 7.085714285714285,
+            "level": 5,
+            "index": 0,
+            "map": "jungle.dng.tree-expo-space",
+            "mapId": 60
+        }, {
+            "key": "CHEST",
+            "x": 255.4,
+            "y": 130.82666666666665,
+            "level": 3,
+            "index": 1,
+            "map": "tree-dng.f3.branch-east",
+            "mapId": 166
+        }, {
+            "key": "CHEST",
+            "x": 227.6,
+            "y": 62.879999999999995,
+            "level": 3,
+            "index": 2,
+            "map": "tree-dng.f3.branch-east",
+            "mapId": 167
+        }, {
+            "key": "CHEST",
+            "x": 269.2,
+            "y": 63.57333333333333,
+            "level": 3,
+            "index": 3,
+            "map": "tree-dng.f3.branch-east",
+            "mapId": 168
+        }, {
+            "key": "CHEST",
+            "x": 18.560000000000002,
+            "y": 51.44,
+            "level": 3,
+            "index": 4,
+            "map": "tree-dng.f3.branch-west",
+            "mapId": 67
+        }, {
+            "key": "CHEST",
+            "x": 18.32,
+            "y": 134.98666666666668,
+            "level": 3,
+            "index": 5,
+            "map": "tree-dng.f3.branch-west",
+            "mapId": 68
+        }, {
+            "key": "CHEST",
+            "x": 151.52,
+            "y": 73.75,
+            "level": 3,
+            "index": 6,
+            "map": "tree-dng.f3.center-01",
+            "mapId": 136
+        }, {
+            "key": "CHEST",
+            "x": 206.1818181818182,
+            "y": 96.11764705882354,
+            "level": 3,
+            "index": 7,
+            "map": "tree-dng.f3.east-01",
+            "mapId": 81
+        }, {
+            "key": "CHEST",
+            "x": 122.8,
+            "y": 94.33333333333333,
+            "level": 3,
+            "index": 8,
+            "map": "tree-dng.f3.west-01",
+            "mapId": 81
+        }, {
+            "key": "CHEST",
+            "x": 90.8,
+            "y": 95.66666666666667,
+            "level": 3,
+            "index": 9,
+            "map": "tree-dng.f3.west-01",
+            "mapId": 86
+        }],
+        "heat-dng": [{
+            "key": "CHEST",
+            "x": 152,
+            "y": 100.92592592592592,
+            "level": 1,
+            "index": 0,
+            "map": "heat-dng.f1.room-03",
+            "mapId": 33
+        }, {
+            "key": "UNKNOWN",
+            "x": 124.52173913043478,
+            "y": 115.13043478260869,
+            "level": 2,
+            "index": 1,
+            "map": "heat-dng.f2.room-cold",
+            "mapId": 78
+        }, {
+            "key": "CHEST",
+            "x": 101.21739130434783,
+            "y": 131.75,
+            "level": 3,
+            "index": 2,
+            "map": "heat-dng.f3.room-02",
+            "mapId": 31
+        }, {
+            "key": "CHEST",
+            "x": 108.26666666666667,
+            "y": 60.6,
+            "level": 3,
+            "index": 3,
+            "map": "heat-dng.f3.room-05",
+            "mapId": 69
+        }, {
+            "key": "CHEST",
+            "x": 115.73333333333333,
+            "y": 60.6,
+            "level": 3,
+            "index": 4,
+            "map": "heat-dng.f3.room-05",
+            "mapId": 79
+        }, {
+            "key": "CHEST",
+            "x": 151.65217391304347,
+            "y": 147.16666666666666,
+            "level": 3,
+            "index": 5,
+            "map": "heat-dng.f3.room-07",
+            "mapId": 19
+        }, {
+            "key": "CHEST",
+            "x": 35.130434782608695,
+            "y": 119.13043478260869,
+            "level": 4,
+            "index": 6,
+            "map": "heat-dng.f4.room-02",
+            "mapId": 38
+        }, {
+            "key": "CHEST",
+            "x": 48.34782608695652,
+            "y": 182.88888888888889,
+            "level": 4,
+            "index": 7,
+            "map": "heat-dng.f4.room-03",
+            "mapId": 21
+        }, {
+            "key": "CHEST",
+            "x": 73.3913043478261,
+            "y": 77.6842105263158,
+            "level": 4,
+            "index": 8,
+            "map": "heat-dng.f4.room-05",
+            "mapId": 56
+        }, {
+            "key": "CHEST",
+            "x": 130.76923076923077,
+            "y": 75.5,
+            "level": 4,
+            "index": 9,
+            "map": "heat-dng.f4.room-09",
+            "mapId": 92
+        }, {
+            "key": "CHEST",
+            "x": 178.43478260869566,
+            "y": 132.69565217391303,
+            "level": 4,
+            "index": 10,
+            "map": "heat-dng.f4.room-10",
+            "mapId": 78
+        }, {
+            "key": "CHEST",
+            "x": 194.43478260869566,
+            "y": 182.66666666666666,
+            "level": 4,
+            "index": 11,
+            "map": "heat-dng.f4.room-11",
+            "mapId": 27
+        }, {
+            "key": "CHEST",
+            "x": 111.65217391304348,
+            "y": 135.84615384615384,
+            "level": 4,
+            "index": 12,
+            "map": "heat-dng.f4.room-12",
+            "mapId": 85
+        }, {
+            "key": "CHEST",
+            "x": 64.25806451612902,
+            "y": 148.25,
+            "level": 0,
+            "index": 13,
+            "map": "heat-dng.g.room-03",
+            "mapId": 71
+        }, {
+            "key": "CHEST",
+            "x": 42.54545454545455,
+            "y": 113.72,
+            "level": 0,
+            "index": 14,
+            "map": "heat-dng.g.room-07",
+            "mapId": 28
+        }, {
+            "key": "CHEST",
+            "x": 161.15555555555557,
+            "y": 60.64,
+            "level": 0,
+            "index": 15,
+            "map": "heat-dng.g.room-09",
+            "mapId": 85
+        }, {
+            "key": "CHEST",
+            "x": 61.91111111111111,
+            "y": 60.8,
+            "level": 0,
+            "index": 16,
+            "map": "heat-dng.g.room-09",
+            "mapId": 86
+        }, {
+            "key": "CHEST",
+            "x": 141.94285714285715,
+            "y": 90,
+            "level": 0,
+            "index": 17,
+            "map": "heat-dng.g.room-10",
+            "mapId": 16
+        }, {
+            "key": "CHEST",
+            "x": 150.17142857142858,
+            "y": 148.4,
+            "level": 0,
+            "index": 18,
+            "map": "heat-dng.g.room-12",
+            "mapId": 110
+        }, {
+            "key": "CHEST",
+            "x": 188.7826086956522,
+            "y": 42.5,
+            "level": 0,
+            "index": 19,
+            "map": "heat-dng.g.room-13",
+            "mapId": 2
+        }, {
+            "key": "CHEST",
+            "x": 34.69565217391305,
+            "y": 38.72,
+            "level": 0,
+            "index": 20,
+            "map": "heat-dng.g.room-14",
+            "mapId": 2
+        }],
+        "rhombus-sqr": [{
+            "key": "CHEST",
+            "x": 397.25333333333333,
+            "y": 442.2,
+            "level": 0,
+            "index": 0,
+            "map": "rhombus-sqr.arena-1",
+            "mapId": 298
+        }, {
+            "key": "CHEST",
+            "x": 287.3066666666667,
+            "y": 441.6,
+            "level": 0,
+            "index": 1,
+            "map": "rhombus-sqr.arena-1",
+            "mapId": 299
+        }, {
+            "key": "CHEST",
+            "x": 464.6666666666667,
+            "y": 373.55384615384617,
+            "level": 0,
+            "index": 2,
+            "map": "rhombus-sqr.center-e",
+            "mapId": 271
+        }, {
+            "key": "CHEST",
+            "x": 492.3333333333333,
+            "y": 452.0153846153846,
+            "level": 0,
+            "index": 3,
+            "map": "rhombus-sqr.center-e",
+            "mapId": 272
+        }, {
+            "key": "CHEST",
+            "x": 359.48571428571427,
+            "y": 516.6111111111111,
+            "level": 0,
+            "index": 4,
+            "map": "rhombus-sqr.center-s",
+            "mapId": 235
+        }, {
+            "key": "CHEST",
+            "x": 451.92,
+            "y": 530.5352112676056,
+            "level": 0,
+            "index": 5,
+            "map": "rhombus-sqr.center-se",
+            "mapId": 1209
+        }],
+        "jungle-city": [{
+            "key": "CHEST",
+            "x": 244.08510638297872,
+            "y": 136.62857142857143,
+            "level": 0,
+            "index": 0,
+            "map": "jungle-city.center",
+            "mapId": 774
+        }, {
+            "key": "CHEST",
+            "x": 312.1269841269841,
+            "y": 149.1830985915493,
+            "level": 0,
+            "index": 1,
+            "map": "jungle-city.east",
+            "mapId": 158
+        }, {
+            "key": "CHEST",
+            "x": 306.1904761904762,
+            "y": 114.92957746478874,
+            "level": 0,
+            "index": 2,
+            "map": "jungle-city.east",
+            "mapId": 322
+        }, {
+            "key": "CHEST",
+            "x": 314.92063492063494,
+            "y": 80,
+            "level": 0,
+            "index": 3,
+            "map": "jungle-city.east",
+            "mapId": 537
+        }, {
+            "key": "CHEST",
+            "x": 196.48,
+            "y": 101,
+            "level": 0,
+            "index": 4,
+            "map": "jungle-city.interior.faction-guard-1",
+            "mapId": 1128
+        }, {
+            "key": "CHEST",
+            "x": 226,
+            "y": 42.666666666666664,
+            "level": 0,
+            "index": 5,
+            "map": "jungle-city.interior.questhub-01",
+            "mapId": 533
+        }],
+        "shock-dng": [{
+            "key": "CHEST",
+            "x": 102.08,
+            "y": 85.15555555555555,
+            "level": 1,
+            "index": 0,
+            "map": "shock-dng.f1.room2",
+            "mapId": 64
+        }, {
+            "key": "CHEST",
+            "x": 120.32,
+            "y": 88.53333333333333,
+            "level": 1,
+            "index": 1,
+            "map": "shock-dng.f1.room2",
+            "mapId": 79
+        }, {
+            "key": "CHEST",
+            "x": 239.30434782608697,
+            "y": 86.82352941176471,
+            "level": 1,
+            "index": 2,
+            "map": "shock-dng.f1.room3to4",
+            "mapId": 23
+        }, {
+            "key": "UNKNOWN",
+            "x": 349.8,
+            "y": 84.08888888888889,
+            "level": 2,
+            "index": 3,
+            "map": "shock-dng.f2.room-element",
+            "mapId": 86
+        }, {
+            "key": "CHEST",
+            "x": 311.6521739130435,
+            "y": 83.6470588235294,
+            "level": 0,
+            "index": 4,
+            "map": "shock-dng.g.room4to5",
+            "mapId": 16
+        }, {
+            "key": "CHEST",
+            "x": 353,
+            "y": 91.6,
+            "level": 0,
+            "index": 5,
+            "map": "shock-dng.g.room5",
+            "mapId": 164
+        }],
+        "heat-village": [{
+            "key": "CHEST",
+            "x": 167.0857142857143,
+            "y": 54.4,
+            "level": 0,
+            "index": 0,
+            "map": "heat-village.baki-1",
+            "mapId": 99
+        }, {
+            "key": "CHEST",
+            "x": 159.2,
+            "y": 156.4,
+            "level": 0,
+            "index": 1,
+            "map": "heat-village.baki-1",
+            "mapId": 737
+        }, {
+            "key": "CHEST",
+            "x": 159.6060606060606,
+            "y": 268,
+            "level": 0,
+            "index": 2,
+            "map": "heat-village.baki-2",
+            "mapId": 259
+        }, {
+            "key": "CHEST",
+            "x": 38.39393939393939,
+            "y": 253.06666666666666,
+            "level": 0,
+            "index": 3,
+            "map": "heat-village.baki-2",
+            "mapId": 1227
+        }, {
+            "key": "UNKNOWN",
+            "x": 126.56,
+            "y": 270.4,
+            "level": 0,
+            "index": 4,
+            "map": "heat-village.interior.house-2",
+            "mapId": 31
+        }, {
+            "key": "UNKNOWN",
+            "x": 202.2,
+            "y": 206.68571428571428,
+            "level": 1,
+            "index": 5,
+            "map": "heat-village.interior.quest-hub-og",
+            "mapId": 112
+        }, {
+            "key": "CHEST",
+            "x": 32.2,
+            "y": 196.34285714285716,
+            "level": 0,
+            "index": 6,
+            "map": "heat-village.interior.tradebuilding-eg",
+            "mapId": 131
+        }]
     }
 }

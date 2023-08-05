@@ -1,7 +1,7 @@
 import { Check, Overrides, getChecks } from "./checks.js";
 import { EnemyData } from "./enemy-data.model.js";
 import { EnemyGeneratorPreset } from "./enemy-randomizer.js";
-import { Markers, extractMarkers } from "./extract-markers.js";
+import { Markers } from "./extract-markers.js";
 import { ItemData } from "./item-data.model.js";
 import { initRandom, readJsonFromFile } from './utils.js';
 
@@ -59,15 +59,6 @@ export async function generateRandomizerState(
 
     const { spoilerLog, maps, quests, shops, overrides } = await getChecks(data, options);
 
-    const mapNames = Object.keys(maps);
-    const mapData = await Promise.all(
-        mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())),
-    );
-    const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
-    const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())));
-
-    const markers = await extractMarkers(spoilerLog, mapNames, mapData, areaNames, areas);
-
     const enemyRandomizerPreset: EnemyGeneratorPreset = options.enemyRandomizerPreset ?? {
         enable: !!options.enemyTemplatePath,
         randomizeSpawners: true,
@@ -80,28 +71,12 @@ export async function generateRandomizerState(
 
     fs.promises.writeFile(
         options.statePath ?? 'randomizerState.json',
-        JSON.stringify({ spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, seed: serialize(options) }),
+        JSON.stringify({ spoilerLog, maps, quests, shops, overrides, markers: data.markers, enemyRandomizerPreset, seed: serialize(options) }),
     );
 
     const items = (await readJsonFromFile('assets/data/item-database.json')).items;
     const database = await readJsonFromFile('assets/data/database.json');
     const shopsDatabase = database.shops;
-    const areasDatabase = database.areas;
-
-    const fullMapNames = mapData.map((d, i) => {
-        const ai = areaNames.indexOf(d.attributes.area);
-        const area = areas[ai];
-        const areaName = areasDatabase[d.attributes.area].name.en_US;
-        const mapName = mapNames[i];
-        for (const floor of area.floors) {
-            for (const map of floor.maps) {
-                if (map.path === mapName) {
-                    return areaName + ' - ' + map.name.en_US;
-                }
-            }
-        }
-        return mapName;
-    });
 
     function getPrettyName(log: Check) {
         if (log.type === 'shop') {
@@ -112,12 +87,7 @@ export async function generateRandomizerState(
             return log.name; //TODO: quest names
         }
 
-        const index = mapNames.indexOf(log.map);
-        if (index < 0) {
-            return log.map;
-        }
-
-        return fullMapNames[index];
+        return log.mapName;
     }
 
     const pretty = spoilerLog.map(log => {
@@ -149,7 +119,7 @@ export async function generateRandomizerState(
         enemyData = await readJsonFromFile(options.enemyTemplatePath);
     }
 
-    return { spoilerLog, maps, quests, shops, overrides, markers, enemyRandomizerPreset, enemyData, seed: serialize(options), currentVersion: data.version };
+    return { spoilerLog, maps, quests, shops, overrides, markers: data.markers, enemyRandomizerPreset, enemyData, seed: serialize(options), currentVersion: data.version };
 }
 
 export function serialize(options: GenerateOptions) {

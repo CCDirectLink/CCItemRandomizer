@@ -1,15 +1,17 @@
 import { Check, Element, Overrides } from './checks.js';
 import { EnemyData } from './enemy-data.model.js';
 import { EnemyGeneratorPreset, randomizeEnemy, randomizeSpawner } from './enemy-randomizer.js';
-import { Markers } from './extract-markers.js';
+import { Markers, extractMarkers } from './extract-markers.js';
 import { GenerateOptions, deserialize, generateRandomizerState } from './generate.js';
 import { addTitleMenuButton } from './randomizer-menu.js';
 
 
 declare const ig: any;
 declare const sc: any;
+declare const nw: any;
 
 let baseDirectory = '';
+let spoilerLog: Check[];
 let maps: Record<string, Record<number, Check[]>>;
 let quests: Check[];
 let shops: Record<string, Check[]> | undefined;
@@ -31,6 +33,7 @@ export default class ItemRandomizer {
 	private async generate(options: GenerateOptions) {
 		currentOptions = options;
 		const state = await generateRandomizerState(options);
+		spoilerLog = state.spoilerLog;
 		maps = state.maps;
 		quests = state.quests;
 		shops = state.shops;
@@ -57,6 +60,11 @@ export default class ItemRandomizer {
 			enemyTemplatePath: enemyTemplatePath ?? (baseDirectory + 'data/enemy-data.json'),
 			forceGenerate: true,
 		});
+		// @ts-ignore
+		window.generateMarkers = async () => {
+			const markers = await extractMarkers(spoilerLog);
+			console.log(JSON.stringify(markers));
+		}
 
 		await this.generate({
 			itemTemplatePath: baseDirectory + 'data/item-data.json',

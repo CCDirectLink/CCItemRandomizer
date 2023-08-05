@@ -14,11 +14,18 @@ export type Markers = Record<string, Marker[]>;
 
 export async function extractMarkers(
 	spoilerLog: Check[],
-	mapNames: string[],
-	mapData: any[],
-	areaNames: string[],
-	areas: any[],
 ) {
+	const mapNames = spoilerLog
+		.map(c => 'map' in c ? c.map : null!)
+		.filter(x => x)
+		.filter((value, i, arr) => arr.indexOf(value) === i)
+		.sort();
+    const mapData = await Promise.all(
+        mapNames.map(name => fetch('data/maps/' + name.replace(/[\.]/g, '/') + '.json').then(resp => resp.json())),
+    );
+    const areaNames = mapData.map(d => d.attributes.area).filter((v, i, arr) => arr.indexOf(v) === i);
+    const areas = await Promise.all(areaNames.map(a => fetch('data/areas/' + a + '.json').then(resp => resp.json())));
+
 	const markers: Markers = {};
 	for (const check of spoilerLog) {
 		if (!('map' in check)) {
@@ -85,6 +92,18 @@ export async function extractMarkers(
 			map: check.map,
 			mapId: check.mapId,
 		});
+	}
+	for (const area of Object.values(markers)) {
+		area.sort((a, b) => {
+			const map = a.map.localeCompare(b.map);
+			if (map !== 0) {
+				return map;
+			}
+			return a.mapId - b.mapId;
+		});
+		for (const [index, marker] of Object.entries(area)) {
+			marker.index = +index;
+		}
 	}
 	return markers;
 }
