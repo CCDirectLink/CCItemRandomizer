@@ -1642,8 +1642,7 @@
                 "45": {
                     "item": "heat",
                     "amount": 1,
-                    "type": "",
-                    "conditions": [
+                    "condition": [
                         "8",
                         ""
                     ]
@@ -2802,8 +2801,7 @@
                 "78": {
                     "item": "cold",
                     "amount": 1,
-                    "type": "",
-                    "conditions": [
+                    "condition": [
                         "16",
                         ""
                     ]
@@ -4448,8 +4446,7 @@
                 "86": {
                     "item": "wave",
                     "amount": 1,
-                    "type": "",
-                    "conditions": [
+                    "condition": [
                         "25",
                         ""
                     ]
@@ -4641,8 +4638,7 @@
                 "248": {
                     "item": "shock",
                     "amount": 1,
-                    "type": "",
-                    "conditions": [
+                    "condition": [
                         "27",
                         ""
                     ]

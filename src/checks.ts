@@ -93,6 +93,14 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 				checks.push({ type: 'event', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, path, conditions });
 			}
 		}
+		for (const mapId of Object.keys(data.items[map].elements ?? {})) {
+			const { item, amount, condition } = data.items[map].elements[mapId];
+			const conditions = (areaConditions[condition[0]] || ['softlock'])
+				.concat(condition.slice(1))
+				.filter(c => c)
+				.filter((c, i, arr) => arr.indexOf(c) === i);
+			checks.push({ type: 'element', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, conditions });
+		}
 	}
 
 	checks.sort((a, b) => {
