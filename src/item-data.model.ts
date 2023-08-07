@@ -20,6 +20,7 @@ export interface RawMapItems {
 	name: string;
 	chests: RawChests;
 	events: RawEvents;
+	elements: RawElements;
 	disabledEvents: number[];
 	variablesOnLoad: Record<string, unknown>;
 }
@@ -39,6 +40,16 @@ export type RawEvents = { [mapId: string]: RawEvent[] };
 
 export interface RawEvent {
 	item: number;
+	amount: number;
+	type: '';
+	condition: [area: string, ...conditions: string[]];
+	path: string;
+}
+
+export type RawElements = { [mapId: string]: RawElement };
+
+export interface RawElement {
+	item: string;
 	amount: number;
 	type: '';
 	condition: [area: string, ...conditions: string[]];

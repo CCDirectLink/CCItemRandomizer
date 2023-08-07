@@ -1634,6 +1634,21 @@
             },
             "events": {}
         },
+        "cold-dng.b3.room7": {
+            "name": "Temple Mine - Chamber of Fire",
+            "chests": {},
+            "events": {},
+            "elements": {
+                "45": {
+                    "item": "heat",
+                    "amount": 1,
+                    "condition": [
+                        "8",
+                        ""
+                    ]
+                }
+            }
+        },
         "cold-dng.b4.center": {
             "name": "Temple Mine - Elevator",
             "chests": {
@@ -2777,6 +2792,21 @@
                 }
             },
             "events": {}
+        },
+        "heat-dng.f2.room-cold": {
+            "name": "Faj'ro Temple - Chamber of Ice",
+            "chests": {},
+            "events": {},
+            "elements": {
+                "78": {
+                    "item": "cold",
+                    "amount": 1,
+                    "condition": [
+                        "16",
+                        ""
+                    ]
+                }
+            }
         },
         "heat-dng.f3.room-02": {
             "name": "Faj'ro Temple - Bottom Chamber",
@@ -4408,6 +4438,21 @@
             },
             "events": {}
         },
+        "shock-dng.f2.room-element": {
+            "name": "Zir'vitar Temple - Chamber of Wave",
+            "chests": {},
+            "events": {},
+            "elements": {
+                "86": {
+                    "item": "wave",
+                    "amount": 1,
+                    "condition": [
+                        "25",
+                        ""
+                    ]
+                }
+            }
+        },
         "tree-dng.f3.branch-east": {
             "name": "Grand Krys'kajo - East Branch",
             "chests": {
@@ -4584,6 +4629,21 @@
                 }
             },
             "events": {}
+        },
+        "wave-dng.b1.center-05-element": {
+            "name": "So'najiz Temple - Chamber of Shock",
+            "chests": {},
+            "events": {},
+            "elements": {
+                "248": {
+                    "item": "shock",
+                    "amount": 1,
+                    "condition": [
+                        "27",
+                        ""
+                    ]
+                }
+            }
         },
         "wave-dng.b1.north-01": {
             "name": "So'najiz Temple - Moving Attraction",

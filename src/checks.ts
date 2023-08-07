@@ -72,44 +72,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 			.filter((c, i, arr) => arr.indexOf(c) === i);
 	}
 
-	const checks = [
-		{
-			type: 'element',
-			map: 'cold-dng.b3.room7',
-			mapName: 'Temple Mine - Chamber of Fire',
-			item: 'heat',
-			amount: 1,
-			mapId: 45,
-			conditions: [...areaConditions['8']],
-		},
-		{
-			type: 'element',
-			map: 'heat-dng.f2.room-cold',
-			mapName: 'Faj\'ro Temple - Chamber of Ice',
-			item: 'cold',
-			amount: 1,
-			mapId: 78,
-			conditions: [...areaConditions['16']],
-		},
-		{
-			type: 'element',
-			map: 'wave-dng.b1.center-05-element',
-			mapName: 'So\'najiz Temple - Chamber of Shock',
-			item: 'shock',
-			amount: 1,
-			mapId: 248,
-			conditions: [...areaConditions['27']],
-		},
-		{
-			type: 'element',
-			map: 'shock-dng.f2.room-element',
-			mapName: 'Zir\'vitar Temple - Chamber of Wave',
-			item: 'wave',
-			amount: 1,
-			mapId: 86,
-			conditions: [...areaConditions['25']],
-		},
-	] as Check[];
+	const checks = [];
 	for (const map of Object.keys(data.items)) {
 		for (const mapId of Object.keys(data.items[map].chests)) {
 			const { item, amount, type, condition } = data.items[map].chests[mapId];
@@ -129,6 +92,14 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 					.filter((c, i, arr) => arr.indexOf(c) === i);
 				checks.push({ type: 'event', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, path, conditions });
 			}
+		}
+		for (const mapId of Object.keys(data.items[map].elements ?? {})) {
+			const { item, amount, condition } = data.items[map].elements[mapId];
+			const conditions = (areaConditions[condition[0]] || ['softlock'])
+				.concat(condition.slice(1))
+				.filter(c => c)
+				.filter((c, i, arr) => arr.indexOf(c) === i);
+			checks.push({ type: 'element', map, mapName: data.items[map].name, mapId: Number(mapId), item, amount, conditions });
 		}
 	}
 
