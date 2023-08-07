@@ -1,14 +1,14 @@
-import { Check, Element, Overrides } from './checks.js';
+import { Check, Overrides } from './checks.js';
 import { EnemyData } from './enemy-data.model.js';
 import { EnemyGeneratorPreset, randomizeEnemy, randomizeSpawner } from './enemy-randomizer.js';
 import { Markers, extractMarkers } from './extract-markers.js';
 import { GenerateOptions, deserialize, generateRandomizerState } from './generate.js';
+import { Element } from './item-data.model.js';
 import { addTitleMenuButton } from './randomizer-menu.js';
 
 
 declare const ig: any;
 declare const sc: any;
-declare const nw: any;
 
 let baseDirectory = '';
 let spoilerLog: Check[];

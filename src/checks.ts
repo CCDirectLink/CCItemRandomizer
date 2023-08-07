@@ -1,8 +1,7 @@
 import { GenerateOptions, ShopsPreset } from './generate.js';
-import { ChestType, ItemData } from './item-data.model.js';
+import { ChestType, Element, ItemData } from './item-data.model.js';
 import { randomInt } from './utils.js';
 
-export type Element = 'heat' | 'cold' | 'shock' | 'wave';
 export type Check = (
 	| {
 			type: 'element';
@@ -72,7 +71,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 			.filter((c, i, arr) => arr.indexOf(c) === i);
 	}
 
-	const checks = [];
+	const checks: Check[] = [];
 	for (const map of Object.keys(data.items)) {
 		for (const mapId of Object.keys(data.items[map].chests)) {
 			const { item, amount, type, condition } = data.items[map].chests[mapId];
@@ -94,7 +93,7 @@ export async function getChecks(data: ItemData, options: GenerateOptions) {
 			}
 		}
 		for (const mapId of Object.keys(data.items[map].elements ?? {})) {
-			const { item, amount, condition } = data.items[map].elements[mapId];
+			const { item, amount, condition } = data.items[map].elements![mapId];
 			const conditions = (areaConditions[condition[0]] || ['softlock'])
 				.concat(condition.slice(1))
 				.filter(c => c)
